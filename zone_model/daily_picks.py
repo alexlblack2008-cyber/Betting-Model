@@ -98,20 +98,50 @@ def _build_team_context(
     )
 
 
+def _is_mlb_off_day(d: date) -> bool:
+    """
+    Returns True on known MLB off periods where games are never played.
+    Covers: All-Star Break (Mon–Thu of All-Star week), Opening Day eve,
+    and the post-season gap. Dates are approximated per season year.
+    """
+    year = d.year
+    # All-Star Break: typically the Mon–Thu surrounding the Tuesday All-Star Game
+    # 2026: All-Star Game is July 14 → break is July 13–16
+    all_star_breaks = {
+        2026: (date(2026, 7, 13), date(2026, 7, 16)),
+        2025: (date(2025, 7, 14), date(2025, 7, 17)),
+        2027: (date(2027, 7, 12), date(2027, 7, 15)),
+    }
+    if year in all_star_breaks:
+        start, end = all_star_breaks[year]
+        if start <= d <= end:
+            return True
+
+    # Sundays in October after World Series ends (~Oct 30+), Nov–Mar = no games
+    if d.month in (11, 12, 1, 2, 3):
+        return True
+
+    return False
+
+
 def _static_fallback_games() -> list[dict]:
     """
     Returns a set of representative static games used when the MLB Stats API
-    is unreachable. Draws from real umpire/pitcher/team combinations that
-    exist in the static profiles so the model produces meaningful scores.
+    is unreachable. Returns empty list on known MLB off days (All-Star Break, etc.)
     """
     import random
     from umpire_data import UMPIRE_PROFILES
     from pitcher_data import PITCHER_PROFILES
 
+    today_date = date.today()
+    if _is_mlb_off_day(today_date):
+        print(f"  [Static fallback] {today_date} is an MLB off day — no picks generated.")
+        return []
+
     umps     = [u for u in UMPIRE_PROFILES if u != "__UNKNOWN__"]
     pitchers = [p for p in PITCHER_PROFILES if p != "__UNKNOWN__"]
 
-    rng = random.Random(int(date.today().strftime("%Y%m%d")))  # deterministic per day
+    rng = random.Random(int(today_date.strftime("%Y%m%d")))  # deterministic per day
 
     matchups = [
         ("New York Yankees",     "Houston Astros"),
