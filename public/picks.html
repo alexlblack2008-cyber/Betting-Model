@@ -206,8 +206,31 @@
 
   .card-footer {
     margin-top: 10px; font-size: 11px; color: var(--muted);
-    display: flex; justify-content: space-between;
+    display: flex; justify-content: space-between; align-items: center;
   }
+
+  /* ── Settle form ── */
+  .settle-row {
+    margin-top: 12px; padding-top: 12px;
+    border-top: 1px solid var(--border);
+    display: flex; gap: 8px; align-items: center;
+  }
+  .settle-input {
+    flex: 1; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); padding: 8px 12px;
+    font-size: 15px; font-family: "SF Mono","Cascadia Code",monospace;
+    -webkit-appearance: none;
+  }
+  .settle-input:focus { outline: none; border-color: var(--accent); }
+  .settle-btn {
+    background: var(--accent); border: none; border-radius: 6px;
+    color: #0D1017; font-weight: 700; font-size: 13px;
+    padding: 8px 16px; cursor: pointer; white-space: nowrap;
+  }
+  .settle-btn:active { opacity: .8; }
+  .settle-msg { font-size: 12px; margin-top: 6px; }
+  .settle-msg.ok  { color: var(--win); }
+  .settle-msg.err { color: var(--loss); }
 
   /* ── States ── */
   .loading {
@@ -406,7 +429,8 @@
     }
     document.getElementById('empty').style.display = 'none';
 
-    document.getElementById('cards').innerHTML = rows.map(p => {
+    renderedRows = rows;
+    document.getElementById('cards').innerHTML = rows.map((p, idx) => {
       const rec = (p.recommendation || '').toUpperCase();
       const recCls = rec === 'OVER' ? 'over' : rec === 'UNDER' ? 'under' : 'dimmed';
       const recIcon = rec === 'OVER' ? '▲ ' : rec === 'UNDER' ? '▼ ' : '';
@@ -454,9 +478,49 @@
             <span>${p.bet_date}</span>
             <span>${ump}</span>
           </div>
+          ${p.outcome === 'pending' ? `
+          <div class="settle-row">
+            <input class="settle-input" type="number" min="0" step="1"
+              placeholder="Final runs (e.g. 9)"
+              id="settle-input-${idx}">
+            <button class="settle-btn" onclick="settle(${idx})">Settle</button>
+          </div>
+          <div class="settle-msg" id="settle-msg-${idx}"></div>` : ''}
         </div>
       </div>`;
     }).join('');
+  }
+
+  let renderedRows = [];
+
+  // Override renderCards to also store rows
+  const _renderCards = renderCards;
+
+  async function settle(idx) {
+    const p = renderedRows[idx];
+    if (!p) return;
+    const input = document.getElementById(`settle-input-${idx}`);
+    const msg   = document.getElementById(`settle-msg-${idx}`);
+    const runs  = parseFloat(input.value);
+    if (isNaN(runs) || runs < 0) {
+      msg.textContent = 'Enter a valid run total.'; msg.className = 'settle-msg err'; return;
+    }
+    msg.textContent = 'Saving…'; msg.className = 'settle-msg';
+    try {
+      const r = await fetch('/api/settle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          home_team: p.home_team, away_team: p.away_team,
+          bet_date: p.bet_date, actual_runs: runs
+        })
+      });
+      const data = await r.json();
+      if (!r.ok) { msg.textContent = data.error || 'Error.'; msg.className = 'settle-msg err'; return; }
+      const pnlStr = data.pnl > 0 ? `+$${data.pnl.toFixed(2)}` : data.pnl < 0 ? `-$${Math.abs(data.pnl).toFixed(2)}` : '$0';
+      msg.textContent = `${data.outcome.toUpperCase()} — ${pnlStr}`; msg.className = 'settle-msg ok';
+      setTimeout(load, 800);
+    } catch(e) { msg.textContent = 'Network error.'; msg.className = 'settle-msg err'; }
   }
 
   load();

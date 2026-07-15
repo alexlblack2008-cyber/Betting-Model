@@ -85,6 +85,47 @@ app.get("/api/summary", (req, res) => {
   });
 });
 
+// Settle a pick: POST /api/settle { home_team, away_team, bet_date, actual_runs }
+app.post("/api/settle", (req, res) => {
+  const { home_team, away_team, bet_date, actual_runs } = req.body;
+  if (!home_team || !away_team || !bet_date || actual_runs == null) {
+    return res.status(400).json({ error: "home_team, away_team, bet_date, actual_runs required" });
+  }
+  const runs = Number(actual_runs);
+  if (isNaN(runs) || runs < 0) {
+    return res.status(400).json({ error: "actual_runs must be a non-negative number" });
+  }
+
+  const entries = loadLedger();
+  const entry = entries.find(e =>
+    e.home_team === home_team &&
+    e.away_team === away_team &&
+    e.bet_date  === bet_date  &&
+    e.outcome   === "pending"
+  );
+
+  if (!entry) return res.status(404).json({ error: "Pending pick not found" });
+
+  const STAKE = 100, WIN_PAYOUT = STAKE / 1.10;
+  const rec = entry.recommendation;
+  const total = entry.market_total;
+  let outcome;
+  if (rec === "OVER")  outcome = runs > total ? "won" : runs === total ? "push" : "lost";
+  else                 outcome = runs < total ? "won" : runs === total ? "push" : "lost";
+
+  entry.actual_runs = runs;
+  entry.outcome     = outcome;
+  entry.pnl         = outcome === "won" ? +WIN_PAYOUT.toFixed(2) : outcome === "lost" ? -STAKE : 0;
+  entry.settled_at  = new Date().toISOString();
+
+  try {
+    fs.writeFileSync(LEDGER_PATH, JSON.stringify(entries, null, 2));
+    res.json({ outcome, pnl: entry.pnl, entry });
+  } catch(e) {
+    res.status(500).json({ error: "Failed to save ledger" });
+  }
+});
+
 // ── Dashboard (single-page) ──────────────────────────────────────────────────
 
 app.get("/picks", (req, res) => {

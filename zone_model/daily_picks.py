@@ -421,12 +421,15 @@ def format_daily_report_with_bonus(
     return main + format_bonus_pick(bonus)
 
 
-def run_daily(game_date: str | None = None, log_to_ledger: bool = True) -> str:
+def run_daily(game_date=None, log_to_ledger: bool = True) -> str:
     """
     Full daily pipeline. Returns the formatted report string.
     Also logs picks to the ledger and settles yesterday.
     """
-    today = game_date or date.today().isoformat()
+    if isinstance(game_date, date):
+        today = game_date.isoformat()
+    else:
+        today = game_date or date.today().isoformat()
 
     # Settle yesterday's pending picks first
     settlements = settle_yesterdays_picks()
