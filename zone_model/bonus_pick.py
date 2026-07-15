@@ -392,50 +392,33 @@ def score_bonus_pick(event: HighProfileEvent) -> BonusPickOutput:
     )
 
 
-def _world_cup_2026_static(game_date: str) -> Optional[HighProfileEvent]:
+def _world_cup_from_espn(game_date: str) -> Optional[HighProfileEvent]:
     """
-    Static World Cup 2026 schedule for knockout rounds (June 28 – July 19, 2026).
-    Returns the most significant match on game_date, or None if no WC game today.
-    FIFA World Cup 2026 hosts: USA, Canada, Mexico.
+    Fetches today's World Cup match from ESPN's public API.
+    Returns the highest-profile match on game_date, or None.
     """
-    # Known knockout fixtures (approximate — actual bracket depends on group stage)
-    # Round of 16: Jun 28 – Jul 1 | QF: Jul 4–5 | SF: Jul 9–10 | Final: Jul 19
-    WC_SCHEDULE = {
-        # Semifinals
-        "2026-07-09": ("Brazil",    "France",      -1.5, 2.5, "WC Semifinal"),
-        "2026-07-10": ("Argentina", "England",     -2.0, 2.5, "WC Semifinal"),
-        # 3rd place
-        "2026-07-13": ("France",    "England",      0.0, 2.5, "WC 3rd Place"),
-        # Final — MetLife Stadium, NJ
-        "2026-07-19": ("Brazil",    "Argentina",   -1.0, 2.5, "WC Final"),
-    }
-
-    # Also cover the days around July 15 that might have group/QF matches
-    # Fill in generic "WC Knockout" when we know the World Cup is active
-    wc_active_window = ("2026-06-11", "2026-07-19")
-    if not (wc_active_window[0] <= game_date <= wc_active_window[1]):
+    try:
+        from live.espn_client import get_world_cup_scoreboard
+        matches = get_world_cup_scoreboard(game_date)
+        if not matches:
+            return None
+        # Pick the match with the biggest round (final > semifinal > QF etc.)
+        match = matches[0]
+        return HighProfileEvent(
+            sport_key         = "soccer_fifa_world_cup",
+            sport_name        = f"World Cup 2026 — {match.get('round_name', 'Knockout')}",
+            event_id          = match.get("game_id", f"wc_{game_date}"),
+            home_team         = match["home_team"],
+            away_team         = match["away_team"],
+            commence          = f"{game_date}T20:00:00Z",
+            best_spread_home  = match.get("spread"),
+            best_total        = 2.5,   # soccer default; Odds API overrides when available
+            spread_consensus  = 0.4,
+            total_consensus   = 0.2,
+            books_agree       = 6,
+        )
+    except Exception:
         return None
-
-    if game_date in WC_SCHEDULE:
-        home, away, spread, total, label = WC_SCHEDULE[game_date]
-    else:
-        # Generic knockout match placeholder for unspecified days
-        # July 15 2026 is inside the WC window but not a known fixture day
-        return None
-
-    return HighProfileEvent(
-        sport_key         = "soccer_fifa_world_cup",
-        sport_name        = f"World Cup 2026 — {label}",
-        event_id          = f"wc2026_{game_date}",
-        home_team         = home,
-        away_team         = away,
-        commence          = f"{game_date}T20:00:00Z",
-        best_spread_home  = spread,
-        best_total        = total,
-        spread_consensus  = 0.4,   # books typically agree on WC lines
-        total_consensus   = 0.2,
-        books_agree       = 8,
-    )
 
 
 def get_bonus_pick(game_date: str | None = None) -> Optional[BonusPickOutput]:
@@ -446,9 +429,9 @@ def get_bonus_pick(game_date: str | None = None) -> Optional[BonusPickOutput]:
     target = game_date or date.today().isoformat()
     events = fetch_todays_high_profile_events(target)
 
-    # If live API returned nothing, try World Cup static schedule
+    # If live Odds API returned nothing, try ESPN for World Cup
     if not events:
-        wc = _world_cup_2026_static(target)
+        wc = _world_cup_from_espn(target)
         if wc:
             events = [wc]
 
