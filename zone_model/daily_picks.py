@@ -371,10 +371,22 @@ def settle_yesterdays_picks() -> list[str]:
     """
     yesterday = (date.today() - timedelta(days=1)).isoformat()
     messages = []
+
+    # Try ESPN auto-settle first (simpler, no game_pk lookup needed)
+    try:
+        from live.espn_client import auto_settle_mlb
+        from ledger import LEDGER_PATH
+        espn_msgs = auto_settle_mlb(str(LEDGER_PATH), yesterday)
+        if espn_msgs:
+            return espn_msgs
+    except Exception:
+        pass
+
+    # Fall back to MLB Stats API
     try:
         games = get_todays_games(yesterday)
     except Exception:
-        return messages   # network unavailable — skip settlement silently
+        return messages
     for g in games:
         if g["status"] != "Final":
             continue
