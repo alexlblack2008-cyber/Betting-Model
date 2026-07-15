@@ -1,0 +1,501 @@
+game_id,date,home_team,away_team,umpire,home_starter,away_starter,home_starter_hand,away_starter_hand,home_days_rest,away_days_rest,home_bp_era_7d,away_bp_era_7d,home_bp_ip_3d,away_bp_ip_3d,home_tz_change,away_tz_change,home_off_rating,away_off_rating,home_bp_highlev_yest,away_bp_highlev_yest,venue_name,open_total,close_total,actual_runs
+0,2022-04-07,Atlanta Braves,New York Yankees,CB Bucknor,Zack Wheeler,Zack Wheeler,R,R,4,5,3.38,3.59,4.6,3.2,1,0,91,103,False,False,Truist Park,8.5,8.5,10
+1,2023-10-02,Baltimore Orioles,Chicago Cubs,Angel Hernandez,Zack Wheeler,Spencer Strider,R,R,3,5,2.1,3.71,3.9,6.1,-2,2,82,84,False,False,Wrigley Field,9.5,9.5,12
+2,2022-09-09,Houston Astros,San Diego Padres,Hunter Wendelstedt,Spencer Strider,Gerrit Cole,R,R,3,3,3.54,3.32,5.9,6.7,0,1,74,125,False,False,Busch Stadium,9.0,9.0,11
+3,2024-07-13,Boston Red Sox,Houston Astros,Joe West,Sandy Alcantara,Dylan Cease,R,R,3,5,4.47,4.54,5.0,3.5,2,-1,86,107,False,False,Dodger Stadium,9.5,10.0,8
+4,2023-08-15,Philadelphia Phillies,San Francisco Giants,Laz Diaz,Spencer Strider,Gerrit Cole,R,R,5,4,5.76,3.91,6.9,5.1,2,-1,100,79,False,False,Citizens Bank Park,8.5,8.5,9
+5,2022-08-25,Baltimore Orioles,Milwaukee Brewers,Bill Miller,Logan Webb,Gerrit Cole,R,R,5,4,3.45,3.66,5.9,5.7,-2,-2,99,104,False,False,Progressive Field,9.5,9.5,12
+6,2024-10-24,Los Angeles Dodgers,St. Louis Cardinals,Nic Lentz,Max Scherzer,Sandy Alcantara,R,R,3,4,4.01,3.41,4.5,4.0,-1,1,106,106,False,False,Camden Yards,9.0,9.0,10
+7,2022-06-22,Seattle Mariners,Cincinnati Reds,Joe West,Max Scherzer,Max Scherzer,R,R,5,4,2.96,3.89,6.2,3.9,0,-2,88,102,True,False,Fenway Park,9.5,10.0,8
+8,2024-07-05,Minnesota Twins,Chicago Cubs,Marvin Hudson,Blake Snell,Gerrit Cole,L,R,5,4,4.09,4.8,6.2,4.4,-2,-2,96,99,False,False,Busch Stadium,9.0,9.0,10
+9,2023-06-14,Los Angeles Dodgers,San Diego Padres,Mark Wegner,Patrick Corbin,Clayton Kershaw,L,L,3,3,5.22,4.17,4.9,4.3,0,0,115,97,False,False,Busch Stadium,9.5,9.5,10
+10,2023-04-19,Houston Astros,Los Angeles Dodgers,Dan Iassogna,Blake Snell,Logan Webb,L,R,4,5,3.28,3.58,3.6,5.8,-1,0,107,97,False,False,Dodger Stadium,9.0,9.0,12
+11,2022-08-09,Toronto Blue Jays,Philadelphia Phillies,Jeff Nelson,Dylan Cease,Blake Snell,R,L,4,4,5.41,3.08,4.5,5.5,-2,-1,95,84,False,False,Yankee Stadium,7.0,7.0,7
+12,2023-05-22,New York Yankees,Arizona Diamondbacks,Hunter Wendelstedt,Dylan Cease,Gerrit Cole,R,R,3,6,4.12,5.12,6.9,3.7,0,2,91,104,True,False,Truist Park,9.0,9.0,11
+13,2023-08-18,San Diego Padres,Baltimore Orioles,CB Bucknor,Blake Snell,Blake Snell,L,L,4,5,4.68,4.69,6.7,3.7,-2,0,107,95,False,True,Dodger Stadium,10.0,10.0,11
+14,2023-10-22,San Francisco Giants,Tampa Bay Rays,Dan Iassogna,Spencer Strider,Zack Wheeler,R,R,6,3,4.43,3.62,5.1,4.4,-2,0,105,93,False,False,Camden Yards,9.0,9.0,6
+15,2023-09-27,Cleveland Guardians,Seattle Mariners,Joe West,Sandy Alcantara,Dylan Cease,R,R,5,4,4.57,4.05,5.7,4.9,0,0,110,108,False,False,Petco Park,10.0,10.0,14
+16,2024-09-22,Cincinnati Reds,St. Louis Cardinals,Nic Lentz,Julio Urias,Gerrit Cole,L,R,4,4,2.43,5.02,6.5,4.2,2,-2,118,118,False,False,Oracle Park,10.5,10.5,9
+17,2024-10-01,Boston Red Sox,Tampa Bay Rays,CB Bucknor,Zack Wheeler,Sandy Alcantara,R,R,4,4,4.55,5.56,4.2,4.3,1,1,94,87,False,False,Busch Stadium,8.5,8.5,7
+18,2022-07-20,Baltimore Orioles,Los Angeles Dodgers,Hunter Wendelstedt,Spencer Strider,Spencer Strider,R,R,6,6,4.94,4.57,4.5,4.4,2,1,91,100,False,True,T-Mobile Park,9.0,9.0,10
+19,2024-06-25,Atlanta Braves,Chicago Cubs,Joe West,Gerrit Cole,Clayton Kershaw,R,L,5,5,4.87,2.65,2.7,6.2,1,0,99,86,False,False,Truist Park,8.0,8.0,0
+20,2022-05-13,San Diego Padres,San Francisco Giants,Laz Diaz,Sandy Alcantara,Gerrit Cole,R,R,3,4,4.12,3.92,3.7,5.8,1,0,103,112,False,False,Progressive Field,9.0,9.0,8
+21,2024-10-20,New York Yankees,Cincinnati Reds,Marvin Hudson,Julio Urias,Dylan Cease,L,R,4,5,4.36,5.04,6.1,5.2,2,-2,94,104,False,True,Busch Stadium,10.0,10.0,12
+22,2022-07-11,Cincinnati Reds,San Francisco Giants,Bill Miller,Blake Snell,Max Scherzer,L,R,4,6,4.67,3.76,6.2,4.6,-2,0,80,104,True,False,Oracle Park,9.5,9.5,11
+23,2022-07-23,Seattle Mariners,Los Angeles Dodgers,Jeff Nelson,Zack Wheeler,Zack Wheeler,R,R,4,6,3.46,5.0,6.9,4.6,-2,-2,105,109,False,False,Yankee Stadium,9.0,9.0,9
+24,2022-10-19,Arizona Diamondbacks,Toronto Blue Jays,Marvin Hudson,Logan Webb,Max Scherzer,R,R,6,4,3.71,4.89,4.0,6.0,0,0,113,82,True,False,T-Mobile Park,10.0,10.0,7
+25,2022-10-03,Chicago Cubs,Philadelphia Phillies,Marvin Hudson,Logan Webb,Spencer Strider,R,R,4,5,4.23,5.09,4.1,4.3,0,1,105,94,False,False,Great American Ball Park,8.0,8.0,6
+26,2023-09-23,Boston Red Sox,San Diego Padres,Dan Iassogna,Logan Webb,Zack Wheeler,R,R,5,5,4.29,3.86,5.3,6.8,0,2,88,93,False,False,Dodger Stadium,9.0,9.0,8
+27,2024-05-07,San Francisco Giants,Boston Red Sox,Angel Hernandez,Julio Urias,Dylan Cease,L,R,4,3,2.92,4.33,6.4,4.8,0,0,105,91,False,False,T-Mobile Park,9.5,9.5,12
+28,2023-07-16,San Francisco Giants,Philadelphia Phillies,Hunter Wendelstedt,Logan Webb,Dylan Cease,R,R,5,4,4.3,4.44,6.3,4.5,-2,0,96,103,False,True,Citizens Bank Park,8.5,8.5,9
+29,2023-07-10,Philadelphia Phillies,Cincinnati Reds,Hunter Wendelstedt,Gerrit Cole,Logan Webb,R,R,6,5,4.88,4.16,3.8,3.9,2,0,108,97,False,False,Oracle Park,8.5,8.5,12
+30,2023-09-28,Baltimore Orioles,San Diego Padres,Mark Wegner,Gerrit Cole,Sandy Alcantara,R,R,5,4,3.5,2.52,5.4,3.4,2,-2,112,95,False,False,Chase Field,9.0,9.0,10
+31,2023-08-18,San Diego Padres,Philadelphia Phillies,Nic Lentz,Spencer Strider,Dylan Cease,R,R,5,5,4.4,4.31,4.0,5.4,0,0,126,117,False,False,Progressive Field,8.5,8.5,11
+32,2023-04-16,New York Yankees,Cleveland Guardians,Dan Iassogna,Sandy Alcantara,Logan Webb,R,R,4,5,3.6,5.23,5.7,4.2,2,1,93,128,False,False,Chase Field,9.5,9.5,7
+33,2023-07-02,Chicago Cubs,Los Angeles Dodgers,Angel Hernandez,Gerrit Cole,Spencer Strider,R,R,4,5,3.33,5.23,3.6,3.6,0,0,74,92,False,False,Busch Stadium,10.0,10.0,10
+34,2023-04-21,Atlanta Braves,New York Yankees,Jeff Nelson,Dylan Cease,Logan Webb,R,R,6,4,2.93,4.21,4.0,4.9,-2,1,109,99,False,False,Yankee Stadium,9.0,9.0,9
+35,2024-06-27,Cincinnati Reds,St. Louis Cardinals,CB Bucknor,Dylan Cease,Spencer Strider,R,R,5,5,5.13,4.19,5.9,6.2,0,0,86,95,False,False,Oracle Park,8.5,8.5,9
+36,2024-10-27,Texas Rangers,San Diego Padres,Dan Iassogna,Patrick Corbin,Gerrit Cole,L,R,3,4,3.98,4.21,3.4,5.0,-2,0,109,91,False,False,Wrigley Field,9.0,9.0,6
+37,2024-10-18,Philadelphia Phillies,Chicago Cubs,Jeff Nelson,Sandy Alcantara,Spencer Strider,R,R,5,4,3.03,3.0,3.5,5.1,-1,0,102,118,False,False,Petco Park,8.5,8.5,3
+38,2022-05-17,Los Angeles Dodgers,Chicago Cubs,Nic Lentz,Zack Wheeler,Julio Urias,R,L,5,5,3.99,3.74,5.7,6.5,1,-1,94,87,False,False,Yankee Stadium,10.0,10.0,13
+39,2023-09-09,San Diego Padres,Milwaukee Brewers,Hunter Wendelstedt,Dylan Cease,Clayton Kershaw,R,L,5,6,3.21,7.11,5.3,4.5,1,-1,94,108,False,True,Dodger Stadium,8.5,8.5,6
+40,2024-10-24,Toronto Blue Jays,San Diego Padres,Bill Miller,Spencer Strider,Julio Urias,R,L,6,3,4.02,3.81,6.4,6.0,0,0,101,97,False,True,T-Mobile Park,8.5,8.5,5
+41,2023-10-10,Cleveland Guardians,Minnesota Twins,CB Bucknor,Clayton Kershaw,Zack Wheeler,L,R,3,6,3.99,4.54,5.6,4.8,0,-2,92,84,False,False,American Family Field,8.0,8.0,6
+42,2024-06-04,San Francisco Giants,Minnesota Twins,Nic Lentz,Julio Urias,Logan Webb,L,R,3,4,3.11,4.4,6.0,4.6,-1,0,90,86,False,False,Truist Park,8.0,8.0,4
+43,2024-09-23,Tampa Bay Rays,Atlanta Braves,Mark Wegner,Dylan Cease,Sandy Alcantara,R,R,5,5,3.1,3.53,6.3,3.8,-2,1,79,81,False,False,Truist Park,10.0,10.0,13
+44,2022-04-28,Texas Rangers,Milwaukee Brewers,Laz Diaz,Gerrit Cole,Max Scherzer,R,R,6,5,4.66,4.5,3.0,2.5,0,-2,82,131,False,False,American Family Field,7.5,7.5,10
+45,2022-08-09,San Francisco Giants,Texas Rangers,Dan Iassogna,Dylan Cease,Spencer Strider,R,R,6,4,5.44,5.22,5.8,5.8,-2,0,98,99,False,True,Citizens Bank Park,9.5,9.5,18
+46,2024-08-10,Tampa Bay Rays,San Francisco Giants,Nic Lentz,Sandy Alcantara,Julio Urias,R,L,5,3,4.48,4.14,3.8,5.2,2,0,74,102,True,True,Truist Park,8.5,8.5,5
+47,2023-04-26,Cincinnati Reds,Philadelphia Phillies,Nic Lentz,Logan Webb,Max Scherzer,R,R,3,4,4.9,3.27,5.2,3.1,0,1,92,103,False,False,Wrigley Field,8.5,8.5,12
+48,2023-04-24,Tampa Bay Rays,Atlanta Braves,Angel Hernandez,Julio Urias,Dylan Cease,L,R,3,4,4.59,3.26,3.7,4.2,0,2,108,108,False,False,Citizens Bank Park,9.0,9.0,10
+49,2024-06-04,Houston Astros,Boston Red Sox,Dan Iassogna,Gerrit Cole,Logan Webb,R,R,6,4,2.9,3.55,6.8,2.3,-2,-1,87,89,True,False,Globe Life Field,9.5,9.5,7
+50,2024-09-01,San Diego Padres,New York Yankees,Mark Wegner,Dylan Cease,Dylan Cease,R,R,4,3,3.44,4.05,4.3,5.2,0,2,87,126,False,False,Yankee Stadium,9.0,9.0,8
+51,2022-06-14,Philadelphia Phillies,Texas Rangers,Dan Iassogna,Dylan Cease,Sandy Alcantara,R,R,4,4,3.73,3.23,4.0,4.8,0,1,104,100,False,False,Oracle Park,8.5,8.5,14
+52,2024-10-12,Philadelphia Phillies,Cleveland Guardians,Hunter Wendelstedt,Gerrit Cole,Sandy Alcantara,R,R,4,5,4.35,4.02,7.7,5.3,-2,0,86,93,False,False,Oracle Park,9.5,9.5,6
+53,2022-07-19,Atlanta Braves,Tampa Bay Rays,Bill Miller,Spencer Strider,Logan Webb,R,R,5,5,5.62,4.97,5.0,4.2,-2,0,115,108,False,True,Chase Field,10.0,10.0,13
+54,2022-10-21,Minnesota Twins,Toronto Blue Jays,CB Bucknor,Gerrit Cole,Zack Wheeler,R,R,5,5,4.24,2.85,2.4,5.9,-1,2,89,87,False,False,Petco Park,9.5,9.5,5
+55,2023-10-10,Philadelphia Phillies,Milwaukee Brewers,Nic Lentz,Julio Urias,Julio Urias,L,L,4,3,5.23,3.02,3.9,4.1,1,-1,80,93,False,False,Fenway Park,9.0,9.0,9
+56,2024-05-02,Arizona Diamondbacks,Texas Rangers,Angel Hernandez,Blake Snell,Sandy Alcantara,L,R,4,3,3.4,4.53,4.3,4.9,0,0,84,113,False,True,Truist Park,9.5,9.5,10
+57,2024-09-22,Boston Red Sox,Los Angeles Dodgers,Angel Hernandez,Dylan Cease,Julio Urias,R,L,5,4,2.64,3.14,4.6,6.1,-2,0,107,84,False,False,Citizens Bank Park,8.5,8.5,11
+58,2022-05-05,St. Louis Cardinals,Los Angeles Dodgers,Jeff Nelson,Blake Snell,Dylan Cease,L,R,4,4,4.41,3.89,5.3,2.7,-1,0,87,79,False,False,Progressive Field,9.5,9.5,8
+59,2024-10-15,Philadelphia Phillies,Texas Rangers,Mark Wegner,Gerrit Cole,Patrick Corbin,R,L,4,5,4.34,6.27,5.6,2.5,0,0,93,86,False,False,American Family Field,9.0,9.0,10
+60,2022-09-28,Toronto Blue Jays,San Francisco Giants,Sam Holbrook,Clayton Kershaw,Spencer Strider,L,R,5,6,4.44,4.44,5.7,6.1,-1,0,103,95,False,False,Citizens Bank Park,9.0,9.0,9
+61,2022-10-23,Minnesota Twins,New York Yankees,Marvin Hudson,Logan Webb,Julio Urias,R,L,3,4,4.31,3.78,4.5,7.2,2,-2,112,114,False,True,T-Mobile Park,9.0,9.0,12
+62,2023-09-26,Los Angeles Dodgers,New York Yankees,Hunter Wendelstedt,Logan Webb,Max Scherzer,R,R,5,5,5.61,4.79,3.5,5.0,2,-1,83,91,False,True,Oracle Park,9.5,9.5,10
+63,2024-04-13,Minnesota Twins,Seattle Mariners,Dan Iassogna,Blake Snell,Logan Webb,L,R,6,5,4.96,4.41,3.6,6.4,0,-2,108,104,False,True,American Family Field,10.0,10.0,8
+64,2022-10-05,Arizona Diamondbacks,Boston Red Sox,Mark Wegner,Logan Webb,Dylan Cease,R,R,4,3,4.34,3.33,4.9,5.3,0,0,96,109,False,False,Camden Yards,9.5,9.5,9
+65,2023-09-15,Milwaukee Brewers,San Diego Padres,Bill Miller,Dylan Cease,Spencer Strider,R,R,5,4,5.12,4.05,2.3,5.0,-1,0,106,82,True,False,Fenway Park,9.5,9.5,12
+66,2023-07-02,Baltimore Orioles,Arizona Diamondbacks,Hunter Wendelstedt,Gerrit Cole,Dylan Cease,R,R,3,6,5.14,3.62,3.4,5.7,-2,0,115,108,False,False,Progressive Field,9.0,9.0,11
+67,2024-05-22,Baltimore Orioles,New York Yankees,Mark Wegner,Clayton Kershaw,Gerrit Cole,L,R,5,4,3.26,5.18,3.7,4.3,1,0,95,93,True,False,T-Mobile Park,9.0,9.0,12
+68,2022-04-05,Milwaukee Brewers,San Francisco Giants,Marvin Hudson,Spencer Strider,Dylan Cease,R,R,6,4,2.57,4.71,4.5,5.2,2,-2,118,98,False,False,Chase Field,9.5,9.5,0
+69,2023-08-19,Cleveland Guardians,Boston Red Sox,Mark Wegner,Logan Webb,Zack Wheeler,R,R,4,5,4.54,3.24,4.6,4.7,0,1,119,100,False,False,Truist Park,10.0,10.0,14
+70,2022-07-17,Arizona Diamondbacks,Los Angeles Dodgers,Mark Wegner,Sandy Alcantara,Sandy Alcantara,R,R,6,4,4.67,3.36,4.8,5.7,2,0,84,124,False,False,American Family Field,10.0,10.0,8
+71,2024-08-24,San Diego Padres,Texas Rangers,Jeff Nelson,Max Scherzer,Dylan Cease,R,R,5,4,4.77,3.34,5.1,4.7,0,2,101,91,False,False,Dodger Stadium,8.5,8.5,8
+72,2023-07-07,Cincinnati Reds,New York Yankees,Laz Diaz,Sandy Alcantara,Zack Wheeler,R,R,4,5,5.19,5.45,3.5,8.2,0,1,108,108,False,False,Busch Stadium,9.0,9.0,11
+73,2022-10-11,Chicago Cubs,Atlanta Braves,Hunter Wendelstedt,Clayton Kershaw,Gerrit Cole,L,R,5,3,3.68,5.45,3.6,5.0,1,0,95,100,False,False,Fenway Park,9.0,9.0,7
+74,2022-10-04,Seattle Mariners,Texas Rangers,Dan Iassogna,Gerrit Cole,Dylan Cease,R,R,5,4,5.15,3.33,5.1,3.9,1,0,93,97,False,True,Great American Ball Park,8.0,8.0,6
+75,2022-05-20,St. Louis Cardinals,Chicago Cubs,Sam Holbrook,Zack Wheeler,Gerrit Cole,R,R,5,5,3.96,4.2,5.7,5.8,1,-1,84,104,False,False,Busch Stadium,8.0,8.5,7
+76,2024-04-14,Cincinnati Reds,Boston Red Sox,Mark Wegner,Julio Urias,Logan Webb,L,R,5,4,4.57,2.97,4.9,4.7,1,0,121,96,False,False,Great American Ball Park,9.0,9.0,6
+77,2023-05-14,Houston Astros,Cincinnati Reds,Laz Diaz,Zack Wheeler,Clayton Kershaw,R,L,3,4,3.03,4.94,7.1,3.8,2,2,106,102,False,False,Fenway Park,8.5,8.5,11
+78,2024-06-20,Milwaukee Brewers,San Francisco Giants,Marvin Hudson,Sandy Alcantara,Logan Webb,R,R,5,4,4.82,4.03,4.1,7.7,0,-2,98,108,False,False,Wrigley Field,8.0,8.0,5
+79,2022-06-02,Minnesota Twins,Arizona Diamondbacks,CB Bucknor,Gerrit Cole,Logan Webb,R,R,4,3,5.8,5.07,3.9,3.3,0,0,104,92,False,False,Busch Stadium,9.5,9.5,14
+80,2022-09-25,Atlanta Braves,Cincinnati Reds,Joe West,Max Scherzer,Logan Webb,R,R,4,4,6.35,3.71,6.0,6.5,1,1,88,84,False,False,T-Mobile Park,9.0,9.0,11
+81,2022-09-28,Houston Astros,Atlanta Braves,Jeff Nelson,Zack Wheeler,Sandy Alcantara,R,R,4,4,5.23,4.26,7.7,7.1,0,1,115,99,False,False,Camden Yards,9.0,9.0,5
+82,2023-08-22,St. Louis Cardinals,Chicago Cubs,Hunter Wendelstedt,Dylan Cease,Zack Wheeler,R,R,6,4,4.91,5.61,6.8,3.6,-1,0,115,109,True,True,Chase Field,8.5,8.5,9
+83,2024-06-23,Boston Red Sox,Seattle Mariners,Bill Miller,Zack Wheeler,Patrick Corbin,R,L,4,4,3.76,3.42,6.0,6.5,2,-2,98,106,False,False,Petco Park,9.5,9.5,9
+84,2024-10-07,Cincinnati Reds,Seattle Mariners,Joe West,Zack Wheeler,Patrick Corbin,R,L,6,4,3.74,3.22,5.3,3.6,-1,2,83,120,True,False,American Family Field,8.5,8.5,9
+85,2024-07-26,St. Louis Cardinals,Texas Rangers,Dan Iassogna,Dylan Cease,Spencer Strider,R,R,4,5,4.76,4.81,3.6,4.4,2,-2,99,102,False,True,Chase Field,9.5,9.5,9
+86,2023-05-25,Texas Rangers,Cincinnati Reds,Nic Lentz,Dylan Cease,Blake Snell,R,L,4,6,3.39,3.2,6.1,4.7,1,1,118,81,False,False,Fenway Park,9.5,9.5,9
+87,2022-06-15,San Francisco Giants,Philadelphia Phillies,Jeff Nelson,Zack Wheeler,Logan Webb,R,R,3,3,3.25,3.93,5.4,4.2,0,0,95,128,False,True,Busch Stadium,8.0,8.0,8
+88,2022-07-15,Tampa Bay Rays,New York Yankees,Joe West,Gerrit Cole,Logan Webb,R,R,4,5,4.53,5.76,6.3,5.5,0,0,108,82,False,False,Fenway Park,8.5,8.5,7
+89,2024-09-14,Boston Red Sox,Seattle Mariners,Hunter Wendelstedt,Sandy Alcantara,Dylan Cease,R,R,5,5,4.9,4.41,4.3,4.1,-1,0,96,88,False,True,Petco Park,10.5,10.5,6
+90,2024-08-05,San Francisco Giants,Milwaukee Brewers,Joe West,Spencer Strider,Max Scherzer,R,R,5,4,4.18,4.92,6.2,5.6,0,0,78,95,True,False,Citizens Bank Park,9.5,9.0,6
+91,2024-04-24,Cincinnati Reds,Houston Astros,Nic Lentz,Sandy Alcantara,Zack Wheeler,R,R,6,5,5.26,3.57,4.7,3.8,0,-1,96,109,False,False,Wrigley Field,8.5,8.5,11
+92,2022-09-05,Cleveland Guardians,San Diego Padres,Angel Hernandez,Blake Snell,Patrick Corbin,L,L,4,4,3.2,3.85,4.8,4.0,0,0,102,115,False,False,Wrigley Field,9.5,9.5,11
+93,2024-04-17,Boston Red Sox,San Diego Padres,Laz Diaz,Clayton Kershaw,Julio Urias,L,L,4,6,5.3,2.62,4.0,3.2,1,0,105,93,False,True,Camden Yards,9.5,9.5,16
+94,2023-08-10,St. Louis Cardinals,Chicago Cubs,Angel Hernandez,Max Scherzer,Patrick Corbin,R,L,4,5,4.66,3.1,5.9,2.5,0,0,91,99,False,False,Yankee Stadium,10.0,10.0,11
+95,2024-10-21,Minnesota Twins,San Diego Padres,Marvin Hudson,Sandy Alcantara,Sandy Alcantara,R,R,6,4,4.85,4.63,4.6,4.9,0,2,107,112,False,False,T-Mobile Park,9.5,9.5,4
+96,2024-08-22,Arizona Diamondbacks,Atlanta Braves,Sam Holbrook,Zack Wheeler,Spencer Strider,R,R,4,4,4.83,3.9,6.5,4.6,-2,-2,97,88,True,True,Great American Ball Park,9.0,9.5,7
+97,2022-06-20,Seattle Mariners,Cincinnati Reds,Marvin Hudson,Spencer Strider,Clayton Kershaw,R,L,6,5,4.97,3.97,5.0,4.7,0,-2,114,99,False,False,Dodger Stadium,7.5,7.5,9
+98,2024-05-24,Tampa Bay Rays,Baltimore Orioles,Jeff Nelson,Julio Urias,Spencer Strider,L,R,5,4,3.98,4.47,6.2,4.5,-2,0,104,103,False,False,T-Mobile Park,9.0,9.0,13
+99,2023-07-25,St. Louis Cardinals,Tampa Bay Rays,Nic Lentz,Dylan Cease,Logan Webb,R,R,4,3,5.61,3.19,6.5,4.8,0,2,95,104,False,False,Dodger Stadium,8.0,8.0,8
+100,2024-05-15,Los Angeles Dodgers,Texas Rangers,Marvin Hudson,Dylan Cease,Patrick Corbin,R,L,4,4,3.54,6.04,4.2,6.5,-2,-2,95,110,False,False,Dodger Stadium,8.0,8.0,5
+101,2023-08-26,Cincinnati Reds,Philadelphia Phillies,Hunter Wendelstedt,Sandy Alcantara,Dylan Cease,R,R,4,4,3.15,5.23,4.5,5.4,-1,0,87,92,False,False,Camden Yards,10.5,10.5,15
+102,2022-09-14,Chicago Cubs,Texas Rangers,Laz Diaz,Spencer Strider,Spencer Strider,R,R,6,5,6.39,5.3,3.8,5.2,-1,-2,95,86,False,False,Oracle Park,9.0,9.0,11
+103,2023-10-14,San Francisco Giants,Los Angeles Dodgers,Nic Lentz,Zack Wheeler,Max Scherzer,R,R,4,4,4.66,4.53,5.0,3.5,2,-1,102,111,False,False,Fenway Park,8.5,8.5,1
+104,2023-06-11,St. Louis Cardinals,Philadelphia Phillies,Angel Hernandez,Gerrit Cole,Julio Urias,R,L,5,6,4.45,5.09,3.7,5.2,2,1,96,109,False,True,Oracle Park,9.5,9.5,5
+105,2024-05-06,Boston Red Sox,Atlanta Braves,Jeff Nelson,Logan Webb,Zack Wheeler,R,R,3,3,4.02,4.28,4.4,4.5,-1,1,86,112,False,False,Camden Yards,9.0,9.0,10
+106,2023-08-13,Los Angeles Dodgers,Cincinnati Reds,Nic Lentz,Dylan Cease,Zack Wheeler,R,R,5,5,3.57,3.82,5.9,3.6,-2,2,97,90,False,True,Chase Field,10.0,10.0,10
+107,2023-07-06,Philadelphia Phillies,Minnesota Twins,Nic Lentz,Gerrit Cole,Zack Wheeler,R,R,5,3,2.45,3.78,5.7,4.7,0,1,98,107,False,False,American Family Field,9.0,9.0,10
+108,2022-04-19,Minnesota Twins,New York Yankees,Laz Diaz,Spencer Strider,Sandy Alcantara,R,R,4,6,4.25,3.54,4.8,6.5,0,-2,81,105,False,False,Great American Ball Park,8.5,8.5,5
+109,2024-10-21,Atlanta Braves,Cincinnati Reds,Nic Lentz,Logan Webb,Spencer Strider,R,R,6,4,3.3,7.12,3.9,5.3,-2,0,64,114,False,False,Fenway Park,9.0,9.0,12
+110,2024-08-06,Arizona Diamondbacks,Minnesota Twins,CB Bucknor,Clayton Kershaw,Spencer Strider,L,R,4,3,3.92,5.21,6.4,4.6,2,-2,125,117,False,False,Globe Life Field,9.5,9.5,8
+111,2024-09-09,San Diego Padres,Philadelphia Phillies,CB Bucknor,Zack Wheeler,Max Scherzer,R,R,3,5,3.98,4.42,5.6,3.0,1,-1,100,82,False,False,Wrigley Field,9.5,9.5,6
+112,2022-07-09,Milwaukee Brewers,Boston Red Sox,Dan Iassogna,Max Scherzer,Sandy Alcantara,R,R,4,6,3.99,5.18,6.6,6.7,-2,0,116,87,True,False,American Family Field,9.5,9.5,14
+113,2022-10-09,Chicago Cubs,New York Yankees,Nic Lentz,Sandy Alcantara,Blake Snell,R,L,4,3,3.99,4.46,4.1,3.5,0,1,86,86,False,False,Oracle Park,9.5,9.5,13
+114,2022-10-14,Los Angeles Dodgers,Philadelphia Phillies,Bill Miller,Gerrit Cole,Clayton Kershaw,R,L,3,4,3.63,4.28,6.8,6.2,0,0,93,107,False,False,T-Mobile Park,8.5,8.5,9
+115,2022-04-04,Philadelphia Phillies,Baltimore Orioles,Nic Lentz,Sandy Alcantara,Dylan Cease,R,R,4,6,5.13,5.1,4.2,6.0,-2,0,100,117,False,False,Globe Life Field,9.0,9.0,11
+116,2022-07-13,Cincinnati Reds,Cleveland Guardians,CB Bucknor,Zack Wheeler,Logan Webb,R,R,4,4,3.13,4.2,1.7,4.4,0,0,116,118,False,False,Globe Life Field,9.0,9.0,12
+117,2024-09-17,Baltimore Orioles,St. Louis Cardinals,Nic Lentz,Gerrit Cole,Dylan Cease,R,R,6,5,3.48,4.57,4.1,3.8,0,0,104,102,False,False,Globe Life Field,9.5,9.5,6
+118,2023-04-15,Philadelphia Phillies,Arizona Diamondbacks,Angel Hernandez,Julio Urias,Max Scherzer,L,R,5,5,5.31,4.6,4.6,4.4,0,2,101,101,False,False,Oracle Park,9.0,9.0,10
+119,2023-06-17,St. Louis Cardinals,San Diego Padres,Mark Wegner,Max Scherzer,Spencer Strider,R,R,4,4,3.95,3.18,6.2,5.6,0,0,84,100,False,False,Petco Park,9.0,9.0,8
+120,2023-05-06,Atlanta Braves,Cincinnati Reds,Jeff Nelson,Max Scherzer,Logan Webb,R,R,6,4,2.52,3.62,4.9,3.8,0,0,83,110,False,True,Yankee Stadium,10.5,10.5,14
+121,2023-06-03,Minnesota Twins,Atlanta Braves,Sam Holbrook,Zack Wheeler,Spencer Strider,R,R,5,5,4.73,4.23,4.1,4.6,-1,0,84,104,False,False,Fenway Park,9.5,9.5,10
+122,2023-04-25,Texas Rangers,Arizona Diamondbacks,Joe West,Sandy Alcantara,Gerrit Cole,R,R,3,5,4.95,3.15,6.2,5.9,0,1,96,100,False,False,T-Mobile Park,8.5,8.5,8
+123,2024-08-02,Los Angeles Dodgers,Houston Astros,Joe West,Patrick Corbin,Max Scherzer,L,R,5,3,4.77,4.07,4.9,6.0,-2,1,94,81,False,False,Dodger Stadium,8.5,8.5,6
+124,2022-07-10,Los Angeles Dodgers,Seattle Mariners,Mark Wegner,Gerrit Cole,Zack Wheeler,R,R,5,4,4.41,3.92,5.4,4.0,2,2,93,95,False,True,Chase Field,8.5,8.5,6
+125,2022-04-15,Seattle Mariners,Toronto Blue Jays,Marvin Hudson,Dylan Cease,Spencer Strider,R,R,4,6,4.31,3.81,6.9,5.8,0,0,104,112,False,False,Camden Yards,9.5,9.5,11
+126,2023-04-02,Los Angeles Dodgers,Cincinnati Reds,Dan Iassogna,Gerrit Cole,Gerrit Cole,R,R,5,4,4.71,5.11,5.5,3.9,0,1,97,93,False,True,Globe Life Field,9.5,9.5,15
+127,2022-07-07,San Diego Padres,Milwaukee Brewers,Mark Wegner,Max Scherzer,Dylan Cease,R,R,3,6,3.09,4.02,5.7,3.0,1,-2,97,87,False,False,Great American Ball Park,8.5,8.5,10
+128,2023-08-12,Arizona Diamondbacks,St. Louis Cardinals,Angel Hernandez,Clayton Kershaw,Gerrit Cole,L,R,6,5,6.36,4.19,6.4,6.0,0,-1,111,75,True,False,Wrigley Field,9.0,9.0,7
+129,2024-06-19,Seattle Mariners,Cincinnati Reds,Marvin Hudson,Zack Wheeler,Zack Wheeler,R,R,5,4,3.72,4.0,7.5,4.8,1,-1,95,113,True,False,Wrigley Field,9.5,9.5,9
+130,2023-04-01,Seattle Mariners,New York Yankees,Sam Holbrook,Julio Urias,Logan Webb,L,R,4,5,4.08,3.78,6.1,5.9,0,0,80,120,False,True,Globe Life Field,9.5,9.5,15
+131,2023-05-22,Cleveland Guardians,Minnesota Twins,Mark Wegner,Spencer Strider,Patrick Corbin,R,L,5,6,4.51,4.81,4.8,4.4,2,0,128,91,False,False,Wrigley Field,10.0,10.5,3
+132,2023-05-21,Arizona Diamondbacks,Houston Astros,Mark Wegner,Max Scherzer,Logan Webb,R,R,4,6,3.91,3.1,6.0,4.1,0,0,100,104,False,True,Truist Park,9.5,9.5,7
+133,2024-09-25,New York Yankees,Los Angeles Dodgers,Marvin Hudson,Clayton Kershaw,Patrick Corbin,L,L,3,4,4.36,4.47,5.6,4.2,0,0,104,99,True,False,Great American Ball Park,9.5,9.5,13
+134,2022-06-07,Los Angeles Dodgers,Arizona Diamondbacks,Nic Lentz,Max Scherzer,Blake Snell,R,L,4,5,3.78,2.99,4.9,4.1,0,0,100,104,False,False,Oracle Park,9.5,9.5,8
+135,2022-07-28,Philadelphia Phillies,Houston Astros,Angel Hernandez,Gerrit Cole,Julio Urias,R,L,4,4,4.4,3.32,5.7,4.4,2,-1,91,108,False,True,Great American Ball Park,9.0,9.0,12
+136,2024-06-26,Houston Astros,Cleveland Guardians,Laz Diaz,Clayton Kershaw,Spencer Strider,L,R,5,5,5.25,4.0,2.8,4.2,-2,-1,87,107,False,False,Petco Park,9.0,9.0,7
+137,2022-10-07,Seattle Mariners,St. Louis Cardinals,Hunter Wendelstedt,Spencer Strider,Blake Snell,R,L,4,4,2.09,5.3,1.2,6.6,2,0,105,92,False,False,Citizens Bank Park,10.0,10.0,18
+138,2023-04-14,Los Angeles Dodgers,Atlanta Braves,Marvin Hudson,Julio Urias,Logan Webb,L,R,4,4,3.23,3.77,5.5,4.9,0,-1,104,79,False,False,Chase Field,9.0,9.0,5
+139,2023-06-23,Tampa Bay Rays,San Diego Padres,Marvin Hudson,Blake Snell,Clayton Kershaw,L,L,4,4,4.15,2.4,5.2,4.9,-2,-2,97,109,False,False,Petco Park,8.5,8.5,5
+140,2023-09-16,Atlanta Braves,San Diego Padres,Mark Wegner,Spencer Strider,Julio Urias,R,L,6,5,5.2,3.1,4.3,4.9,0,2,94,100,False,False,Petco Park,9.0,9.0,11
+141,2023-08-13,New York Yankees,Texas Rangers,Joe West,Zack Wheeler,Gerrit Cole,R,R,3,4,3.95,3.66,3.7,5.1,-2,1,90,94,True,False,Chase Field,9.5,9.5,13
+142,2023-08-01,Los Angeles Dodgers,Boston Red Sox,Bill Miller,Clayton Kershaw,Spencer Strider,L,R,6,6,5.39,3.95,4.4,5.1,0,-1,103,92,False,False,Globe Life Field,9.5,9.5,7
+143,2022-08-22,San Diego Padres,Chicago Cubs,Marvin Hudson,Dylan Cease,Clayton Kershaw,R,L,6,6,3.39,5.02,4.2,4.4,0,1,133,114,False,False,Chase Field,9.0,9.0,6
+144,2023-06-14,San Diego Padres,Boston Red Sox,Joe West,Gerrit Cole,Spencer Strider,R,R,5,5,4.11,3.15,7.2,4.9,0,2,96,82,False,False,Busch Stadium,8.5,8.5,4
+145,2022-09-11,Minnesota Twins,San Francisco Giants,Hunter Wendelstedt,Dylan Cease,Gerrit Cole,R,R,3,4,4.3,4.76,5.9,4.1,0,0,99,110,False,False,Great American Ball Park,9.5,9.5,5
+146,2022-06-14,Arizona Diamondbacks,Cincinnati Reds,Dan Iassogna,Zack Wheeler,Blake Snell,R,L,5,5,5.19,5.45,5.2,5.4,0,2,110,99,True,False,Busch Stadium,8.5,8.5,7
+147,2023-04-02,Texas Rangers,Baltimore Orioles,Dan Iassogna,Spencer Strider,Blake Snell,R,L,5,4,3.96,2.26,6.6,3.7,-1,0,101,100,False,False,Citizens Bank Park,8.5,8.5,12
+148,2024-08-17,Minnesota Twins,Cleveland Guardians,Mark Wegner,Logan Webb,Julio Urias,R,L,4,5,6.2,2.5,3.6,7.2,0,-2,111,127,False,False,Camden Yards,9.5,9.5,8
+149,2024-06-25,Seattle Mariners,San Diego Padres,CB Bucknor,Max Scherzer,Gerrit Cole,R,R,5,5,6.67,4.98,4.1,3.5,0,0,95,88,False,False,Camden Yards,10.0,10.0,7
+150,2022-08-24,Milwaukee Brewers,Philadelphia Phillies,Joe West,Sandy Alcantara,Max Scherzer,R,R,5,4,3.91,5.57,3.4,5.0,-2,0,116,72,False,False,Truist Park,9.0,9.0,8
+151,2024-07-05,Baltimore Orioles,Houston Astros,Sam Holbrook,Patrick Corbin,Dylan Cease,L,R,4,6,2.92,4.11,5.7,5.5,0,1,110,99,False,True,T-Mobile Park,10.0,10.0,7
+152,2024-09-06,Baltimore Orioles,Houston Astros,Hunter Wendelstedt,Sandy Alcantara,Max Scherzer,R,R,4,4,5.77,2.97,4.8,6.9,0,-2,97,105,False,False,Truist Park,10.0,10.0,12
+153,2023-10-19,Toronto Blue Jays,St. Louis Cardinals,Marvin Hudson,Zack Wheeler,Max Scherzer,R,R,3,5,4.53,4.91,4.8,5.2,2,-2,96,75,False,False,Fenway Park,10.0,10.0,15
+154,2024-05-22,Tampa Bay Rays,Milwaukee Brewers,Bill Miller,Max Scherzer,Dylan Cease,R,R,6,4,2.99,4.05,4.1,4.1,2,0,82,102,False,True,Yankee Stadium,9.0,9.0,5
+155,2022-08-08,San Francisco Giants,Houston Astros,Bill Miller,Spencer Strider,Patrick Corbin,R,L,5,3,3.13,5.22,6.1,5.6,-1,1,112,107,False,False,Camden Yards,9.5,9.5,18
+156,2024-05-21,New York Yankees,Philadelphia Phillies,Marvin Hudson,Blake Snell,Spencer Strider,L,R,3,5,4.92,3.97,5.8,5.3,1,0,84,94,False,False,Dodger Stadium,9.5,9.0,4
+157,2023-05-27,Chicago Cubs,Atlanta Braves,Nic Lentz,Dylan Cease,Dylan Cease,R,R,3,3,4.13,3.83,4.4,4.5,-2,1,105,122,True,False,Progressive Field,8.5,8.5,13
+158,2024-07-17,Tampa Bay Rays,Houston Astros,Jeff Nelson,Sandy Alcantara,Clayton Kershaw,R,L,6,4,4.02,3.74,5.2,4.5,2,-1,92,93,False,False,Great American Ball Park,10.0,10.0,9
+159,2024-08-28,Cincinnati Reds,Seattle Mariners,Hunter Wendelstedt,Julio Urias,Sandy Alcantara,L,R,4,3,4.12,3.19,5.2,5.8,2,0,90,75,True,False,Citizens Bank Park,9.5,9.5,7
+160,2024-06-28,Baltimore Orioles,San Francisco Giants,Sam Holbrook,Spencer Strider,Dylan Cease,R,R,5,6,4.58,4.23,4.7,5.3,0,0,98,121,False,False,Great American Ball Park,8.0,8.0,3
+161,2024-10-08,Philadelphia Phillies,Houston Astros,CB Bucknor,Spencer Strider,Logan Webb,R,R,3,3,3.65,3.98,5.5,2.9,0,2,86,76,False,False,Fenway Park,8.5,8.5,5
+162,2024-08-24,Boston Red Sox,Arizona Diamondbacks,Bill Miller,Zack Wheeler,Logan Webb,R,R,5,4,4.54,2.16,4.8,5.7,2,0,103,107,False,False,Chase Field,9.5,9.5,5
+163,2023-08-02,Tampa Bay Rays,San Diego Padres,Sam Holbrook,Zack Wheeler,Logan Webb,R,R,6,3,3.32,3.42,3.4,5.1,0,0,102,90,False,True,Petco Park,10.0,10.0,10
+164,2024-08-16,Los Angeles Dodgers,San Francisco Giants,Mark Wegner,Blake Snell,Julio Urias,L,L,5,6,4.22,3.04,5.8,5.7,0,2,87,89,False,False,T-Mobile Park,10.0,10.0,12
+165,2024-05-11,Boston Red Sox,Tampa Bay Rays,Nic Lentz,Julio Urias,Gerrit Cole,L,R,5,4,4.66,4.05,6.4,4.6,0,2,116,107,False,False,American Family Field,8.5,8.5,8
+166,2023-08-03,Tampa Bay Rays,Atlanta Braves,Joe West,Clayton Kershaw,Gerrit Cole,L,R,5,6,4.29,4.81,3.7,6.1,1,0,118,102,False,False,Chase Field,9.0,9.0,10
+167,2023-07-13,Cincinnati Reds,Los Angeles Dodgers,CB Bucknor,Dylan Cease,Logan Webb,R,R,6,3,4.66,4.29,5.4,7.0,-2,-2,106,92,False,False,Truist Park,9.0,9.0,7
+168,2024-06-07,Minnesota Twins,New York Yankees,Sam Holbrook,Gerrit Cole,Gerrit Cole,R,R,5,3,4.46,3.84,5.7,6.5,0,0,113,112,False,True,Busch Stadium,7.5,7.5,12
+169,2022-09-21,San Francisco Giants,Chicago Cubs,Jeff Nelson,Max Scherzer,Gerrit Cole,R,R,4,4,4.13,4.5,5.5,6.3,0,-1,90,84,True,False,Petco Park,10.0,10.0,10
+170,2024-09-11,Boston Red Sox,Chicago Cubs,Mark Wegner,Zack Wheeler,Spencer Strider,R,R,5,5,2.9,4.66,4.4,5.0,2,-1,108,105,False,False,T-Mobile Park,9.0,9.0,12
+171,2022-08-09,Texas Rangers,Cleveland Guardians,CB Bucknor,Gerrit Cole,Spencer Strider,R,R,5,5,2.84,4.44,4.4,5.6,-2,-1,99,90,False,False,Yankee Stadium,9.5,9.5,7
+172,2024-09-28,Toronto Blue Jays,Minnesota Twins,Sam Holbrook,Spencer Strider,Spencer Strider,R,R,4,3,3.99,2.32,7.0,5.5,0,0,99,109,False,False,Camden Yards,9.0,9.0,13
+173,2024-06-19,Minnesota Twins,Tampa Bay Rays,Laz Diaz,Blake Snell,Max Scherzer,L,R,5,5,4.74,5.23,3.8,6.3,-2,0,88,99,False,False,Wrigley Field,10.5,10.5,8
+174,2022-06-20,Minnesota Twins,Toronto Blue Jays,Laz Diaz,Clayton Kershaw,Sandy Alcantara,L,R,3,6,4.63,4.59,5.7,3.2,1,2,92,101,True,False,Camden Yards,9.0,9.0,11
+175,2024-07-20,New York Yankees,San Diego Padres,Bill Miller,Zack Wheeler,Max Scherzer,R,R,5,3,5.47,4.35,4.5,4.2,0,0,64,112,False,True,Fenway Park,9.5,9.5,16
+176,2022-04-01,Tampa Bay Rays,Philadelphia Phillies,Dan Iassogna,Zack Wheeler,Max Scherzer,R,R,4,5,4.8,3.47,4.4,5.3,0,0,84,103,True,False,Wrigley Field,10.0,10.0,11
+177,2022-10-16,St. Louis Cardinals,Atlanta Braves,Nic Lentz,Blake Snell,Spencer Strider,L,R,6,6,3.42,4.92,4.9,3.0,2,-1,105,104,False,False,Oracle Park,8.5,8.5,10
+178,2024-10-11,Los Angeles Dodgers,Boston Red Sox,Dan Iassogna,Clayton Kershaw,Gerrit Cole,L,R,5,4,4.86,4.72,4.2,4.5,-1,1,85,93,False,False,Yankee Stadium,9.0,9.0,9
+179,2024-05-28,Texas Rangers,Chicago Cubs,Sam Holbrook,Julio Urias,Logan Webb,L,R,6,3,4.62,4.59,5.6,2.1,0,0,79,99,False,False,Great American Ball Park,9.0,9.0,13
+180,2022-08-02,Houston Astros,Texas Rangers,Marvin Hudson,Spencer Strider,Zack Wheeler,R,R,3,5,4.93,3.86,4.5,4.2,-1,0,121,93,False,False,Great American Ball Park,9.5,9.5,11
+181,2022-04-09,Texas Rangers,San Francisco Giants,Hunter Wendelstedt,Spencer Strider,Logan Webb,R,R,6,5,3.72,4.84,3.8,4.3,2,2,105,102,False,False,T-Mobile Park,8.5,8.5,12
+182,2022-08-03,Arizona Diamondbacks,Minnesota Twins,Angel Hernandez,Logan Webb,Zack Wheeler,R,R,5,4,3.99,4.54,4.1,4.9,-1,-2,102,91,False,False,Chase Field,10.0,10.0,13
+183,2024-05-26,Milwaukee Brewers,Seattle Mariners,Angel Hernandez,Blake Snell,Patrick Corbin,L,L,4,5,5.13,3.93,7.3,5.1,0,0,115,110,False,True,Truist Park,9.0,9.0,7
+184,2022-05-24,Baltimore Orioles,St. Louis Cardinals,Angel Hernandez,Logan Webb,Dylan Cease,R,R,4,6,4.14,4.77,6.2,3.0,0,0,101,94,True,False,Camden Yards,10.0,10.0,8
+185,2022-10-17,Milwaukee Brewers,New York Yankees,Sam Holbrook,Dylan Cease,Julio Urias,R,L,4,5,4.38,5.23,7.0,5.7,1,-1,111,102,False,False,Great American Ball Park,10.0,10.0,9
+186,2022-08-09,Chicago Cubs,Atlanta Braves,CB Bucknor,Blake Snell,Gerrit Cole,L,R,4,4,3.12,4.4,4.1,6.1,0,1,96,89,False,False,Globe Life Field,9.0,9.0,13
+187,2024-05-16,Baltimore Orioles,Cincinnati Reds,Mark Wegner,Max Scherzer,Dylan Cease,R,R,6,4,4.62,5.04,7.3,4.9,-1,-1,96,79,False,False,T-Mobile Park,8.0,8.0,13
+188,2023-06-18,Arizona Diamondbacks,Houston Astros,Marvin Hudson,Gerrit Cole,Zack Wheeler,R,R,5,6,4.19,4.36,6.7,6.7,-1,0,85,92,False,False,Petco Park,8.5,8.5,9
+189,2023-07-21,Cleveland Guardians,Toronto Blue Jays,Angel Hernandez,Blake Snell,Patrick Corbin,L,L,5,5,2.76,5.18,6.0,5.5,0,0,89,85,False,False,Progressive Field,7.5,7.5,5
+190,2024-04-07,Chicago Cubs,Minnesota Twins,CB Bucknor,Clayton Kershaw,Clayton Kershaw,L,L,4,5,4.43,4.38,6.1,4.0,0,-2,84,112,True,False,Yankee Stadium,9.5,9.5,15
+191,2022-09-12,Philadelphia Phillies,Los Angeles Dodgers,Jeff Nelson,Clayton Kershaw,Zack Wheeler,L,R,6,4,4.79,3.52,6.9,3.0,-1,1,119,122,False,False,Progressive Field,9.0,9.0,8
+192,2023-04-01,Chicago Cubs,Cincinnati Reds,Marvin Hudson,Sandy Alcantara,Logan Webb,R,R,5,6,4.22,3.77,4.7,6.4,2,1,113,96,True,False,T-Mobile Park,9.5,9.5,11
+193,2023-05-09,Cleveland Guardians,Seattle Mariners,Bill Miller,Sandy Alcantara,Logan Webb,R,R,4,5,3.52,3.52,5.5,3.4,2,2,98,117,False,False,Oracle Park,9.0,9.0,6
+194,2022-05-02,Texas Rangers,Los Angeles Dodgers,Mark Wegner,Gerrit Cole,Max Scherzer,R,R,5,4,4.35,4.54,4.8,6.9,2,0,101,107,False,False,Chase Field,8.5,8.5,7
+195,2022-10-09,Cleveland Guardians,St. Louis Cardinals,Angel Hernandez,Julio Urias,Gerrit Cole,L,R,6,5,4.39,3.84,5.1,4.1,-2,1,101,139,True,False,Citizens Bank Park,10.0,10.0,12
+196,2022-06-16,Atlanta Braves,San Francisco Giants,Jeff Nelson,Sandy Alcantara,Julio Urias,R,L,3,4,4.73,5.79,5.6,4.4,0,0,93,92,True,False,Wrigley Field,9.5,9.5,6
+197,2023-04-22,Atlanta Braves,Tampa Bay Rays,Joe West,Logan Webb,Spencer Strider,R,R,5,4,6.67,3.05,4.7,4.7,2,0,94,80,True,False,Great American Ball Park,9.0,9.0,7
+198,2024-06-18,San Francisco Giants,Minnesota Twins,Laz Diaz,Max Scherzer,Sandy Alcantara,R,R,3,5,4.39,4.68,3.9,6.6,0,-2,113,77,False,True,American Family Field,9.0,9.0,11
+199,2024-05-11,Philadelphia Phillies,Milwaukee Brewers,Hunter Wendelstedt,Sandy Alcantara,Gerrit Cole,R,R,3,4,3.66,3.37,3.9,5.9,1,-2,84,95,False,False,Busch Stadium,9.0,9.0,7
+200,2024-09-27,Atlanta Braves,Philadelphia Phillies,Sam Holbrook,Spencer Strider,Zack Wheeler,R,R,5,3,3.08,4.27,4.7,4.8,0,-1,100,98,False,False,Camden Yards,9.5,9.5,9
+201,2024-04-24,Los Angeles Dodgers,Milwaukee Brewers,Jeff Nelson,Logan Webb,Max Scherzer,R,R,4,6,3.56,6.02,5.5,4.9,2,0,92,98,False,False,Oracle Park,9.5,9.5,11
+202,2024-07-17,Baltimore Orioles,Arizona Diamondbacks,CB Bucknor,Julio Urias,Max Scherzer,L,R,4,3,5.77,6.61,4.0,5.4,0,-1,111,99,False,False,Chase Field,9.0,9.0,13
+203,2022-06-20,Tampa Bay Rays,Boston Red Sox,Dan Iassogna,Sandy Alcantara,Spencer Strider,R,R,4,5,5.31,5.46,8.5,5.1,0,-2,92,119,False,False,Petco Park,8.5,8.5,9
+204,2023-10-10,San Francisco Giants,St. Louis Cardinals,Sam Holbrook,Gerrit Cole,Sandy Alcantara,R,R,4,5,2.75,5.25,4.8,3.1,-2,1,110,120,False,False,American Family Field,9.5,9.5,8
+205,2022-09-21,Atlanta Braves,Boston Red Sox,Bill Miller,Blake Snell,Spencer Strider,L,R,6,5,5.22,3.71,4.7,4.7,-1,0,93,114,False,False,Wrigley Field,8.5,8.5,11
+206,2024-09-02,Philadelphia Phillies,Houston Astros,Jeff Nelson,Blake Snell,Clayton Kershaw,L,L,5,5,4.14,5.0,3.3,5.7,-2,0,92,101,False,False,Oracle Park,9.0,9.0,10
+207,2023-06-12,San Francisco Giants,St. Louis Cardinals,Joe West,Dylan Cease,Spencer Strider,R,R,4,4,3.55,5.17,5.1,4.3,0,-1,109,81,False,False,Oracle Park,8.5,8.5,11
+208,2023-04-11,Seattle Mariners,Texas Rangers,Jeff Nelson,Spencer Strider,Max Scherzer,R,R,3,6,4.87,4.76,5.8,5.1,-1,0,104,114,False,False,Dodger Stadium,9.5,9.5,8
+209,2022-04-13,Philadelphia Phillies,New York Yankees,Marvin Hudson,Zack Wheeler,Gerrit Cole,R,R,3,4,3.28,2.69,4.6,5.4,0,-2,109,92,False,False,Progressive Field,9.5,9.5,13
+210,2023-06-16,Atlanta Braves,Minnesota Twins,Laz Diaz,Zack Wheeler,Logan Webb,R,R,5,3,4.61,4.82,4.0,6.3,0,-1,99,104,False,False,Chase Field,8.0,8.0,11
+211,2024-09-08,New York Yankees,Arizona Diamondbacks,Hunter Wendelstedt,Dylan Cease,Sandy Alcantara,R,R,5,4,3.44,3.83,4.4,6.5,1,-1,112,113,False,False,Citizens Bank Park,9.5,9.5,9
+212,2023-10-05,Texas Rangers,Philadelphia Phillies,Hunter Wendelstedt,Spencer Strider,Clayton Kershaw,R,L,3,4,4.36,2.56,3.9,5.6,1,2,123,90,False,False,Camden Yards,9.0,9.0,8
+213,2022-06-03,Texas Rangers,Atlanta Braves,Mark Wegner,Spencer Strider,Logan Webb,R,R,3,6,3.27,4.34,3.5,3.8,0,0,108,89,True,True,Petco Park,8.5,8.5,7
+214,2023-09-11,Houston Astros,Chicago Cubs,Bill Miller,Zack Wheeler,Clayton Kershaw,R,L,6,5,4.84,3.65,5.3,3.4,-2,1,98,88,False,False,Globe Life Field,10.5,10.5,10
+215,2022-08-13,San Francisco Giants,St. Louis Cardinals,Jeff Nelson,Sandy Alcantara,Sandy Alcantara,R,R,5,6,4.03,4.01,4.7,6.2,0,-2,106,88,False,False,Fenway Park,9.5,9.5,6
+216,2023-06-15,Houston Astros,San Francisco Giants,Mark Wegner,Blake Snell,Blake Snell,L,L,4,4,2.57,4.69,7.0,3.5,0,0,92,116,False,True,Camden Yards,9.5,9.0,8
+217,2024-07-02,Atlanta Braves,Los Angeles Dodgers,Nic Lentz,Blake Snell,Logan Webb,L,R,6,4,5.08,3.66,4.6,4.4,-2,0,108,117,False,False,Busch Stadium,9.0,8.5,8
+218,2024-10-01,Chicago Cubs,Cleveland Guardians,Jeff Nelson,Zack Wheeler,Zack Wheeler,R,R,5,5,4.28,5.26,3.8,5.2,0,-1,93,95,False,False,Yankee Stadium,9.0,9.0,10
+219,2023-06-03,San Francisco Giants,Texas Rangers,Bill Miller,Gerrit Cole,Max Scherzer,R,R,4,4,3.77,4.45,4.2,3.5,2,2,83,88,True,False,American Family Field,10.0,10.0,5
+220,2023-05-04,Arizona Diamondbacks,Minnesota Twins,Bill Miller,Dylan Cease,Dylan Cease,R,R,3,6,4.05,5.17,3.2,4.7,-1,0,115,112,False,False,Busch Stadium,9.5,9.5,9
+221,2023-07-26,Milwaukee Brewers,Cleveland Guardians,Marvin Hudson,Logan Webb,Logan Webb,R,R,4,5,4.27,4.86,5.2,5.6,1,2,106,81,False,False,American Family Field,10.0,10.0,9
+222,2023-06-17,Tampa Bay Rays,Chicago Cubs,Bill Miller,Logan Webb,Spencer Strider,R,R,5,4,4.24,3.81,4.4,6.0,-1,-1,122,94,True,False,Globe Life Field,9.5,9.5,15
+223,2024-06-19,Milwaukee Brewers,St. Louis Cardinals,Bill Miller,Zack Wheeler,Patrick Corbin,R,L,3,3,3.8,5.11,5.5,6.8,-2,-2,81,125,False,True,Wrigley Field,8.0,8.0,8
+224,2023-05-12,Toronto Blue Jays,Arizona Diamondbacks,Mark Wegner,Blake Snell,Spencer Strider,L,R,5,6,4.73,4.03,4.8,5.6,-2,0,105,74,False,True,Progressive Field,9.0,9.0,10
+225,2024-09-05,Milwaukee Brewers,San Francisco Giants,Mark Wegner,Sandy Alcantara,Max Scherzer,R,R,4,3,4.97,4.38,5.4,4.6,0,0,94,85,True,False,Progressive Field,9.0,9.0,5
+226,2024-06-25,Houston Astros,Philadelphia Phillies,Sam Holbrook,Logan Webb,Spencer Strider,R,R,5,3,4.54,4.51,5.0,5.2,-1,-1,92,99,False,False,Progressive Field,9.0,9.0,11
+227,2022-04-13,Philadelphia Phillies,Boston Red Sox,Dan Iassogna,Gerrit Cole,Dylan Cease,R,R,4,4,3.75,4.42,3.7,4.1,-2,2,95,84,False,False,Wrigley Field,9.0,9.0,11
+228,2023-05-08,San Francisco Giants,Los Angeles Dodgers,Laz Diaz,Spencer Strider,Spencer Strider,R,R,4,6,4.69,3.82,4.5,5.6,2,0,106,76,False,True,Chase Field,9.5,9.5,5
+229,2022-06-18,Milwaukee Brewers,Atlanta Braves,Angel Hernandez,Clayton Kershaw,Julio Urias,L,L,3,4,4.46,3.25,4.0,5.7,-1,0,69,90,False,False,American Family Field,9.0,9.0,13
+230,2024-07-11,Arizona Diamondbacks,Tampa Bay Rays,Marvin Hudson,Zack Wheeler,Max Scherzer,R,R,5,4,4.42,3.75,5.4,4.9,0,2,108,81,False,False,Dodger Stadium,9.0,9.0,8
+231,2022-09-11,Houston Astros,Atlanta Braves,Joe West,Spencer Strider,Zack Wheeler,R,R,4,5,4.53,3.04,7.5,3.6,2,0,116,99,False,False,Citizens Bank Park,8.5,8.5,6
+232,2024-07-21,Philadelphia Phillies,Boston Red Sox,Bill Miller,Gerrit Cole,Max Scherzer,R,R,4,3,3.62,4.73,3.3,4.5,1,0,104,111,False,False,American Family Field,9.5,9.5,10
+233,2022-04-05,Philadelphia Phillies,Boston Red Sox,Jeff Nelson,Gerrit Cole,Gerrit Cole,R,R,3,6,3.44,4.65,5.4,3.4,1,-1,106,113,False,False,Yankee Stadium,10.0,10.0,2
+234,2022-04-19,Minnesota Twins,Seattle Mariners,Mark Wegner,Patrick Corbin,Spencer Strider,L,R,5,3,3.49,4.97,5.5,4.9,2,2,77,96,False,False,T-Mobile Park,9.0,9.0,8
+235,2023-08-25,St. Louis Cardinals,Los Angeles Dodgers,Sam Holbrook,Sandy Alcantara,Max Scherzer,R,R,4,5,2.53,4.7,4.0,4.5,0,-2,98,107,False,False,Dodger Stadium,9.0,9.0,6
+236,2023-04-05,Cleveland Guardians,Cincinnati Reds,Hunter Wendelstedt,Logan Webb,Clayton Kershaw,R,L,5,4,4.58,3.68,5.7,5.7,-2,0,106,101,True,False,Fenway Park,9.0,9.0,8
+237,2022-05-20,Philadelphia Phillies,Milwaukee Brewers,Angel Hernandez,Spencer Strider,Max Scherzer,R,R,6,4,4.9,3.06,4.0,5.6,2,1,99,93,False,False,T-Mobile Park,8.0,8.0,6
+238,2023-09-23,Houston Astros,Cleveland Guardians,Nic Lentz,Sandy Alcantara,Sandy Alcantara,R,R,5,5,4.12,5.18,4.1,5.4,-2,1,92,107,False,False,Great American Ball Park,9.0,9.0,5
+239,2023-10-22,Atlanta Braves,Arizona Diamondbacks,Jeff Nelson,Logan Webb,Julio Urias,R,L,3,4,4.1,3.14,5.4,6.0,2,0,99,102,True,True,Wrigley Field,9.0,9.0,13
+240,2024-09-27,Tampa Bay Rays,Atlanta Braves,Sam Holbrook,Dylan Cease,Clayton Kershaw,R,L,4,5,3.39,3.24,6.7,6.6,0,1,86,79,False,False,Progressive Field,9.0,9.0,8
+241,2023-06-06,Atlanta Braves,Texas Rangers,Hunter Wendelstedt,Max Scherzer,Blake Snell,R,L,6,4,4.15,4.48,2.0,7.6,0,-2,99,113,False,False,Chase Field,9.5,9.5,12
+242,2022-04-03,Cincinnati Reds,Toronto Blue Jays,Mark Wegner,Clayton Kershaw,Logan Webb,L,R,4,5,4.01,2.83,6.4,5.2,2,2,103,100,False,True,Oracle Park,9.5,9.5,7
+243,2022-07-23,Boston Red Sox,Tampa Bay Rays,Dan Iassogna,Sandy Alcantara,Patrick Corbin,R,L,6,6,3.17,4.32,6.0,4.6,2,0,86,110,False,True,Busch Stadium,9.5,9.5,6
+244,2022-09-23,San Francisco Giants,Boston Red Sox,Nic Lentz,Clayton Kershaw,Zack Wheeler,L,R,4,5,5.18,4.78,4.9,4.3,0,0,97,84,False,True,Fenway Park,10.0,10.0,13
+245,2024-09-17,San Francisco Giants,Cleveland Guardians,Laz Diaz,Blake Snell,Dylan Cease,L,R,5,3,4.88,3.48,5.0,4.1,0,0,99,86,True,False,Fenway Park,8.5,8.5,10
+246,2024-04-27,Cincinnati Reds,Houston Astros,Joe West,Zack Wheeler,Max Scherzer,R,R,6,4,5.01,4.91,4.7,4.7,0,1,88,119,False,False,Fenway Park,10.0,10.0,13
+247,2022-10-14,Atlanta Braves,Cincinnati Reds,Sam Holbrook,Spencer Strider,Spencer Strider,R,R,4,3,3.87,4.55,5.1,6.6,0,0,104,84,False,True,Globe Life Field,9.0,9.0,10
+248,2022-05-21,Milwaukee Brewers,Los Angeles Dodgers,Bill Miller,Gerrit Cole,Max Scherzer,R,R,4,5,3.64,4.38,5.8,6.6,-1,0,97,84,True,False,Progressive Field,8.0,8.0,4
+249,2023-10-21,Cleveland Guardians,Toronto Blue Jays,Marvin Hudson,Zack Wheeler,Gerrit Cole,R,R,3,4,4.11,4.72,5.5,3.3,1,1,108,116,True,False,Truist Park,8.0,8.0,8
+250,2022-07-17,Cleveland Guardians,Texas Rangers,Marvin Hudson,Logan Webb,Spencer Strider,R,R,4,4,5.21,3.42,4.1,4.4,0,2,95,90,False,False,Chase Field,10.0,10.0,9
+251,2024-07-06,Atlanta Braves,San Diego Padres,CB Bucknor,Patrick Corbin,Zack Wheeler,L,R,5,4,5.04,5.16,2.8,2.6,0,0,113,113,True,True,Dodger Stadium,8.5,8.5,7
+252,2024-10-08,Chicago Cubs,Milwaukee Brewers,Marvin Hudson,Zack Wheeler,Dylan Cease,R,R,4,5,4.78,3.47,6.6,5.0,-2,1,96,119,False,False,Camden Yards,9.5,9.5,8
+253,2022-07-17,Boston Red Sox,Chicago Cubs,Dan Iassogna,Logan Webb,Gerrit Cole,R,R,5,5,4.65,3.05,6.1,5.8,0,-1,100,82,False,False,Oracle Park,9.5,9.5,10
+254,2023-07-25,Minnesota Twins,Cleveland Guardians,Joe West,Sandy Alcantara,Max Scherzer,R,R,4,6,4.05,3.71,6.2,3.8,2,2,117,100,False,False,Progressive Field,9.5,9.5,7
+255,2024-06-02,St. Louis Cardinals,Houston Astros,Hunter Wendelstedt,Clayton Kershaw,Spencer Strider,L,R,4,5,3.46,5.03,4.5,5.6,-1,2,117,108,False,False,Dodger Stadium,8.5,8.5,7
+256,2023-06-15,Seattle Mariners,Arizona Diamondbacks,Nic Lentz,Clayton Kershaw,Dylan Cease,L,R,5,5,3.8,4.13,4.5,3.2,-1,0,89,103,False,False,American Family Field,9.5,9.5,10
+257,2022-07-05,Los Angeles Dodgers,Seattle Mariners,Laz Diaz,Sandy Alcantara,Zack Wheeler,R,R,6,4,3.09,4.05,4.2,8.1,-1,0,88,102,False,True,Progressive Field,9.5,9.5,11
+258,2024-10-18,Texas Rangers,Los Angeles Dodgers,Bill Miller,Sandy Alcantara,Logan Webb,R,R,5,5,4.06,4.6,5.2,4.3,0,0,68,103,False,True,Wrigley Field,8.5,8.5,8
+259,2022-05-08,Minnesota Twins,Cleveland Guardians,Laz Diaz,Max Scherzer,Logan Webb,R,R,4,4,5.25,4.16,3.9,5.4,0,-1,95,83,False,True,Progressive Field,9.5,9.5,3
+260,2024-08-17,Chicago Cubs,Arizona Diamondbacks,Mark Wegner,Gerrit Cole,Sandy Alcantara,R,R,4,3,3.95,3.33,4.3,7.8,-1,2,109,112,False,False,Great American Ball Park,9.5,9.0,9
+261,2024-09-07,Atlanta Braves,St. Louis Cardinals,Bill Miller,Dylan Cease,Gerrit Cole,R,R,5,5,4.53,6.05,5.0,5.3,-1,-2,83,106,True,False,Busch Stadium,9.0,9.0,11
+262,2023-10-18,Texas Rangers,St. Louis Cardinals,Angel Hernandez,Sandy Alcantara,Zack Wheeler,R,R,4,4,4.08,3.34,7.2,4.9,0,0,111,70,False,False,Oracle Park,8.5,8.5,11
+263,2024-10-13,Philadelphia Phillies,Cincinnati Reds,Dan Iassogna,Zack Wheeler,Dylan Cease,R,R,4,4,2.71,5.16,3.7,5.8,2,-1,100,93,True,False,Great American Ball Park,10.0,10.0,16
+264,2024-10-21,San Francisco Giants,Milwaukee Brewers,Bill Miller,Sandy Alcantara,Logan Webb,R,R,5,4,3.24,2.81,3.8,5.7,2,2,100,106,False,False,Chase Field,9.5,9.5,12
+265,2024-04-05,Los Angeles Dodgers,Toronto Blue Jays,Dan Iassogna,Julio Urias,Patrick Corbin,L,L,4,5,4.51,3.9,5.5,5.8,1,2,110,94,False,False,Truist Park,8.5,8.5,9
+266,2023-06-22,Los Angeles Dodgers,San Francisco Giants,Joe West,Logan Webb,Spencer Strider,R,R,3,3,3.56,4.95,4.6,5.5,0,-1,96,120,False,False,Camden Yards,8.0,8.0,4
+267,2022-07-12,Baltimore Orioles,Atlanta Braves,Joe West,Spencer Strider,Zack Wheeler,R,R,4,3,3.24,5.32,6.2,4.0,-2,0,105,109,False,True,Truist Park,8.0,8.0,9
+268,2022-10-16,Philadelphia Phillies,Baltimore Orioles,CB Bucknor,Zack Wheeler,Zack Wheeler,R,R,6,5,4.57,4.3,5.4,3.6,0,1,107,106,True,False,Citizens Bank Park,9.5,9.5,8
+269,2024-06-12,Atlanta Braves,Philadelphia Phillies,Dan Iassogna,Zack Wheeler,Max Scherzer,R,R,4,6,2.91,4.19,5.1,6.6,0,-2,98,99,False,True,American Family Field,9.5,9.5,7
+270,2022-10-12,Cleveland Guardians,Baltimore Orioles,Sam Holbrook,Zack Wheeler,Logan Webb,R,R,5,5,4.33,4.76,7.6,7.3,0,1,105,104,False,False,Great American Ball Park,8.5,8.5,11
+271,2022-08-14,San Francisco Giants,Houston Astros,Nic Lentz,Gerrit Cole,Patrick Corbin,R,L,4,6,2.78,4.89,6.7,3.7,2,0,119,140,False,True,Progressive Field,8.0,8.0,2
+272,2022-04-12,Chicago Cubs,San Francisco Giants,Jeff Nelson,Zack Wheeler,Sandy Alcantara,R,R,4,4,4.67,5.67,4.3,5.5,1,2,80,100,False,False,Busch Stadium,8.5,8.0,2
+273,2022-04-04,Toronto Blue Jays,Minnesota Twins,Laz Diaz,Julio Urias,Clayton Kershaw,L,L,3,4,4.65,3.38,5.7,5.1,-1,2,95,109,False,False,Chase Field,9.5,9.5,9
+274,2022-10-02,St. Louis Cardinals,Milwaukee Brewers,Laz Diaz,Max Scherzer,Sandy Alcantara,R,R,5,4,3.68,4.66,4.1,5.9,0,0,78,92,False,False,Great American Ball Park,8.5,8.5,5
+275,2022-08-02,Milwaukee Brewers,Tampa Bay Rays,Mark Wegner,Sandy Alcantara,Blake Snell,R,L,5,4,2.07,4.27,4.2,4.2,0,0,115,106,True,False,Great American Ball Park,8.5,8.5,7
+276,2022-09-10,Arizona Diamondbacks,New York Yankees,Jeff Nelson,Gerrit Cole,Patrick Corbin,R,L,5,4,4.45,4.04,4.6,6.0,0,-1,94,112,False,False,American Family Field,9.5,9.5,11
+277,2022-06-16,Tampa Bay Rays,San Diego Padres,Bill Miller,Julio Urias,Sandy Alcantara,L,R,5,6,4.27,3.47,4.1,4.2,1,0,77,100,False,False,Busch Stadium,9.0,9.0,9
+278,2024-04-19,San Francisco Giants,Texas Rangers,Hunter Wendelstedt,Dylan Cease,Logan Webb,R,R,4,4,5.51,4.79,4.2,5.1,-2,0,94,92,False,False,Busch Stadium,9.5,9.5,9
+279,2023-05-22,San Francisco Giants,Boston Red Sox,Joe West,Julio Urias,Patrick Corbin,L,L,6,3,4.78,3.96,3.6,3.3,-2,-2,123,85,False,True,Camden Yards,9.5,9.5,9
+280,2024-05-28,Texas Rangers,Toronto Blue Jays,Laz Diaz,Zack Wheeler,Max Scherzer,R,R,5,4,4.72,3.17,4.9,6.6,1,0,106,105,False,False,Progressive Field,9.5,9.5,5
+281,2024-05-21,Chicago Cubs,St. Louis Cardinals,Sam Holbrook,Blake Snell,Clayton Kershaw,L,L,6,4,5.1,3.99,7.4,5.3,0,0,81,86,False,False,Camden Yards,9.0,9.0,7
+282,2023-07-03,Minnesota Twins,Los Angeles Dodgers,Marvin Hudson,Gerrit Cole,Logan Webb,R,R,4,5,5.24,5.21,4.2,6.4,1,-2,100,91,False,True,Truist Park,8.0,8.0,6
+283,2023-09-08,Baltimore Orioles,Seattle Mariners,Hunter Wendelstedt,Julio Urias,Blake Snell,L,L,4,6,4.9,3.91,4.5,2.8,0,2,116,97,False,False,Great American Ball Park,8.0,8.0,11
+284,2023-06-10,Houston Astros,San Diego Padres,Hunter Wendelstedt,Julio Urias,Spencer Strider,L,R,4,6,4.23,3.53,5.5,4.5,1,2,91,120,False,False,Truist Park,8.5,8.5,9
+285,2024-09-27,San Diego Padres,Los Angeles Dodgers,Laz Diaz,Julio Urias,Patrick Corbin,L,L,5,3,3.63,5.29,5.1,3.3,0,2,84,106,True,False,Truist Park,9.5,9.5,9
+286,2023-10-24,Cleveland Guardians,Minnesota Twins,Dan Iassogna,Zack Wheeler,Zack Wheeler,R,R,4,4,4.7,5.15,4.5,5.9,0,1,92,109,False,False,Citizens Bank Park,9.5,9.5,7
+287,2024-06-05,Arizona Diamondbacks,Seattle Mariners,Bill Miller,Gerrit Cole,Sandy Alcantara,R,R,4,4,4.7,5.11,6.5,5.1,-2,1,107,88,False,False,Globe Life Field,9.0,9.0,11
+288,2023-05-14,San Diego Padres,Boston Red Sox,CB Bucknor,Clayton Kershaw,Patrick Corbin,L,L,6,4,6.35,4.59,5.1,6.3,0,0,85,91,True,False,Globe Life Field,7.5,7.5,12
+289,2023-06-20,Boston Red Sox,Tampa Bay Rays,Jeff Nelson,Max Scherzer,Patrick Corbin,R,L,3,6,3.12,3.43,5.9,5.3,-1,1,96,111,False,False,Petco Park,10.0,10.0,13
+290,2024-07-05,San Francisco Giants,Houston Astros,Dan Iassogna,Zack Wheeler,Logan Webb,R,R,4,4,3.34,6.24,1.8,5.0,0,2,92,110,False,False,Great American Ball Park,10.0,10.0,12
+291,2023-04-07,San Diego Padres,San Francisco Giants,Angel Hernandez,Julio Urias,Max Scherzer,L,R,4,4,4.23,4.41,4.9,6.9,1,0,127,99,True,False,Great American Ball Park,9.0,9.0,6
+292,2024-10-09,San Francisco Giants,Milwaukee Brewers,Laz Diaz,Clayton Kershaw,Gerrit Cole,L,R,5,3,3.29,3.66,6.4,4.7,-1,0,96,102,False,False,American Family Field,10.0,10.0,12
+293,2023-09-09,Boston Red Sox,New York Yankees,Hunter Wendelstedt,Dylan Cease,Blake Snell,R,L,5,3,6.31,4.28,3.4,2.6,0,2,126,100,False,True,Wrigley Field,9.0,9.0,5
+294,2023-04-01,Houston Astros,Boston Red Sox,Angel Hernandez,Logan Webb,Logan Webb,R,R,6,4,4.92,5.39,4.6,7.0,2,0,110,110,False,False,Busch Stadium,9.5,9.5,15
+295,2022-10-14,Cleveland Guardians,Philadelphia Phillies,Angel Hernandez,Logan Webb,Zack Wheeler,R,R,6,4,3.56,3.64,4.7,5.2,0,1,92,84,False,False,Great American Ball Park,8.5,8.5,13
+296,2022-08-14,St. Louis Cardinals,San Francisco Giants,Nic Lentz,Sandy Alcantara,Blake Snell,R,L,4,5,4.5,4.29,5.5,5.2,1,1,115,110,False,False,Great American Ball Park,8.5,9.0,6
+297,2024-06-11,San Diego Padres,Cincinnati Reds,Nic Lentz,Max Scherzer,Max Scherzer,R,R,5,3,3.06,4.53,4.3,4.3,-2,-2,103,107,False,False,Chase Field,9.5,9.5,10
+298,2024-08-24,Atlanta Braves,Chicago Cubs,Sam Holbrook,Sandy Alcantara,Gerrit Cole,R,R,5,4,2.61,2.74,3.8,6.4,2,2,92,106,True,True,Yankee Stadium,9.5,9.5,3
+299,2022-04-10,Atlanta Braves,New York Yankees,CB Bucknor,Zack Wheeler,Sandy Alcantara,R,R,6,5,4.7,4.87,6.9,6.7,2,2,87,105,True,False,Citizens Bank Park,8.5,8.5,4
+300,2024-08-20,Seattle Mariners,Texas Rangers,Hunter Wendelstedt,Julio Urias,Gerrit Cole,L,R,3,5,4.42,4.2,3.8,5.8,2,-1,124,90,False,False,Truist Park,8.5,8.5,8
+301,2023-09-14,Houston Astros,San Francisco Giants,Bill Miller,Blake Snell,Dylan Cease,L,R,4,4,4.08,4.71,4.5,5.7,0,-1,109,94,False,False,Oracle Park,9.5,9.5,6
+302,2022-05-07,Chicago Cubs,Philadelphia Phillies,Hunter Wendelstedt,Julio Urias,Patrick Corbin,L,L,4,5,2.78,4.27,6.3,4.5,0,0,57,84,False,False,Camden Yards,8.5,8.5,4
+303,2023-10-12,Baltimore Orioles,Texas Rangers,Sam Holbrook,Dylan Cease,Sandy Alcantara,R,R,6,4,4.33,3.19,6.9,3.6,-2,-1,96,97,True,False,Truist Park,9.0,9.0,11
+304,2023-09-15,Chicago Cubs,Atlanta Braves,Nic Lentz,Logan Webb,Gerrit Cole,R,R,6,5,2.58,4.22,5.6,5.9,-2,0,106,106,False,False,Camden Yards,8.5,8.5,7
+305,2022-05-25,New York Yankees,San Diego Padres,Laz Diaz,Logan Webb,Zack Wheeler,R,R,6,5,3.69,4.47,5.4,3.8,1,1,114,96,False,False,Dodger Stadium,9.0,9.0,11
+306,2024-09-05,Chicago Cubs,Philadelphia Phillies,Bill Miller,Dylan Cease,Dylan Cease,R,R,5,4,6.42,3.89,5.7,2.7,0,1,85,110,False,False,Busch Stadium,9.5,9.5,12
+307,2023-09-12,Boston Red Sox,Toronto Blue Jays,Bill Miller,Max Scherzer,Sandy Alcantara,R,R,6,6,3.38,3.09,5.4,4.7,-1,0,85,112,False,False,Chase Field,8.5,8.5,5
+308,2023-09-14,San Francisco Giants,Cleveland Guardians,Joe West,Logan Webb,Dylan Cease,R,R,5,4,4.03,2.67,4.9,6.4,0,0,101,71,False,False,Camden Yards,10.5,10.5,10
+309,2023-08-24,New York Yankees,Milwaukee Brewers,Angel Hernandez,Dylan Cease,Dylan Cease,R,R,4,4,3.7,5.13,5.5,4.0,0,0,95,78,True,True,Progressive Field,8.5,8.5,8
+310,2023-09-14,Philadelphia Phillies,St. Louis Cardinals,Joe West,Julio Urias,Max Scherzer,L,R,5,3,5.04,3.81,7.2,4.6,0,-1,113,114,True,False,Busch Stadium,8.5,8.5,10
+311,2023-04-04,St. Louis Cardinals,Atlanta Braves,CB Bucknor,Sandy Alcantara,Blake Snell,R,L,4,5,3.96,5.14,5.8,5.7,0,0,99,103,True,False,Camden Yards,9.5,9.5,9
+312,2023-08-10,Tampa Bay Rays,Houston Astros,Hunter Wendelstedt,Zack Wheeler,Spencer Strider,R,R,5,5,5.33,3.38,3.1,5.3,-1,0,101,86,False,False,Great American Ball Park,10.0,10.0,10
+313,2024-07-24,Chicago Cubs,Philadelphia Phillies,CB Bucknor,Spencer Strider,Logan Webb,R,R,4,3,4.61,4.45,6.7,5.3,-2,2,94,116,False,True,Oracle Park,8.0,8.0,9
+314,2022-05-27,Cincinnati Reds,San Francisco Giants,Dan Iassogna,Spencer Strider,Sandy Alcantara,R,R,3,6,4.86,3.64,5.6,3.5,1,-1,123,107,True,False,Yankee Stadium,10.0,10.0,11
+315,2022-05-10,Tampa Bay Rays,New York Yankees,Sam Holbrook,Dylan Cease,Blake Snell,R,L,5,3,4.74,5.17,4.9,5.3,0,0,92,107,False,False,Truist Park,10.0,10.0,12
+316,2022-06-15,Toronto Blue Jays,Atlanta Braves,Bill Miller,Spencer Strider,Logan Webb,R,R,5,5,4.38,4.28,3.2,3.0,0,0,85,95,True,False,T-Mobile Park,8.0,8.0,9
+317,2023-08-15,Philadelphia Phillies,Boston Red Sox,Dan Iassogna,Blake Snell,Clayton Kershaw,L,L,4,4,4.98,2.32,3.7,3.8,0,0,125,110,False,False,Citizens Bank Park,8.0,8.0,4
+318,2024-06-14,Toronto Blue Jays,Minnesota Twins,Jeff Nelson,Gerrit Cole,Zack Wheeler,R,R,4,5,2.76,4.16,7.2,3.1,2,0,119,98,False,False,Dodger Stadium,9.0,9.0,10
+319,2024-05-14,Boston Red Sox,Minnesota Twins,Joe West,Blake Snell,Max Scherzer,L,R,5,3,3.81,2.9,2.9,4.5,2,2,103,101,False,False,Citizens Bank Park,9.0,9.0,9
+320,2022-10-09,Atlanta Braves,Toronto Blue Jays,Marvin Hudson,Zack Wheeler,Blake Snell,R,L,3,3,3.98,4.47,4.2,4.3,2,0,101,114,False,False,Truist Park,7.5,7.5,8
+321,2024-08-06,Cincinnati Reds,Texas Rangers,Bill Miller,Gerrit Cole,Julio Urias,R,L,4,5,4.4,4.41,4.9,6.6,0,-1,99,90,False,True,Great American Ball Park,9.5,9.5,5
+322,2022-09-17,San Francisco Giants,San Diego Padres,Jeff Nelson,Patrick Corbin,Max Scherzer,L,R,5,5,3.33,5.23,5.6,4.4,0,1,90,98,False,False,Fenway Park,9.5,9.5,7
+323,2023-07-26,Arizona Diamondbacks,New York Yankees,CB Bucknor,Gerrit Cole,Clayton Kershaw,R,L,4,5,4.75,2.41,5.5,4.2,1,0,122,94,False,False,Globe Life Field,9.5,9.5,8
+324,2024-04-26,Seattle Mariners,Los Angeles Dodgers,Dan Iassogna,Patrick Corbin,Logan Webb,L,R,4,4,4.95,3.78,4.5,6.6,0,0,93,86,False,False,Truist Park,9.5,9.5,10
+325,2022-07-17,Atlanta Braves,Chicago Cubs,Joe West,Sandy Alcantara,Patrick Corbin,R,L,4,5,4.33,4.55,4.6,4.7,-2,-2,105,115,False,False,Oracle Park,9.5,9.5,16
+326,2023-06-19,Tampa Bay Rays,St. Louis Cardinals,CB Bucknor,Clayton Kershaw,Zack Wheeler,L,R,5,6,4.75,4.91,4.2,4.4,0,-1,85,91,True,False,Fenway Park,9.5,9.5,12
+327,2023-08-23,San Francisco Giants,Houston Astros,Marvin Hudson,Zack Wheeler,Max Scherzer,R,R,4,6,2.39,3.23,4.1,4.2,0,0,80,106,True,False,Globe Life Field,9.0,9.0,5
+328,2023-05-13,New York Yankees,San Diego Padres,CB Bucknor,Logan Webb,Clayton Kershaw,R,L,4,6,4.96,4.15,5.3,5.1,0,0,98,108,False,False,T-Mobile Park,8.0,8.0,3
+329,2022-05-27,Houston Astros,New York Yankees,Joe West,Zack Wheeler,Zack Wheeler,R,R,4,4,5.39,4.36,3.5,6.5,0,0,109,96,False,False,Petco Park,9.0,9.0,8
+330,2024-07-21,Baltimore Orioles,San Francisco Giants,Dan Iassogna,Blake Snell,Zack Wheeler,L,R,4,4,4.29,3.14,5.6,4.2,0,0,100,117,False,True,Citizens Bank Park,9.0,9.0,11
+331,2023-07-17,St. Louis Cardinals,Cincinnati Reds,Laz Diaz,Spencer Strider,Sandy Alcantara,R,R,5,4,3.86,4.9,4.3,3.2,1,1,99,112,False,False,Dodger Stadium,9.5,9.5,6
+332,2023-06-18,Houston Astros,Seattle Mariners,Joe West,Spencer Strider,Clayton Kershaw,R,L,4,4,4.21,3.53,4.1,4.9,0,1,89,99,False,False,Busch Stadium,9.0,9.0,10
+333,2024-08-18,Minnesota Twins,St. Louis Cardinals,Angel Hernandez,Gerrit Cole,Clayton Kershaw,R,L,3,4,4.61,2.42,5.4,5.3,0,-1,102,108,False,False,Chase Field,9.0,9.0,10
+334,2024-10-21,San Diego Padres,Texas Rangers,CB Bucknor,Gerrit Cole,Spencer Strider,R,R,4,5,2.83,2.22,7.3,4.3,0,0,99,92,False,False,Progressive Field,9.0,9.0,10
+335,2024-04-12,San Francisco Giants,Chicago Cubs,CB Bucknor,Blake Snell,Dylan Cease,L,R,4,5,4.68,3.71,4.9,3.6,2,-2,95,107,False,False,Globe Life Field,8.0,8.0,9
+336,2023-07-07,San Francisco Giants,Cleveland Guardians,Angel Hernandez,Zack Wheeler,Zack Wheeler,R,R,5,4,3.7,4.09,6.2,6.0,1,2,104,97,True,False,Wrigley Field,8.0,8.0,6
+337,2023-08-01,Houston Astros,St. Louis Cardinals,Bill Miller,Gerrit Cole,Sandy Alcantara,R,R,4,4,4.72,3.56,5.3,5.5,-1,1,96,101,False,False,Progressive Field,9.0,9.0,8
+338,2022-07-03,Philadelphia Phillies,Seattle Mariners,Hunter Wendelstedt,Clayton Kershaw,Julio Urias,L,L,6,5,3.72,3.83,4.3,6.4,1,1,97,101,True,False,Globe Life Field,8.0,8.0,9
+339,2024-05-23,Chicago Cubs,Minnesota Twins,CB Bucknor,Logan Webb,Clayton Kershaw,R,L,5,4,2.69,5.4,5.2,7.4,0,2,83,96,True,False,Oracle Park,9.0,9.5,6
+340,2022-08-02,Texas Rangers,St. Louis Cardinals,Marvin Hudson,Gerrit Cole,Spencer Strider,R,R,5,4,5.3,4.75,5.0,3.8,2,1,107,91,True,True,Truist Park,8.0,8.0,9
+341,2023-10-06,Philadelphia Phillies,Minnesota Twins,Jeff Nelson,Patrick Corbin,Blake Snell,L,L,4,6,4.57,4.24,4.6,6.4,1,0,118,110,False,True,Dodger Stadium,8.5,8.5,8
+342,2022-07-23,Minnesota Twins,Baltimore Orioles,Joe West,Sandy Alcantara,Max Scherzer,R,R,4,5,4.27,4.23,5.3,3.0,0,0,107,96,True,True,Fenway Park,9.5,9.5,6
+343,2023-08-21,New York Yankees,Minnesota Twins,Joe West,Gerrit Cole,Spencer Strider,R,R,4,5,4.47,5.16,5.6,4.8,0,0,95,106,False,False,Camden Yards,9.0,9.0,8
+344,2023-10-20,Toronto Blue Jays,Texas Rangers,Laz Diaz,Max Scherzer,Spencer Strider,R,R,5,4,3.87,2.82,6.4,4.3,0,0,73,80,False,False,Petco Park,9.0,9.0,10
+345,2022-08-19,Philadelphia Phillies,Minnesota Twins,Mark Wegner,Gerrit Cole,Julio Urias,R,L,3,4,4.32,5.3,5.8,4.4,2,1,101,83,True,False,Yankee Stadium,8.5,8.5,11
+346,2022-08-26,Cleveland Guardians,Texas Rangers,Mark Wegner,Blake Snell,Zack Wheeler,L,R,5,3,4.71,2.97,5.3,6.9,0,0,101,104,False,False,Chase Field,9.0,9.0,13
+347,2022-05-05,Seattle Mariners,Tampa Bay Rays,Sam Holbrook,Sandy Alcantara,Max Scherzer,R,R,4,4,2.94,3.37,5.8,4.6,0,1,98,90,False,False,Yankee Stadium,9.5,9.5,10
+348,2023-05-16,Baltimore Orioles,San Diego Padres,Hunter Wendelstedt,Max Scherzer,Clayton Kershaw,R,L,5,5,2.9,4.16,5.1,2.8,-2,1,112,101,False,False,Petco Park,9.5,9.5,9
+349,2022-09-16,Cleveland Guardians,Arizona Diamondbacks,Mark Wegner,Sandy Alcantara,Sandy Alcantara,R,R,4,4,4.26,4.16,6.3,3.5,0,1,90,107,False,False,Progressive Field,8.5,8.5,8
+350,2024-06-17,Toronto Blue Jays,St. Louis Cardinals,Hunter Wendelstedt,Gerrit Cole,Blake Snell,R,L,3,5,3.69,3.63,6.1,5.4,1,2,100,114,False,False,Busch Stadium,9.5,9.5,2
+351,2023-09-19,New York Yankees,Baltimore Orioles,Hunter Wendelstedt,Julio Urias,Zack Wheeler,L,R,4,5,5.58,3.32,5.6,6.1,2,0,85,100,False,False,Camden Yards,10.0,10.0,4
+352,2023-04-04,Tampa Bay Rays,Los Angeles Dodgers,Nic Lentz,Dylan Cease,Max Scherzer,R,R,4,6,3.88,3.28,3.9,3.4,0,0,87,113,True,True,Globe Life Field,9.5,9.5,18
+353,2023-09-20,Atlanta Braves,Milwaukee Brewers,Dan Iassogna,Zack Wheeler,Gerrit Cole,R,R,4,6,3.99,3.95,5.5,5.3,0,0,109,102,False,False,Camden Yards,9.0,9.0,9
+354,2023-07-25,New York Yankees,Los Angeles Dodgers,Hunter Wendelstedt,Gerrit Cole,Zack Wheeler,R,R,4,5,3.5,4.53,8.6,2.0,-2,0,117,94,False,True,Yankee Stadium,8.5,8.5,8
+355,2022-06-15,Minnesota Twins,Boston Red Sox,Nic Lentz,Spencer Strider,Patrick Corbin,R,L,5,3,3.71,3.44,4.3,5.4,2,-2,93,115,False,False,Citizens Bank Park,9.5,9.5,7
+356,2024-04-24,Boston Red Sox,Milwaukee Brewers,Joe West,Blake Snell,Julio Urias,L,L,5,4,3.21,3.41,6.7,3.2,-2,-2,99,97,False,True,Oracle Park,10.5,10.5,11
+357,2022-07-23,San Francisco Giants,Chicago Cubs,Mark Wegner,Patrick Corbin,Max Scherzer,L,R,4,4,4.84,3.89,4.3,5.7,2,0,85,75,False,False,T-Mobile Park,9.0,9.0,8
+358,2023-09-21,San Francisco Giants,Milwaukee Brewers,Nic Lentz,Logan Webb,Spencer Strider,R,R,6,5,5.04,4.02,5.1,5.9,0,0,108,107,False,True,Dodger Stadium,8.5,8.5,4
+359,2023-06-25,Atlanta Braves,Cincinnati Reds,Angel Hernandez,Sandy Alcantara,Logan Webb,R,R,4,6,3.59,2.91,3.4,4.8,0,0,88,109,False,True,Yankee Stadium,9.0,9.0,12
+360,2024-08-16,Cleveland Guardians,Seattle Mariners,Laz Diaz,Julio Urias,Zack Wheeler,L,R,3,6,4.34,4.85,5.4,4.9,-2,0,111,116,False,False,Fenway Park,8.5,8.5,9
+361,2023-07-03,Seattle Mariners,Houston Astros,Mark Wegner,Julio Urias,Clayton Kershaw,L,L,5,3,3.95,5.41,5.8,7.2,1,0,114,115,False,False,Yankee Stadium,8.5,8.5,0
+362,2024-09-01,Cleveland Guardians,Milwaukee Brewers,Jeff Nelson,Sandy Alcantara,Max Scherzer,R,R,4,3,4.43,3.91,5.5,2.7,1,1,97,93,True,False,Great American Ball Park,9.0,9.0,14
+363,2023-06-23,Milwaukee Brewers,Baltimore Orioles,Bill Miller,Logan Webb,Sandy Alcantara,R,R,5,4,3.75,3.56,4.2,3.0,2,0,104,76,False,False,Citizens Bank Park,8.5,8.5,9
+364,2024-07-09,Chicago Cubs,Minnesota Twins,Bill Miller,Gerrit Cole,Gerrit Cole,R,R,3,3,5.09,4.8,1.0,8.6,2,1,98,106,False,False,Great American Ball Park,8.5,8.5,12
+365,2022-10-25,San Francisco Giants,Baltimore Orioles,Marvin Hudson,Logan Webb,Patrick Corbin,R,L,4,3,4.6,3.9,4.4,4.6,-1,1,102,94,True,False,Dodger Stadium,8.5,8.5,3
+366,2022-05-10,Baltimore Orioles,Los Angeles Dodgers,Sam Holbrook,Gerrit Cole,Gerrit Cole,R,R,4,5,4.75,3.82,4.4,4.9,1,2,90,124,False,False,Progressive Field,8.5,8.5,11
+367,2024-05-19,St. Louis Cardinals,Texas Rangers,CB Bucknor,Zack Wheeler,Gerrit Cole,R,R,4,4,4.97,5.01,5.8,5.4,1,2,110,93,True,False,Globe Life Field,10.0,10.0,12
+368,2024-09-27,Tampa Bay Rays,Philadelphia Phillies,Sam Holbrook,Max Scherzer,Max Scherzer,R,R,5,5,4.96,5.47,4.1,6.9,1,0,109,98,False,False,Petco Park,10.0,10.0,13
+369,2022-07-04,San Francisco Giants,Tampa Bay Rays,Nic Lentz,Dylan Cease,Dylan Cease,R,R,6,4,4.78,5.35,4.2,7.1,1,0,82,97,False,False,Petco Park,10.0,10.0,11
+370,2024-10-13,Cincinnati Reds,Atlanta Braves,Bill Miller,Spencer Strider,Sandy Alcantara,R,R,5,5,4.28,4.28,4.3,4.9,0,0,86,114,True,False,Camden Yards,8.5,8.5,8
+371,2024-10-08,Minnesota Twins,Seattle Mariners,Jeff Nelson,Clayton Kershaw,Patrick Corbin,L,L,4,3,5.42,2.69,4.1,5.6,0,2,117,109,False,True,American Family Field,9.5,9.5,12
+372,2024-09-18,Houston Astros,Atlanta Braves,CB Bucknor,Spencer Strider,Blake Snell,R,L,3,4,3.28,4.82,6.7,3.9,2,1,94,81,False,False,Oracle Park,8.5,8.5,11
+373,2023-07-06,St. Louis Cardinals,Houston Astros,Dan Iassogna,Clayton Kershaw,Zack Wheeler,L,R,4,4,3.57,5.23,6.1,3.0,-2,0,97,113,False,True,Dodger Stadium,9.0,9.0,10
+374,2022-04-12,Arizona Diamondbacks,Toronto Blue Jays,Joe West,Sandy Alcantara,Logan Webb,R,R,3,4,4.11,4.26,4.3,5.3,-1,-1,110,93,False,True,Great American Ball Park,9.0,9.0,10
+375,2024-10-15,San Diego Padres,Seattle Mariners,Laz Diaz,Julio Urias,Dylan Cease,L,R,4,4,3.68,4.88,3.5,6.9,0,0,101,103,False,False,Oracle Park,9.5,9.5,19
+376,2023-10-25,Houston Astros,Texas Rangers,Jeff Nelson,Max Scherzer,Julio Urias,R,L,6,5,2.39,4.18,5.7,4.0,0,0,102,94,False,True,Truist Park,8.5,8.5,4
+377,2024-05-24,Seattle Mariners,Houston Astros,Jeff Nelson,Logan Webb,Blake Snell,R,L,5,4,4.2,5.56,7.5,2.1,0,2,103,93,False,False,Oracle Park,8.5,8.5,11
+378,2024-05-03,St. Louis Cardinals,Baltimore Orioles,Joe West,Gerrit Cole,Zack Wheeler,R,R,6,4,3.49,4.87,4.0,1.8,0,0,96,102,False,True,Busch Stadium,11.0,11.0,10
+379,2024-06-07,Atlanta Braves,Cleveland Guardians,Angel Hernandez,Max Scherzer,Sandy Alcantara,R,R,4,5,3.99,5.27,4.2,5.4,1,0,97,105,False,False,T-Mobile Park,9.0,9.0,9
+380,2024-08-04,Philadelphia Phillies,Minnesota Twins,Angel Hernandez,Zack Wheeler,Max Scherzer,R,R,4,5,5.83,3.87,5.3,4.3,1,0,113,107,False,False,Petco Park,9.0,9.0,8
+381,2024-06-12,Texas Rangers,Arizona Diamondbacks,CB Bucknor,Zack Wheeler,Zack Wheeler,R,R,5,3,3.84,2.48,6.1,5.5,-1,-2,116,102,False,True,Oracle Park,8.5,8.5,5
+382,2024-06-07,Houston Astros,Cincinnati Reds,Bill Miller,Sandy Alcantara,Blake Snell,R,L,4,4,4.5,4.67,4.2,2.7,-2,-1,82,105,False,False,Camden Yards,8.5,8.5,7
+383,2023-05-09,Seattle Mariners,Boston Red Sox,CB Bucknor,Zack Wheeler,Zack Wheeler,R,R,6,6,6.32,4.91,5.8,4.9,0,0,90,86,False,False,Fenway Park,8.5,8.5,2
+384,2024-06-06,San Francisco Giants,San Diego Padres,CB Bucknor,Logan Webb,Julio Urias,R,L,4,4,2.04,3.68,5.4,2.9,0,2,100,88,False,False,Wrigley Field,10.0,10.0,10
+385,2022-09-24,Cincinnati Reds,San Francisco Giants,Joe West,Julio Urias,Dylan Cease,L,R,5,4,4.74,4.93,3.7,5.0,-2,-2,107,114,False,True,Globe Life Field,8.0,8.0,6
+386,2023-04-24,Cleveland Guardians,New York Yankees,Hunter Wendelstedt,Spencer Strider,Sandy Alcantara,R,R,5,4,3.99,2.76,4.1,4.3,0,0,109,82,False,True,Globe Life Field,9.5,9.5,16
+387,2022-07-25,Seattle Mariners,Los Angeles Dodgers,Hunter Wendelstedt,Spencer Strider,Gerrit Cole,R,R,5,5,4.47,3.57,4.1,5.1,-1,2,98,115,True,True,Truist Park,8.0,8.0,7
+388,2024-07-22,San Francisco Giants,Cleveland Guardians,Nic Lentz,Blake Snell,Zack Wheeler,L,R,3,6,4.96,3.66,5.9,5.0,0,0,110,105,False,False,Yankee Stadium,9.0,9.0,11
+389,2023-08-27,Los Angeles Dodgers,Houston Astros,Dan Iassogna,Sandy Alcantara,Logan Webb,R,R,4,4,4.65,3.75,3.8,5.0,0,-2,118,88,False,False,Wrigley Field,8.5,8.5,12
+390,2023-05-06,Philadelphia Phillies,Baltimore Orioles,Angel Hernandez,Sandy Alcantara,Patrick Corbin,R,L,6,5,3.64,4.95,1.8,5.4,-1,-2,96,95,False,False,Dodger Stadium,9.5,9.5,8
+391,2024-05-23,Toronto Blue Jays,Chicago Cubs,Sam Holbrook,Clayton Kershaw,Patrick Corbin,L,L,4,4,3.85,4.61,5.7,4.1,1,0,104,98,False,False,Dodger Stadium,8.5,8.5,6
+392,2023-09-01,Philadelphia Phillies,Boston Red Sox,Laz Diaz,Zack Wheeler,Clayton Kershaw,R,L,3,5,3.34,5.1,4.8,4.6,-2,-1,102,98,False,True,T-Mobile Park,9.5,9.5,9
+393,2023-07-26,Los Angeles Dodgers,New York Yankees,Dan Iassogna,Clayton Kershaw,Sandy Alcantara,L,R,3,3,4.59,4.23,6.6,5.6,-1,-2,103,106,False,False,Citizens Bank Park,9.0,9.0,12
+394,2022-09-07,Chicago Cubs,Arizona Diamondbacks,CB Bucknor,Max Scherzer,Zack Wheeler,R,R,5,5,4.95,4.48,6.4,2.1,-1,-2,116,109,False,False,Oracle Park,9.5,9.5,11
+395,2023-04-08,Toronto Blue Jays,Tampa Bay Rays,Mark Wegner,Max Scherzer,Sandy Alcantara,R,R,4,4,3.92,4.12,3.3,3.8,0,0,84,95,True,False,Globe Life Field,9.0,9.0,13
+396,2023-08-07,Arizona Diamondbacks,Cincinnati Reds,Bill Miller,Blake Snell,Dylan Cease,L,R,4,6,3.62,4.68,6.2,6.3,0,1,111,91,False,False,Dodger Stadium,9.0,9.0,11
+397,2022-05-26,New York Yankees,Cincinnati Reds,Marvin Hudson,Julio Urias,Zack Wheeler,L,R,3,3,5.01,5.19,6.4,4.9,2,-1,84,77,False,False,Citizens Bank Park,9.0,9.0,3
+398,2023-04-26,Boston Red Sox,Cleveland Guardians,Angel Hernandez,Patrick Corbin,Zack Wheeler,L,R,4,4,4.27,3.52,6.4,3.4,0,1,109,106,False,True,Globe Life Field,10.0,10.0,9
+399,2024-05-04,San Diego Padres,Cincinnati Reds,Angel Hernandez,Gerrit Cole,Zack Wheeler,R,R,5,5,5.73,4.59,3.1,6.4,2,0,87,105,False,False,Chase Field,9.0,9.0,15
+400,2022-06-13,Los Angeles Dodgers,Chicago Cubs,Sam Holbrook,Blake Snell,Logan Webb,L,R,4,5,3.95,4.38,4.0,5.9,0,0,83,104,False,False,Fenway Park,9.0,9.0,9
+401,2022-09-24,Los Angeles Dodgers,Texas Rangers,CB Bucknor,Spencer Strider,Patrick Corbin,R,L,5,4,4.16,4.42,5.8,6.1,2,0,99,103,False,False,Globe Life Field,9.0,9.0,12
+402,2022-05-03,Minnesota Twins,Chicago Cubs,Laz Diaz,Zack Wheeler,Spencer Strider,R,R,4,5,5.62,5.0,3.8,5.4,0,2,106,95,True,False,Yankee Stadium,10.0,10.0,14
+403,2023-09-19,Tampa Bay Rays,Boston Red Sox,Hunter Wendelstedt,Dylan Cease,Sandy Alcantara,R,R,5,6,5.6,4.29,4.6,4.7,2,-1,92,93,False,False,Great American Ball Park,8.0,8.0,12
+404,2022-07-27,Boston Red Sox,New York Yankees,Mark Wegner,Patrick Corbin,Spencer Strider,L,R,6,4,3.44,3.35,4.7,4.8,2,0,87,107,True,False,Wrigley Field,10.5,10.5,12
+405,2023-09-15,Minnesota Twins,Texas Rangers,Joe West,Spencer Strider,Dylan Cease,R,R,5,5,3.3,5.41,2.1,6.5,0,0,112,94,False,False,Yankee Stadium,9.0,9.0,8
+406,2022-10-27,Baltimore Orioles,Arizona Diamondbacks,Marvin Hudson,Patrick Corbin,Max Scherzer,L,R,4,4,3.55,3.31,3.8,5.7,-2,-1,105,98,False,False,Progressive Field,8.5,8.0,8
+407,2023-07-27,Houston Astros,Boston Red Sox,Marvin Hudson,Spencer Strider,Sandy Alcantara,R,R,3,3,4.37,3.42,6.9,4.2,-1,0,98,117,False,False,Busch Stadium,10.0,10.0,9
+408,2023-06-06,Tampa Bay Rays,Seattle Mariners,Bill Miller,Blake Snell,Gerrit Cole,L,R,5,5,4.31,6.35,5.6,6.6,-2,0,105,85,True,False,Citizens Bank Park,9.5,9.5,8
+409,2024-06-27,Baltimore Orioles,Tampa Bay Rays,Angel Hernandez,Zack Wheeler,Blake Snell,R,L,5,4,4.71,4.03,6.1,5.7,2,-2,98,98,False,False,Citizens Bank Park,8.5,8.5,3
+410,2022-09-25,Los Angeles Dodgers,Cincinnati Reds,Marvin Hudson,Sandy Alcantara,Max Scherzer,R,R,6,6,3.75,4.63,5.5,5.2,0,2,134,105,False,True,American Family Field,9.5,9.5,11
+411,2022-07-26,Cincinnati Reds,Atlanta Braves,Nic Lentz,Dylan Cease,Zack Wheeler,R,R,4,5,6.01,5.1,6.6,5.8,1,0,91,90,True,False,Dodger Stadium,10.0,10.0,9
+412,2023-04-07,Baltimore Orioles,Cincinnati Reds,Jeff Nelson,Dylan Cease,Dylan Cease,R,R,5,4,3.26,3.98,5.1,4.2,0,0,102,98,True,True,Great American Ball Park,10.0,10.0,10
+413,2022-06-06,Philadelphia Phillies,Cleveland Guardians,Hunter Wendelstedt,Blake Snell,Dylan Cease,L,R,4,3,4.92,3.15,5.5,4.9,-2,-2,94,96,False,False,Progressive Field,8.0,8.0,10
+414,2022-07-06,Tampa Bay Rays,Milwaukee Brewers,Marvin Hudson,Logan Webb,Gerrit Cole,R,R,4,5,4.18,5.02,3.0,3.5,-1,0,95,104,False,False,Busch Stadium,8.5,8.5,11
+415,2024-06-07,Baltimore Orioles,Toronto Blue Jays,Joe West,Max Scherzer,Dylan Cease,R,R,5,5,4.68,2.56,3.9,4.6,-1,0,94,99,False,False,American Family Field,9.5,9.5,10
+416,2023-04-04,Los Angeles Dodgers,Cincinnati Reds,Jeff Nelson,Julio Urias,Julio Urias,L,L,5,4,3.34,3.56,5.0,5.2,0,2,103,85,True,False,Globe Life Field,9.5,9.5,9
+417,2023-10-12,Philadelphia Phillies,Tampa Bay Rays,Bill Miller,Max Scherzer,Gerrit Cole,R,R,5,4,3.55,3.96,4.1,4.2,2,1,83,101,False,False,Dodger Stadium,8.0,8.0,9
+418,2022-04-07,Cincinnati Reds,Atlanta Braves,Bill Miller,Spencer Strider,Gerrit Cole,R,R,3,6,3.03,5.47,7.8,4.8,-2,0,99,121,True,False,Citizens Bank Park,9.5,9.5,6
+419,2023-09-15,Los Angeles Dodgers,Cleveland Guardians,Angel Hernandez,Clayton Kershaw,Zack Wheeler,L,R,3,4,3.61,4.12,3.6,5.2,0,0,102,86,True,False,Chase Field,9.5,9.5,13
+420,2023-05-16,Los Angeles Dodgers,Toronto Blue Jays,Sam Holbrook,Max Scherzer,Gerrit Cole,R,R,4,4,4.47,5.23,2.7,4.6,-2,0,95,83,False,True,Dodger Stadium,9.5,9.5,10
+421,2024-09-04,Philadelphia Phillies,San Diego Padres,Angel Hernandez,Clayton Kershaw,Patrick Corbin,L,L,4,5,5.14,3.27,5.2,7.5,0,0,117,103,False,False,Globe Life Field,9.5,9.5,2
+422,2024-07-24,San Francisco Giants,Los Angeles Dodgers,Angel Hernandez,Clayton Kershaw,Sandy Alcantara,L,R,5,4,3.98,4.98,3.8,4.2,1,-1,83,107,False,False,Oracle Park,9.0,9.0,10
+423,2023-04-08,Seattle Mariners,Atlanta Braves,Bill Miller,Zack Wheeler,Gerrit Cole,R,R,3,6,4.66,3.77,5.6,7.0,0,2,96,116,False,True,Truist Park,9.0,9.0,6
+424,2024-07-14,St. Louis Cardinals,Milwaukee Brewers,CB Bucknor,Zack Wheeler,Dylan Cease,R,R,4,4,4.48,4.76,6.6,5.8,-2,0,74,82,False,False,Dodger Stadium,9.5,9.5,11
+425,2022-04-10,Seattle Mariners,St. Louis Cardinals,Nic Lentz,Logan Webb,Max Scherzer,R,R,6,3,3.72,5.0,4.1,6.2,2,1,100,113,False,False,Progressive Field,9.5,9.5,11
+426,2023-07-01,Boston Red Sox,San Francisco Giants,Jeff Nelson,Julio Urias,Max Scherzer,L,R,4,5,4.08,2.05,3.7,6.5,0,1,80,76,False,False,Yankee Stadium,9.5,9.5,19
+427,2024-06-27,Chicago Cubs,San Francisco Giants,Mark Wegner,Dylan Cease,Sandy Alcantara,R,R,5,4,3.39,4.56,7.1,4.6,0,0,114,97,False,False,Oracle Park,9.5,9.5,13
+428,2024-04-02,Philadelphia Phillies,San Francisco Giants,Hunter Wendelstedt,Sandy Alcantara,Dylan Cease,R,R,5,4,4.95,4.22,5.2,4.7,0,0,115,85,False,False,Dodger Stadium,9.0,9.0,10
+429,2023-05-26,San Francisco Giants,Philadelphia Phillies,Nic Lentz,Max Scherzer,Zack Wheeler,R,R,3,3,3.59,4.73,7.1,3.6,0,-1,94,114,False,False,Oracle Park,9.0,9.0,12
+430,2024-05-13,Arizona Diamondbacks,Philadelphia Phillies,Jeff Nelson,Zack Wheeler,Sandy Alcantara,R,R,6,6,3.8,4.37,4.0,5.4,2,2,93,109,False,False,Globe Life Field,9.0,9.0,7
+431,2024-06-02,Chicago Cubs,New York Yankees,Sam Holbrook,Gerrit Cole,Clayton Kershaw,R,L,6,6,3.57,4.71,7.2,5.1,-2,-1,96,101,True,False,Progressive Field,9.5,9.5,12
+432,2024-04-23,Atlanta Braves,Minnesota Twins,Dan Iassogna,Logan Webb,Sandy Alcantara,R,R,4,5,5.01,5.23,4.1,5.0,2,2,106,92,False,False,Wrigley Field,9.5,9.5,7
+433,2023-04-27,New York Yankees,St. Louis Cardinals,Dan Iassogna,Gerrit Cole,Gerrit Cole,R,R,5,5,2.79,5.36,4.6,6.3,0,-2,102,123,False,False,Citizens Bank Park,9.0,9.0,10
+434,2023-06-22,Chicago Cubs,Atlanta Braves,Marvin Hudson,Zack Wheeler,Zack Wheeler,R,R,4,5,3.01,4.25,3.6,6.2,0,1,89,106,True,False,T-Mobile Park,9.5,9.5,8
+435,2024-07-09,Arizona Diamondbacks,Toronto Blue Jays,Bill Miller,Max Scherzer,Max Scherzer,R,R,4,4,3.21,5.43,3.9,5.0,2,-1,97,103,False,False,Chase Field,10.5,10.5,10
+436,2023-08-22,Arizona Diamondbacks,Boston Red Sox,Laz Diaz,Spencer Strider,Spencer Strider,R,R,4,5,3.95,3.28,4.5,4.2,2,0,87,92,False,False,Progressive Field,9.5,9.5,6
+437,2024-10-08,Los Angeles Dodgers,Houston Astros,Bill Miller,Gerrit Cole,Max Scherzer,R,R,4,4,4.09,3.42,7.7,4.5,0,-1,100,103,False,False,Truist Park,8.0,8.0,10
+438,2023-07-22,Minnesota Twins,New York Yankees,Mark Wegner,Max Scherzer,Sandy Alcantara,R,R,4,4,4.34,4.65,5.9,3.0,0,0,85,92,False,False,Busch Stadium,9.5,9.5,9
+439,2023-08-18,Philadelphia Phillies,New York Yankees,Angel Hernandez,Julio Urias,Zack Wheeler,L,R,6,4,4.47,3.38,3.3,3.3,-1,0,110,110,True,False,Great American Ball Park,9.5,9.5,6
+440,2023-04-18,Houston Astros,Arizona Diamondbacks,Angel Hernandez,Spencer Strider,Dylan Cease,R,R,5,4,5.32,2.72,3.8,5.0,0,-1,98,94,False,False,Petco Park,8.5,8.5,7
+441,2023-10-22,San Diego Padres,New York Yankees,Bill Miller,Dylan Cease,Clayton Kershaw,R,L,4,4,2.75,4.26,3.5,4.4,-2,-2,104,90,True,False,Wrigley Field,9.5,9.5,15
+442,2023-06-26,Cincinnati Reds,Los Angeles Dodgers,Sam Holbrook,Julio Urias,Max Scherzer,L,R,6,4,4.47,4.24,5.3,2.8,-1,-1,112,86,False,False,Fenway Park,9.5,9.5,13
+443,2023-05-11,Houston Astros,Tampa Bay Rays,Marvin Hudson,Max Scherzer,Patrick Corbin,R,L,5,4,4.23,4.55,6.2,5.1,-2,-2,104,85,False,True,Citizens Bank Park,9.5,9.5,4
+444,2023-05-20,Seattle Mariners,Houston Astros,Nic Lentz,Sandy Alcantara,Zack Wheeler,R,R,5,5,3.56,3.22,7.5,6.3,0,1,94,79,False,False,Progressive Field,9.5,9.5,8
+445,2024-08-16,Chicago Cubs,Cleveland Guardians,Angel Hernandez,Logan Webb,Dylan Cease,R,R,4,4,4.33,4.62,5.9,4.9,2,-1,103,111,False,True,Wrigley Field,9.0,9.0,12
+446,2022-06-28,Seattle Mariners,Milwaukee Brewers,Jeff Nelson,Blake Snell,Sandy Alcantara,L,R,5,5,2.61,4.25,4.7,5.2,0,1,105,112,True,False,Fenway Park,9.0,9.0,16
+447,2023-10-24,San Francisco Giants,Minnesota Twins,Bill Miller,Spencer Strider,Spencer Strider,R,R,3,6,4.56,4.34,3.5,6.2,2,0,118,78,False,False,Globe Life Field,9.0,9.0,6
+448,2022-10-18,Arizona Diamondbacks,St. Louis Cardinals,Hunter Wendelstedt,Sandy Alcantara,Clayton Kershaw,R,L,4,4,4.0,4.1,4.9,5.9,0,-2,88,83,True,False,Citizens Bank Park,9.5,9.5,7
+449,2022-07-02,Boston Red Sox,San Diego Padres,Mark Wegner,Blake Snell,Patrick Corbin,L,L,5,4,4.02,5.28,4.8,5.4,0,0,101,90,False,True,Yankee Stadium,7.5,7.5,8
+450,2024-09-08,Baltimore Orioles,Philadelphia Phillies,Dan Iassogna,Gerrit Cole,Max Scherzer,R,R,4,3,6.37,4.09,7.3,5.2,-2,0,96,99,False,True,Fenway Park,9.5,9.5,10
+451,2023-05-01,St. Louis Cardinals,Chicago Cubs,Nic Lentz,Zack Wheeler,Dylan Cease,R,R,4,5,4.37,3.5,3.5,6.0,1,0,95,95,True,False,American Family Field,9.5,9.5,11
+452,2022-07-25,Arizona Diamondbacks,New York Yankees,Nic Lentz,Logan Webb,Max Scherzer,R,R,3,4,6.14,3.64,6.5,4.9,-1,2,88,96,False,False,American Family Field,9.5,9.5,7
+453,2023-05-15,St. Louis Cardinals,Houston Astros,Dan Iassogna,Julio Urias,Julio Urias,L,L,4,3,5.41,3.99,2.2,6.0,1,0,113,107,True,False,Globe Life Field,9.5,9.5,12
+454,2023-10-10,Milwaukee Brewers,Seattle Mariners,Laz Diaz,Clayton Kershaw,Logan Webb,L,R,4,4,4.8,4.75,4.3,5.0,1,2,106,95,True,False,T-Mobile Park,9.0,9.0,8
+455,2022-05-17,Baltimore Orioles,Atlanta Braves,Marvin Hudson,Max Scherzer,Blake Snell,R,L,6,5,5.71,3.35,4.3,6.0,-1,0,99,94,False,False,Citizens Bank Park,10.0,10.0,10
+456,2023-09-05,Arizona Diamondbacks,Atlanta Braves,CB Bucknor,Max Scherzer,Dylan Cease,R,R,3,4,4.02,3.15,5.6,3.7,0,0,90,94,False,False,Chase Field,10.0,10.0,6
+457,2023-06-11,Chicago Cubs,Baltimore Orioles,Sam Holbrook,Zack Wheeler,Dylan Cease,R,R,5,4,4.29,2.22,7.8,5.8,2,0,91,104,False,False,Great American Ball Park,8.5,8.5,7
+458,2024-10-04,Minnesota Twins,Cleveland Guardians,Mark Wegner,Dylan Cease,Sandy Alcantara,R,R,4,3,4.14,4.55,3.6,4.5,0,0,97,98,False,False,Chase Field,9.0,9.0,8
+459,2022-09-23,Texas Rangers,New York Yankees,Laz Diaz,Zack Wheeler,Dylan Cease,R,R,6,4,3.4,4.49,4.8,7.4,0,2,85,72,False,False,Oracle Park,9.0,9.0,7
+460,2024-10-17,Seattle Mariners,Los Angeles Dodgers,Angel Hernandez,Dylan Cease,Sandy Alcantara,R,R,4,4,4.84,3.21,5.2,4.8,2,2,107,100,False,False,Dodger Stadium,9.0,9.0,8
+461,2024-09-07,Texas Rangers,Cleveland Guardians,Laz Diaz,Spencer Strider,Clayton Kershaw,R,L,4,5,5.13,4.62,5.2,5.7,1,2,99,112,False,False,Great American Ball Park,9.0,9.0,4
+462,2024-07-10,Milwaukee Brewers,San Francisco Giants,Jeff Nelson,Spencer Strider,Zack Wheeler,R,R,4,4,5.46,5.27,5.0,4.0,1,0,100,113,True,False,Progressive Field,9.0,9.0,5
+463,2022-10-26,Atlanta Braves,Toronto Blue Jays,CB Bucknor,Patrick Corbin,Spencer Strider,L,R,5,4,3.55,3.93,4.4,3.9,-2,1,92,104,True,False,Great American Ball Park,8.5,8.5,9
+464,2024-08-11,Seattle Mariners,Minnesota Twins,Jeff Nelson,Sandy Alcantara,Sandy Alcantara,R,R,4,5,2.3,3.72,6.2,5.2,-2,2,94,110,False,True,T-Mobile Park,9.0,9.0,13
+465,2023-07-07,Houston Astros,San Francisco Giants,Joe West,Zack Wheeler,Spencer Strider,R,R,5,3,4.2,4.33,6.1,3.3,-1,0,79,100,True,False,Busch Stadium,9.5,9.5,3
+466,2023-10-03,New York Yankees,San Diego Padres,Jeff Nelson,Dylan Cease,Max Scherzer,R,R,4,4,2.95,4.16,5.0,4.8,2,-2,74,93,True,False,Truist Park,9.5,9.5,12
+467,2024-07-13,Toronto Blue Jays,Texas Rangers,Dan Iassogna,Sandy Alcantara,Logan Webb,R,R,4,5,5.94,5.35,3.7,4.5,2,-1,88,100,False,False,Yankee Stadium,9.0,9.0,14
+468,2023-06-05,Minnesota Twins,Arizona Diamondbacks,CB Bucknor,Zack Wheeler,Blake Snell,R,L,6,3,4.55,4.15,6.2,7.1,1,-1,100,107,False,False,Busch Stadium,9.0,9.0,9
+469,2022-06-23,Arizona Diamondbacks,Seattle Mariners,Bill Miller,Patrick Corbin,Dylan Cease,L,R,4,6,3.34,3.85,2.0,5.0,0,0,87,103,False,False,Wrigley Field,9.0,9.0,5
+470,2022-04-14,Los Angeles Dodgers,Philadelphia Phillies,Marvin Hudson,Zack Wheeler,Blake Snell,R,L,5,4,3.52,3.51,6.6,6.9,1,1,106,100,False,False,Camden Yards,9.0,9.0,15
+471,2023-07-07,San Diego Padres,San Francisco Giants,Angel Hernandez,Zack Wheeler,Dylan Cease,R,R,4,3,3.91,2.66,6.0,6.1,-2,1,112,101,True,True,Globe Life Field,9.5,9.0,12
+472,2023-09-18,New York Yankees,Boston Red Sox,CB Bucknor,Max Scherzer,Gerrit Cole,R,R,4,4,2.93,2.87,4.7,7.2,-2,1,91,95,False,False,Chase Field,9.0,9.0,9
+473,2024-08-21,San Diego Padres,Arizona Diamondbacks,Sam Holbrook,Logan Webb,Zack Wheeler,R,R,6,5,3.54,5.4,4.2,4.5,-2,2,112,87,False,True,Truist Park,9.0,9.0,10
+474,2023-07-22,Seattle Mariners,Texas Rangers,Nic Lentz,Zack Wheeler,Sandy Alcantara,R,R,5,4,3.76,5.48,5.1,6.2,-2,1,97,89,False,False,Yankee Stadium,8.5,8.5,10
+475,2023-09-12,Los Angeles Dodgers,Seattle Mariners,Mark Wegner,Spencer Strider,Sandy Alcantara,R,R,4,4,5.25,3.03,5.1,3.9,1,0,82,84,False,True,Chase Field,8.0,8.0,4
+476,2023-08-01,Minnesota Twins,Baltimore Orioles,CB Bucknor,Sandy Alcantara,Dylan Cease,R,R,5,4,4.83,4.33,4.6,5.0,2,2,100,117,False,False,Globe Life Field,9.5,9.5,12
+477,2022-10-28,Milwaukee Brewers,Chicago Cubs,Laz Diaz,Max Scherzer,Blake Snell,R,L,4,4,2.85,4.95,6.6,5.6,0,0,112,109,False,True,Fenway Park,8.5,8.5,4
+478,2024-04-03,Cincinnati Reds,New York Yankees,Angel Hernandez,Logan Webb,Max Scherzer,R,R,4,6,4.23,3.75,4.9,5.7,0,0,86,88,False,False,American Family Field,7.5,7.5,11
+479,2024-04-06,New York Yankees,Boston Red Sox,Hunter Wendelstedt,Dylan Cease,Sandy Alcantara,R,R,4,5,4.09,4.08,5.1,5.2,2,0,76,106,False,False,Dodger Stadium,8.5,8.5,9
+480,2023-05-06,Texas Rangers,Philadelphia Phillies,Hunter Wendelstedt,Max Scherzer,Julio Urias,R,L,4,4,4.0,3.61,3.4,5.1,0,-2,92,90,False,False,Camden Yards,9.0,9.0,12
+481,2024-08-27,Houston Astros,Cincinnati Reds,Marvin Hudson,Max Scherzer,Sandy Alcantara,R,R,3,6,4.09,5.15,5.2,5.8,0,0,113,93,False,False,American Family Field,8.5,8.5,11
+482,2023-07-11,Chicago Cubs,Cincinnati Reds,Angel Hernandez,Max Scherzer,Blake Snell,R,L,4,3,4.62,3.91,4.6,5.6,-1,0,100,87,False,False,Wrigley Field,9.0,9.0,9
+483,2022-10-17,Tampa Bay Rays,Toronto Blue Jays,Laz Diaz,Max Scherzer,Dylan Cease,R,R,4,5,3.63,4.48,3.6,4.2,0,-1,105,109,False,False,Wrigley Field,8.5,8.5,11
+484,2023-07-06,St. Louis Cardinals,Texas Rangers,Dan Iassogna,Max Scherzer,Dylan Cease,R,R,5,4,3.91,3.75,5.5,5.9,0,0,108,90,False,True,Fenway Park,9.5,9.5,4
+485,2023-10-15,San Francisco Giants,Minnesota Twins,Bill Miller,Julio Urias,Gerrit Cole,L,R,3,4,4.23,3.84,6.4,6.5,0,1,104,75,False,False,Great American Ball Park,8.5,8.5,12
+486,2023-08-27,Tampa Bay Rays,Toronto Blue Jays,Sam Holbrook,Sandy Alcantara,Max Scherzer,R,R,4,5,3.55,3.73,5.8,5.4,1,0,110,103,True,False,Yankee Stadium,9.0,9.0,6
+487,2024-08-27,Baltimore Orioles,Chicago Cubs,Mark Wegner,Sandy Alcantara,Max Scherzer,R,R,4,5,4.46,3.51,4.8,3.3,1,-2,102,93,True,False,Great American Ball Park,10.5,10.5,11
+488,2023-08-12,Chicago Cubs,New York Yankees,Laz Diaz,Blake Snell,Julio Urias,L,L,6,5,3.84,2.7,5.6,4.9,0,1,88,98,False,True,Oracle Park,9.0,9.0,5
+489,2024-09-12,Boston Red Sox,Cincinnati Reds,Hunter Wendelstedt,Sandy Alcantara,Blake Snell,R,L,4,5,3.85,4.77,5.6,3.6,0,0,99,102,False,False,Chase Field,9.0,9.0,9
+490,2023-06-15,Cincinnati Reds,Atlanta Braves,Angel Hernandez,Zack Wheeler,Clayton Kershaw,R,L,3,5,4.26,5.69,6.0,3.3,-1,-1,95,101,False,True,Dodger Stadium,9.0,9.0,12
+491,2024-09-03,Atlanta Braves,Tampa Bay Rays,Sam Holbrook,Max Scherzer,Max Scherzer,R,R,6,5,5.59,3.89,1.5,3.3,-1,-1,79,95,False,True,Progressive Field,9.0,9.0,8
+492,2023-05-01,Arizona Diamondbacks,Milwaukee Brewers,Joe West,Clayton Kershaw,Dylan Cease,L,R,6,5,3.85,3.66,2.9,5.5,2,0,107,105,False,False,Fenway Park,8.0,8.0,6
+493,2023-05-15,Cincinnati Reds,Cleveland Guardians,CB Bucknor,Julio Urias,Patrick Corbin,L,L,6,3,3.21,4.21,5.6,6.0,1,0,92,87,True,False,Great American Ball Park,9.0,9.0,11
+494,2024-06-19,Minnesota Twins,Los Angeles Dodgers,Joe West,Dylan Cease,Spencer Strider,R,R,5,5,4.37,4.2,6.5,4.7,1,0,89,111,False,False,Wrigley Field,8.5,8.5,12
+495,2023-08-14,Atlanta Braves,Philadelphia Phillies,Marvin Hudson,Gerrit Cole,Logan Webb,R,R,4,6,4.55,5.88,4.6,7.0,2,0,91,84,False,False,Progressive Field,9.5,9.5,4
+496,2023-06-01,St. Louis Cardinals,Arizona Diamondbacks,Sam Holbrook,Patrick Corbin,Sandy Alcantara,L,R,5,6,3.75,4.97,6.2,7.3,1,-1,81,73,False,False,Chase Field,9.0,9.5,14
+497,2022-09-20,Cincinnati Reds,Seattle Mariners,Mark Wegner,Gerrit Cole,Julio Urias,R,L,6,3,3.46,4.81,5.9,7.5,1,0,99,91,False,False,T-Mobile Park,9.5,9.5,2
+498,2022-07-17,Texas Rangers,Minnesota Twins,Mark Wegner,Gerrit Cole,Zack Wheeler,R,R,3,4,4.71,2.76,6.8,3.1,0,1,99,96,False,False,Chase Field,8.0,8.0,9
+499,2023-07-27,Tampa Bay Rays,San Francisco Giants,Laz Diaz,Patrick Corbin,Dylan Cease,L,R,3,4,3.98,4.98,5.9,3.2,0,1,97,86,False,False,Truist Park,9.0,9.0,9

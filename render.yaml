@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ack-splore-picks
+    env: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: ODDS_API_KEY
+        sync: false   # set this manually in Render dashboard

@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACK-Splore</title>
+    <style>
+      :root {
+        --bg: #0b1220;
+        --card: rgba(255, 255, 255, 0.06);
+        --card2: rgba(255, 255, 255, 0.08);
+        --text: #eaf0ff;
+        --muted: rgba(234, 240, 255, 0.75);
+        --muted2: rgba(234, 240, 255, 0.6);
+        --line: rgba(234, 240, 255, 0.14);
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--text);
+        background: radial-gradient(
+            1200px 700px at 10% 10%,
+            rgba(94, 234, 212, 0.25),
+            transparent 55%
+          ),
+          radial-gradient(
+            900px 600px at 90% 20%,
+            rgba(59, 130, 246, 0.22),
+            transparent 55%
+          ),
+          radial-gradient(
+            800px 500px at 30% 90%,
+            rgba(244, 114, 182, 0.18),
+            transparent 55%
+          ),
+          var(--bg);
+        display: grid;
+        place-items: center;
+        padding: 28px;
+      }
+
+      .shell {
+        width: min(960px, 100%);
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 14px;
+        background: linear-gradient(
+          135deg,
+          rgba(94, 234, 212, 0.9),
+          rgba(59, 130, 246, 0.9)
+        );
+        box-shadow: var(--shadow);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: 0.2px;
+      }
+
+      .pill {
+        font-size: 12px;
+        padding: 8px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--muted);
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      .card-inner {
+        padding: 22px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 10px;
+      }
+
+      .title {
+        font-size: clamp(34px, 4.2vw, 52px);
+        margin: 0;
+        line-height: 1.05;
+        letter-spacing: -0.6px;
+      }
+
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+        max-width: 62ch;
+      }
+
+      .divider {
+        height: 1px;
+        background: var(--line);
+        margin: 18px 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      @media (max-width: 840px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      .btn {
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: var(--card2);
+        color: var(--text);
+        border-radius: 16px;
+        padding: 16px;
+        text-align: left;
+        transition: transform 0.12s ease, background 0.12s ease,
+          border-color 0.12s ease;
+        display: grid;
+        gap: 6px;
+        min-height: 92px;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        border-color: rgba(234, 240, 255, 0.28);
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .btn:active {
+        transform: translateY(0px);
+      }
+
+      .btn .label {
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+      }
+
+      .btn .desc {
+        font-size: 13px;
+        color: var(--muted2);
+        line-height: 1.35;
+      }
+
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .crumbs {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      .back {
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        padding: 10px 12px;
+        border-radius: 12px;
+        font-size: 13px;
+        transition: background 0.12s ease, border-color 0.12s ease;
+      }
+      .back:hover {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(234, 240, 255, 0.28);
+      }
+
+      .panel {
+        border: 1px solid var(--line);
+        background: rgba(0, 0, 0, 0.15);
+        border-radius: 16px;
+        padding: 16px;
+      }
+
+      .field {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      label {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      input {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        outline: none;
+      }
+
+      input:focus {
+        border-color: rgba(94, 234, 212, 0.65);
+        box-shadow: 0 0 0 3px rgba(94, 234, 212, 0.12);
+      }
+
+      .actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+
+      .primary {
+        cursor: pointer;
+        border: 1px solid rgba(94, 234, 212, 0.5);
+        background: linear-gradient(
+          135deg,
+          rgba(94, 234, 212, 0.22),
+          rgba(59, 130, 246, 0.18)
+        );
+        color: var(--text);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-weight: 700;
+        transition: transform 0.12s ease, border-color 0.12s ease,
+          background 0.12s ease;
+      }
+
+      .primary:hover {
+        transform: translateY(-1px);
+        border-color: rgba(94, 234, 212, 0.8);
+      }
+
+      .secondary {
+        cursor: pointer;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--text);
+        border-radius: 14px;
+        padding: 12px 14px;
+        font-weight: 700;
+      }
+
+      .note {
+        margin-top: 10px;
+        font-size: 12px;
+        color: var(--muted2);
+        line-height: 1.35;
+      }
+
+      .toast {
+        margin-top: 12px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        color: var(--muted);
+        display: none;
+      }
+
+      .toast.show {
+        display: block;
+      }
+
+      .success {
+        border-color: rgba(34, 197, 94, 0.35);
+        background: rgba(34, 197, 94, 0.08);
+        color: rgba(220, 252, 231, 0.95);
+      }
+
+      .danger {
+        border-color: rgba(239, 68, 68, 0.35);
+        background: rgba(239, 68, 68, 0.08);
+        color: rgba(254, 226, 226, 0.95);
+      }
+
+      footer {
+        margin-top: 14px;
+        color: var(--muted2);
+        font-size: 12px;
+        text-align: center;
+      }
+
+      .view {
+        display: none;
+      }
+      .view.active {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="shell">
+      <header>
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>
+            <h1>ACK-Splore</h1>
+            <div class="pill" id="statusPill">Home</div>
+          </div>
+        </div>
+        <div class="pill" id="crumbPill">Select a tour</div>
+      </header>
+
+      <main class="card">
+        <div class="card-inner">
+          <!-- VIEW: HOME -->
+          <section class="view active" id="view-home">
+            <div class="hero">
+              <h2 class="title">ACK-Splore</h2>
+              <p class="subtitle">
+                Choose a scavenger hunt tour for Nantucket. Pick a route length,
+                then start your experience. (Payments are stubbed for now —
+                there’s a bypass code for testing.)
+              </p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid">
+              <button class="btn" id="btn-historic">
+                <div class="label">Historic Tour</div>
+                <div class="desc">
+                  Landmarks, stories, and classic ACK history stops.
+                </div>
+              </button>
+
+              <button class="btn" id="btn-21plus">
+                <div class="label">21+ Tour</div>
+                <div class="desc">Bar-friendly route (placeholder for now).</div>
+              </button>
+
+              <button class="btn" id="btn-family">
+                <div class="label">Family Fun Tour</div>
+                <div class="desc">Kid-friendly route (placeholder for now).</div>
+              </button>
+            </div>
+          </section>
+
+          <!-- VIEW: TOUR (Historic loop choices) -->
+          <section class="view" id="view-historic-loops">
+            <div class="row">
+              <div class="crumbs">Historic Tour • Choose your loop</div>
+              <button class="back" id="back-to-home">← Back</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="grid">
+              <button class="btn loop-btn" data-loop="Short Loop">
+                <div class="label">Short Loop</div>
+                <div class="desc">
+                  Quick hit route — perfect if you’re tight on time.
+                </div>
+              </button>
+
+              <button class="btn loop-btn" data-loop="Base Loop">
+                <div class="label">Base Loop</div>
+                <div class="desc">The “main” experience (test route).</div>
+              </button>
+
+              <button class="btn loop-btn" data-loop="Long Loop">
+                <div class="label">Long Loop</div>
+                <div class="desc">More stops, more walking, more stories.</div>
+              </button>
+            </div>
+
+            <p class="note">
+              Right now only the Historic Tour flow is wired as the test case.
+            </p>
+          </section>
+
+          <!-- VIEW: PAYMENT -->
+          <section class="view" id="view-payment">
+            <div class="row">
+              <div class="crumbs" id="payment-crumbs">Payment</div>
+              <button class="back" id="back-to-loops">← Back</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="panel">
+              <div style="font-weight: 800; font-size: 16px; margin-bottom: 6px">
+                Payment required (stub)
+              </div>
+              <div
+                style="
+                  color: var(--muted);
+                  font-size: 13px;
+                  line-height: 1.35;
+                "
+              >
+                This is where Stripe/checkout will go later. For testing, enter
+                the bypass code to start the tour immediately.
+              </div>
+
+              <div class="field">
+                <label for="bypassInput">Bypass code</label>
+                <input
+                  id="bypassInput"
+                  type="password"
+                  placeholder="Enter code"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="actions">
+                <button class="primary" id="btn-bypass">
+                  Bypass & Start Tour
+                </button>
+                <button class="secondary" id="btn-fakepay">
+                  Simulate Payment
+                </button>
+              </div>
+
+              <div class="toast" id="toast"></div>
+
+              <p class="note">Test code: <strong>Ablack008!</strong></p>
+            </div>
+          </section>
+
+          <!-- VIEW: TOUR -->
+          <section class="view" id="view-tour">
+            <div class="row">
+              <div class="crumbs" id="tour-crumbs">Tour</div>
+              <button class="back" id="back-to-home-from-tour">← Home</button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="panel">
+              <div
+                style="
+                  display: flex;
+                  align-items: flex-start;
+                  justify-content: space-between;
+                  gap: 12px;
+                  flex-wrap: wrap;
+                "
+              >
+                <div>
+                  <div
+                    style="
+                      font-weight: 900;
+                      font-size: 22px;
+                      letter-spacing: -0.3px;
+                    "
+                  >
+                    Base Loop • Live
+                  </div>
+                  <div
+                    style="
+                      margin-top: 6px;
+                      color: var(--muted);
+                      line-height: 1.45;
+                    "
+                  >
+                    Complete each station to unlock the next one.
+                  </div>
+                </div>
+
+                <div style="min-width: 220px">
+                  <div
+                    style="
+                      font-size: 12px;
+                      color: var(--muted2);
+                      margin-bottom: 6px;
+                    "
+                  >
+                    Progress: <span id="progressText">0 / 0</span>
+                  </div>
+                  <div
+                    style="
+                      height: 10px;
+                      border-radius: 999px;
+                      border: 1px solid var(--line);
+                      overflow: hidden;
+                      background: rgba(255, 255, 255, 0.05);
+                    "
+                  >
+                    <div
+                      id="progressBar"
+                      style="
+                        height: 100%;
+                        width: 0%;
+                        background: rgba(94, 234, 212, 0.55);
+                      "
+                    ></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="divider"></div>
+
+              <div style="display: grid; gap: 10px">
+                <div style="font-size: 12px; color: var(--muted2)">
+                  <span id="actLabel"></span>
+                </div>
+
+                <div
+                  style="
+                    font-weight: 900;
+                    font-size: 18px;
+                    letter-spacing: -0.2px;
+                  "
+                >
+                  <span id="stationTitle"></span>
+                </div>
+
+                <div style="color: var(--muted); line-height: 1.55">
+                  <span id="stationBody"></span>
+                </div>
+
+                <div
+                  style="
+                    border: 1px solid var(--line);
+                    background: rgba(255, 255, 255, 0.04);
+                    border-radius: 14px;
+                    padding: 12px;
+                  "
+                >
+                  <div style="font-weight: 800; font-size: 13px; margin-bottom: 6px">
+                    Where to go
+                  </div>
+                  <div style="color: var(--muted2); line-height: 1.45">
+                    <span id="stationWhere"></span>
+                  </div>
+                </div>
+
+                <div
+                  style="
+                    border: 1px solid var(--line);
+                    background: rgba(255, 255, 255, 0.04);
+                    border-radius: 14px;
+                    padding: 12px;
+                  "
+                >
+                  <div style="font-weight: 800; font-size: 13px; margin-bottom: 6px">
+                    Task
+                  </div>
+                  <div style="color: var(--muted2); line-height: 1.45">
+                    <span id="stationTask"></span>
+                  </div>
+                </div>
+
+                <div class="actions" style="margin-top: 4px">
+                  <button class="secondary" id="btn-prev-station">
+                    ← Previous
+                  </button>
+                  <button class="primary" id="btn-complete-station">
+                    Complete & Next →
+                  </button>
+                </div>
+
+                <div class="toast" id="tourToast"></div>
+
+                <div style="margin-top: 6px; color: var(--muted2); font-size: 13px">
+                  <div><strong>Tour:</strong> <span id="finalTour"></span></div>
+                  <div><strong>Loop:</strong> <span id="finalLoop"></span></div>
+                  <div><strong>Access:</strong> <span id="finalAccess"></span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- VIEW: PLACEHOLDER -->
+          <section class="view" id="view-placeholder">
+            <div class="row">
+              <div class="crumbs" id="placeholder-crumbs">Coming soon</div>
+              <button class="back" id="back-to-home-from-placeholder">
+                ← Back
+              </button>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="panel">
+              <div style="font-weight: 900; font-size: 20px">
+                Not wired yet 🚧
+              </div>
+              <div style="margin-top: 8px; color: var(--muted); line-height: 1.45">
+                This tour is a placeholder for now. The Historic Tour is the
+                test path we’re building first.
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer>
+        ACK-Splore • Prototype flow: Home → Historic → Loop → Payment/Bypass →
+        Tour
+      </footer>
+    </div>
+
+    <script>
+      // ----- State -----
+      const state = {
+        tour: null,
+        loop: null,
+      };
+
+      const BYPASS_CODE = "Ablack008!";
+
+      // ----- Base Loop Content (Historic Tour) -----
+      const baseLoopStations = [
+        {
+          act: "Act I: Origins & Belief",
+          title: "Station One: Jethro Coffin House",
+          where:
+            "Go to the Jethro Coffin House (built 1686) — the oldest surviving house on Nantucket.",
+          body:
+            "Before Nantucket became a whaling powerhouse, it was home to the Wampanoag people, who gave the island its name—likely meaning “far away island” or “sandy soil.” The island’s isolation shaped life here long before Europeans arrived. English settlers came to Nantucket in the mid-1600s, purchasing the land through agreements that reflected early colonial practices. These early settlers relied heavily on cooperation and shared responsibility in order to survive. The Jethro Coffin House belonged to one of the island’s founding families, whose descendants still live on Nantucket today. It offers a glimpse into daily life during the island’s earliest years.",
+          task: "Take a photo of the house or the sign. Then tap Complete.",
+        },
+        {
+          act: "Act I: Origins & Belief",
+          title: "Station Two: Quaker Meeting House",
+          where:
+            "Head to the Friends Meeting House on Fair Street (constructed 1838).",
+          body:
+            "Quaker beliefs shaped Nantucket’s culture beginning in the early 1700s, emphasizing simplicity, equality, and community. Early meetings were held in private homes before formal meetinghouses were built. The Friends Meeting House reflects the Quaker commitment to plain design and shared worship. Quaker influence extended beyond religion, shaping attitudes toward education, business, and later, social reform.",
+          task:
+            "Look for something ‘plain’ about the building’s design. Describe it out loud to your group, then tap Complete.",
+        },
+        {
+          act: "Act II: Whaling & Wealth",
+          title: "Station Three: Whaling Museum",
+          where:
+            "Go to the Nantucket Whaling Museum (the building originally dates to 1847 as an oil/candle factory).",
+          body:
+            "By the early 1800s, Nantucket was one of the most important whaling ports in the world. Whale oil fueled street lamps in London and Paris, powered lighthouses, and drove the global economy long before electricity. This building was originally constructed in 1847 as an oil and candle factory operated by Hadwen & Barney. When whaling collapsed in 1869, Nantucket’s economy declined sharply. The building was later preserved as the Whaling Museum so the island’s defining chapter wouldn’t be forgotten.",
+          task:
+            "Find one whaling-related detail (a model, plaque, or display) and share it. Then tap Complete.",
+        },
+        {
+          act: "Act II: Whaling & Wealth",
+          title: "Station Four: Brant Point Lighthouse",
+          where:
+            "Head toward Brant Point Lighthouse — the harbor entrance marker.",
+          body:
+            "As the whaling industry grew, safe navigation became essential. Every ship entering or leaving Nantucket Harbor passed Brant Point, making it one of the most critical locations on the island. First established in 1746, Brant Point Light was the second lighthouse built in colonial America. Fires, storms, and shifting shorelines forced it to be rebuilt nine times—more than any other lighthouse in the country. For sailors, the light marked both the danger of departure and the relief of returning home.",
+          task:
+            "Point out why this spot would matter to sailors returning home. Then tap Complete.",
+        },
+        {
+          act: "Act III: Reform & Resistance",
+          title: "Station Five: Nantucket Atheneum",
+          where:
+            "Go to the Nantucket Atheneum (current building opened 1847).",
+          body:
+            "The Atheneum has long served as a gathering place for ideas. In the 1840s it hosted Nantucket’s first anti-slavery conventions, drawing abolitionists from across the country. These events were controversial—crowds protested outside, throwing stones and forcing speakers to relocate. Despite opposition, figures like Frederick Douglass returned to Nantucket to keep speaking. After a major fire destroyed much of downtown, the current Atheneum building opened in 1847, reinforcing the town’s commitment to education and free expression.",
+          task:
+            "Find something that signals ‘learning’ (signage, architecture, quotes). Then tap Complete.",
+        },
+        {
+          act: "Act III: Reform & Resistance",
+          title: "Station Six: Old Gaol",
+          where: "Go to the Old Gaol (built 1805).",
+          body:
+            "“Gaol” is the old spelling of jail. Built in 1805, the Old Gaol housed criminals, debtors, and those who disrupted public order. Constructed with massive oak timbers and iron reinforcements, it was designed to be secure—yet prisoners repeatedly attempted bold escapes, some becoming local legend. The Old Gaol highlights the tension between Nantucket’s Quaker ideals of peace and the practical need for law and order in a busy port town.",
+          task:
+            "Name one reason a port town would need strict law/order. Then tap Complete.",
+        },
+        {
+          act: "Act IV: Survival & Preservation",
+          title: "Station Seven: Old Mill",
+          where:
+            "Go to the Old Mill (built 1746), the oldest functioning windmill in the U.S.",
+          body:
+            "The Old Mill once ground corn for local families and played a key role in Nantucket’s self-sufficiency. By the early 1800s it fell into disrepair and was nearly dismantled for firewood—until local residents restored it, marking one of Nantucket’s earliest preservation efforts. The Old Mill stands as a symbol of the island’s commitment to maintaining its history.",
+          task:
+            "Find a detail that shows it was built for function, not decoration. Then tap Complete.",
+        },
+        {
+          act: "Act IV: Survival & Preservation",
+          title: "Station Eight: Main Street",
+          where: "Head to Main Street — the preserved historic downtown core.",
+          body:
+            "Main Street reflects Nantucket’s transition from a working whaling town to a preserved historic community. Many buildings date to the 18th and 19th centuries and survived fires, economic collapse, and modernization. Today, Main Street balances preservation with everyday life—showing how Nantucket continues to adapt while protecting its past. It’s a fitting conclusion that ties together the island’s origins, rise, challenges, and preservation.",
+          task:
+            "Pick one building detail that feels ‘historic’ (materials, windows, signage). Then tap Complete to finish the loop.",
+        },
+      ];
+
+      let tourIndex = 0;
+
+      function setTourToast(message, type) {
+        const el = document.getElementById("tourToast");
+        el.textContent = message;
+        el.className = "toast show";
+        if (type === "success") el.classList.add("success");
+        if (type === "danger") el.classList.add("danger");
+      }
+
+      function clearTourToast() {
+        const el = document.getElementById("tourToast");
+        el.textContent = "";
+        el.className = "toast";
+      }
+
+      function renderStation() {
+        clearTourToast();
+
+        const total = baseLoopStations.length;
+
+        if (tourIndex < 0) tourIndex = 0;
+        if (tourIndex > total) tourIndex = total;
+
+        if (tourIndex === total) {
+          document.getElementById("actLabel").textContent = "Completed ✅";
+          document.getElementById("stationTitle").textContent =
+            "Base Loop Complete!";
+          document.getElementById("stationBody").textContent =
+            "You finished the Historic Base Loop. Next step: we can add scoring, a map, or a final reward screen.";
+          document.getElementById("stationWhere").textContent =
+            "You’re done — feel free to restart or go Home.";
+          document.getElementById("stationTask").textContent =
+            "Tap Previous to review stations, or go Home.";
+
+          document.getElementById("btn-complete-station").disabled = true;
+          document.getElementById("btn-complete-station").style.opacity = "0.6";
+        } else {
+          const s = baseLoopStations[tourIndex];
+          document.getElementById("actLabel").textContent = s.act;
+          document.getElementById("stationTitle").textContent = s.title;
+          document.getElementById("stationBody").textContent = s.body;
+          document.getElementById("stationWhere").textContent = s.where;
+          document.getElementById("stationTask").textContent = s.task;
+
+          document.getElementById("btn-complete-station").disabled = false;
+          document.getElementById("btn-complete-station").style.opacity = "1";
+        }
+
+        document.getElementById("progressText").textContent = `${Math.min(
+          tourIndex,
+          total
+        )} / ${total}`;
+        const pct = Math.round((Math.min(tourIndex, total) / total) * 100);
+        document.getElementById("progressBar").style.width = `${pct}%`;
+
+        const prevBtn = document.getElementById("btn-prev-station");
+        prevBtn.disabled = tourIndex === 0;
+        prevBtn.style.opacity = tourIndex === 0 ? "0.6" : "1";
+      }
+
+      function initBaseLoopTour() {
+        tourIndex = 0;
+        renderStation();
+      }
+
+      function completeStation() {
+        const total = baseLoopStations.length;
+        if (tourIndex >= total) return;
+
+        setTourToast("Nice — station completed. Loading next stop…", "success");
+        tourIndex += 1;
+        setTimeout(renderStation, 250);
+      }
+
+      // ----- Helpers -----
+      const views = {
+        home: document.getElementById("view-home"),
+        historicLoops: document.getElementById("view-historic-loops"),
+        payment: document.getElementById("view-payment"),
+        tour: document.getElementById("view-tour"),
+        placeholder: document.getElementById("view-placeholder"),
+      };
+
+      const statusPill = document.getElementById("statusPill");
+      const crumbPill = document.getElementById("crumbPill");
+
+      function showView(key) {
+        Object.values(views).forEach((v) => v.classList.remove("active"));
+        views[key].classList.add("active");
+        updateHeader();
+        clearToast();
+      }
+
+      function updateHeader() {
+        const tour = state.tour || "Home";
+        const loop = state.loop;
+
+        if (!state.tour) {
+          statusPill.textContent = "Home";
+          crumbPill.textContent = "Select a tour";
+          return;
+        }
+
+        statusPill.textContent = tour;
+
+        if (views.historicLoops.classList.contains("active")) {
+          crumbPill.textContent = "Pick a loop";
+        } else if (views.payment.classList.contains("active")) {
+          crumbPill.textContent = loop ? `${loop} • Checkout` : "Checkout";
+        } else if (views.tour.classList.contains("active")) {
+          crumbPill.textContent = loop ? `${loop} • Live` : "Live";
+        } else {
+          crumbPill.textContent = "Coming soon";
+        }
+      }
+
+      const toast = document.getElementById("toast");
+      function setToast(message, type) {
+        toast.textContent = message;
+        toast.className = "toast show";
+        if (type === "success") toast.classList.add("success");
+        if (type === "danger") toast.classList.add("danger");
+      }
+      function clearToast() {
+        toast.textContent = "";
+        toast.className = "toast";
+      }
+
+      function startTour(accessLabel) {
+        document.getElementById("finalTour").textContent = state.tour || "";
+        document.getElementById("finalLoop").textContent = state.loop || "";
+        document.getElementById("finalAccess").textContent = accessLabel;
+        document.getElementById("tour-crumbs").textContent = `${state.tour} • ${
+          state.loop || ""
+        }`;
+
+        // If Historic Tour + Base Loop, load the station-by-station experience
+        if (state.tour === "Historic Tour" && state.loop === "Base Loop") {
+          initBaseLoopTour();
+        } else {
+          tourIndex = 0;
+          document.getElementById("actLabel").textContent = "Not wired yet";
+          document.getElementById("stationTitle").textContent =
+            "This loop isn’t built yet 🚧";
+          document.getElementById("stationBody").textContent =
+            "Right now, the Base Loop is the test experience. We can clone this flow for Short + Long next.";
+          document.getElementById("stationWhere").textContent =
+            "Go back and choose Base Loop to test the station flow.";
+          document.getElementById("stationTask").textContent =
+            "Tap Home or go back to loops.";
+          document.getElementById("btn-complete-station").disabled = true;
+          document.getElementById("btn-complete-station").style.opacity = "0.6";
+          document.getElementById("progressText").textContent = `0 / ${
+            baseLoopStations.length
+          }`;
+          document.getElementById("progressBar").style.width = "0%";
+        }
+
+        showView("tour");
+      }
+
+      // ----- Home buttons -----
+      document.getElementById("btn-historic").addEventListener("click", () => {
+        state.tour = "Historic Tour";
+        state.loop = null;
+        showView("historicLoops");
+      });
+
+      document.getElementById("btn-21plus").addEventListener("click", () => {
+        state.tour = "21+ Tour";
+        state.loop = null;
+        document.getElementById("placeholder-crumbs").textContent =
+          "21+ Tour • Coming soon";
+        showView("placeholder");
+      });
+
+      document.getElementById("btn-family").addEventListener("click", () => {
+        state.tour = "Family Fun Tour";
+        state.loop = null;
+        document.getElementById("placeholder-crumbs").textContent =
+          "Family Fun Tour • Coming soon";
+        showView("placeholder");
+      });
+
+      // ----- Back buttons -----
+      document.getElementById("back-to-home").addEventListener("click", () => {
+        state.tour = null;
+        state.loop = null;
+        showView("home");
+      });
+
+      document
+        .getElementById("back-to-home-from-placeholder")
+        .addEventListener("click", () => {
+          state.tour = null;
+          state.loop = null;
+          showView("home");
+        });
+
+      document.getElementById("back-to-loops").addEventListener("click", () => {
+        showView("historicLoops");
+      });
+
+      document
+        .getElementById("back-to-home-from-tour")
+        .addEventListener("click", () => {
+          state.tour = null;
+          state.loop = null;
+          document.getElementById("bypassInput").value = "";
+          showView("home");
+        });
+
+      // ----- Loop selection -----
+      document.querySelectorAll(".loop-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          state.loop = btn.dataset.loop;
+          document.getElementById("payment-crumbs").textContent = `${state.tour} • ${
+            state.loop
+          } • Payment`;
+          document.getElementById("bypassInput").value = "";
+          showView("payment");
+        });
+      });
+
+      // ----- Payment actions -----
+      document.getElementById("btn-bypass").addEventListener("click", () => {
+        const val = (document.getElementById("bypassInput").value || "").trim();
+        if (val === BYPASS_CODE) {
+          setToast("Bypass accepted. Starting tour...", "success");
+          startTour("Bypass code");
+        } else {
+          setToast("Incorrect code. Try again.", "danger");
+        }
+      });
+
+      document.getElementById("btn-fakepay").addEventListener("click", () => {
+        setToast("Payment simulated. Starting tour...", "success");
+        startTour("Simulated payment");
+      });
+
+      document.getElementById("bypassInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") document.getElementById("btn-bypass").click();
+      });
+
+      // ----- Tour progression buttons -----
+      document.getElementById("btn-complete-station").addEventListener("click", () => {
+        completeStation();
+      });
+
+      document.getElementById("btn-prev-station").addEventListener("click", () => {
+        tourIndex -= 1;
+        renderStation();
+      });
+
+      // Initial
+      showView("home");
+    </script>
+  </body>
+</html>

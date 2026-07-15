@@ -1,0 +1,4 @@
+zone_model/__pycache__/
+zone_model/**/__pycache__/
+zone_model/.env
+.env

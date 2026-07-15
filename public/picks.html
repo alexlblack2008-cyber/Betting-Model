@@ -1,0 +1,678 @@
+<title>Zone Model — Picks Tracker</title>
+<style>
+  /* ── Tokens ── */
+  :root {
+    --bg:        #0D1017;
+    --surface:   #161B28;
+    --surface2:  #1D2235;
+    --border:    #252C40;
+    --text:      #DDE3F0;
+    --muted:     #5D6680;
+    --accent:    #F5A623;
+    --accent-dim:#7A4E08;
+    --win:       #34C77B;
+    --win-dim:   #0D3320;
+    --loss:      #E5484D;
+    --loss-dim:  #3A0D0E;
+    --push:      #6B7490;
+    --push-dim:  #1E2130;
+    --pending:   #F5A623;
+    --pending-dim:#3A2700;
+    --radius:    2px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root {
+      --bg:        #F6F4EF;
+      --surface:   #EDEAE2;
+      --surface2:  #E4E0D6;
+      --border:    #CFC9BB;
+      --text:      #1A1F30;
+      --muted:     #7A7260;
+      --accent:    #C47D00;
+      --accent-dim:#FEF0CC;
+      --win:       #1A8A4A;
+      --win-dim:   #D4F5E3;
+      --loss:      #C02025;
+      --loss-dim:  #FCE0E0;
+      --push:      #6B7490;
+      --push-dim:  #E0DDD7;
+      --pending:   #C47D00;
+      --pending-dim:#FEF0CC;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:#0D1017;--surface:#161B28;--surface2:#1D2235;--border:#252C40;
+    --text:#DDE3F0;--muted:#5D6680;--accent:#F5A623;--accent-dim:#7A4E08;
+    --win:#34C77B;--win-dim:#0D3320;--loss:#E5484D;--loss-dim:#3A0D0E;
+    --push:#6B7490;--push-dim:#1E2130;--pending:#F5A623;--pending-dim:#3A2700;
+  }
+  :root[data-theme="light"] {
+    --bg:#F6F4EF;--surface:#EDEAE2;--surface2:#E4E0D6;--border:#CFC9BB;
+    --text:#1A1F30;--muted:#7A7260;--accent:#C47D00;--accent-dim:#FEF0CC;
+    --win:#1A8A4A;--win-dim:#D4F5E3;--loss:#C02025;--loss-dim:#FCE0E0;
+    --push:#6B7490;--push-dim:#E0DDD7;--pending:#C47D00;--pending-dim:#FEF0CC;
+  }
+
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  button { cursor: pointer; }
+
+  /* ── Monospace numbers ── */
+  .mono {
+    font-family: "SF Mono", "Cascadia Code", "Consolas", "Courier New", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Header ── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+  }
+  .header-left {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .logo {
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .logo-sub {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  #live-badge {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  #live-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--win);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+  #theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--muted);
+    padding: 4px 8px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  #theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+  #today-date {
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── Main layout ── */
+  .main { max-width: 1100px; margin: 0 auto; padding: 28px 24px 60px; }
+
+  /* ── Section label ── */
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  /* ── Stat tiles ── */
+  .tiles-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .tile {
+    background: var(--surface);
+    padding: 20px 20px 18px;
+    position: relative;
+  }
+  .tile::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .tile.loaded::before { opacity: 1; }
+  .tile-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .tile-value {
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    font-variant-numeric: tabular-nums;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+  .tile-value.positive { color: var(--win); }
+  .tile-value.negative { color: var(--loss); }
+  .tile-value.accent   { color: var(--accent); }
+  .tile-sub {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  }
+
+  /* ── Divider ── */
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 28px 0;
+  }
+
+  /* ── Filter strip ── */
+  .filter-strip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--muted);
+    padding: 5px 12px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: all 0.15s;
+  }
+  .filter-btn:hover { color: var(--text); border-color: var(--muted); }
+  .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0D1017;
+    font-weight: 600;
+  }
+  .filter-count {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--muted);
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  }
+
+  /* ── Bet table ── */
+  .table-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  thead th {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 0 12px 10px;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  thead th:first-child { padding-left: 20px; }
+  tbody tr {
+    border-bottom: 1px solid var(--border);
+    transition: background 0.1s;
+    position: relative;
+  }
+  tbody tr:hover { background: var(--surface2); }
+  tbody tr.new-row { animation: rowpulse 1.2s ease-out; }
+  @keyframes rowpulse {
+    0%   { background: var(--pending-dim); }
+    100% { background: transparent; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .new-row { animation: none; }
+  }
+  td {
+    padding: 13px 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  td:first-child {
+    padding-left: 0;
+    width: 4px;
+  }
+  /* Outcome stripe */
+  .stripe {
+    display: block;
+    width: 4px;
+    height: 100%;
+    min-height: 40px;
+  }
+  .stripe.won     { background: var(--win); }
+  .stripe.lost    { background: var(--loss); }
+  .stripe.push    { background: var(--push); }
+  .stripe.pending { background: var(--pending); }
+  /* Outcome badge */
+  .badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+  }
+  .badge.won     { background: var(--win-dim);     color: var(--win);     }
+  .badge.lost    { background: var(--loss-dim);    color: var(--loss);    }
+  .badge.push    { background: var(--push-dim);    color: var(--push);    }
+  .badge.pending { background: var(--pending-dim); color: var(--pending); }
+  /* Pick direction chip */
+  .direction {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .direction.over  { color: var(--accent); }
+  .direction.under { color: #6BBBF5; }
+  .direction .arrow { font-size: 9px; }
+  /* P&L cell */
+  .pnl { font-family: "SF Mono", "Cascadia Code", "Consolas", monospace; font-weight: 600; }
+  .pnl.pos { color: var(--win); }
+  .pnl.neg { color: var(--loss); }
+  .pnl.zero { color: var(--muted); }
+  /* Matchup cell */
+  .matchup { font-size: 13px; color: var(--text); }
+  .matchup .away { color: var(--muted); font-size: 11px; }
+  /* Confidence bar */
+  .conf-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .conf-track {
+    width: 48px; height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .conf-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .conf-label {
+    font-family: "SF Mono", "Cascadia Code", "Consolas", monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  /* ── Empty state ── */
+  .empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: var(--muted);
+  }
+  .empty-icon { font-size: 32px; margin-bottom: 12px; }
+  .empty-text { font-size: 14px; }
+
+  /* ── Loading ── */
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    gap: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .spinner {
+    width: 16px; height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .header { padding: 0 16px; }
+    .main   { padding: 20px 16px 48px; }
+    .tile-value { font-size: 22px; }
+    td { padding: 11px 8px; }
+    .hide-mobile { display: none; }
+  }
+</style>
+
+<header class="header">
+  <div class="header-left">
+    <span class="logo">Zone Model</span>
+    <span class="logo-sub">Picks Tracker</span>
+  </div>
+  <div class="header-right">
+    <span id="live-badge"><span id="live-dot"></span> Live</span>
+    <span id="today-date" class="mono"></span>
+    <button id="theme-toggle" onclick="toggleTheme()">Theme</button>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Week stats -->
+  <div class="section-label">This Week</div>
+  <div class="tiles-row" id="week-tiles">
+    <div class="tile" id="tile-wl">
+      <div class="tile-label">W / L / P</div>
+      <div class="tile-value mono" id="stat-wl">—</div>
+      <div class="tile-sub" id="stat-wl-sub"></div>
+    </div>
+    <div class="tile" id="tile-pnl">
+      <div class="tile-label">Net P&amp;L</div>
+      <div class="tile-value mono" id="stat-pnl">—</div>
+      <div class="tile-sub" id="stat-pnl-sub">$100 per pick</div>
+    </div>
+    <div class="tile" id="tile-roi">
+      <div class="tile-label">ROI</div>
+      <div class="tile-value mono" id="stat-roi">—</div>
+      <div class="tile-sub" id="stat-roi-sub">breakeven 52.4%</div>
+    </div>
+    <div class="tile" id="tile-pending">
+      <div class="tile-label">Pending</div>
+      <div class="tile-value mono accent" id="stat-pending">—</div>
+      <div class="tile-sub" id="stat-pending-sub"></div>
+    </div>
+  </div>
+
+  <!-- All-time stats -->
+  <div class="section-label">All Time</div>
+  <div class="tiles-row" style="grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); margin-bottom: 36px;">
+    <div class="tile" id="tile-at-wl">
+      <div class="tile-label">Record</div>
+      <div class="tile-value mono" id="at-wl">—</div>
+      <div class="tile-sub" id="at-wl-sub"></div>
+    </div>
+    <div class="tile" id="tile-at-pnl">
+      <div class="tile-label">Total P&amp;L</div>
+      <div class="tile-value mono" id="at-pnl">—</div>
+      <div class="tile-sub" id="at-pnl-sub"></div>
+    </div>
+    <div class="tile" id="tile-at-roi">
+      <div class="tile-label">All-Time ROI</div>
+      <div class="tile-value mono" id="at-roi">—</div>
+      <div class="tile-sub">since first pick</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Bet history -->
+  <div class="filter-strip">
+    <button class="filter-btn active" data-filter="all" onclick="setFilter('all',this)">All</button>
+    <button class="filter-btn" data-filter="week" onclick="setFilter('week',this)">This Week</button>
+    <button class="filter-btn" data-filter="won" onclick="setFilter('won',this)">Won</button>
+    <button class="filter-btn" data-filter="lost" onclick="setFilter('lost',this)">Lost</button>
+    <button class="filter-btn" data-filter="pending" onclick="setFilter('pending',this)">Pending</button>
+    <span class="filter-count mono" id="row-count"></span>
+  </div>
+
+  <div class="table-wrap">
+    <div id="table-loading" class="loading"><div class="spinner"></div> Loading picks…</div>
+    <table id="picks-table" style="display:none">
+      <thead>
+        <tr>
+          <th style="width:4px;padding:0"></th>
+          <th>Date</th>
+          <th>Matchup</th>
+          <th>Pick</th>
+          <th>Line</th>
+          <th class="hide-mobile">Umpire</th>
+          <th class="hide-mobile">Edge</th>
+          <th class="hide-mobile">Conf</th>
+          <th>Actual</th>
+          <th>Result</th>
+          <th>P&amp;L</th>
+        </tr>
+      </thead>
+      <tbody id="picks-tbody"></tbody>
+    </table>
+    <div id="empty-state" class="empty" style="display:none">
+      <div class="empty-icon">◆</div>
+      <div class="empty-text">No picks match this filter.</div>
+    </div>
+  </div>
+
+</main>
+
+<script>
+  // ── Theme ──
+  const saved = localStorage.getItem('zm-theme');
+  if (saved) document.documentElement.setAttribute('data-theme', saved);
+
+  function toggleTheme() {
+    const cur = document.documentElement.getAttribute('data-theme');
+    const next = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('zm-theme', next);
+  }
+
+  // ── Date ──
+  const opts = { weekday:'short', month:'short', day:'numeric', year:'numeric' };
+  document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', opts);
+
+  // ── State ──
+  let allPicks = [];
+  let currentFilter = 'all';
+  let weekRange = { start: '', end: '' };
+
+  // ── Data fetch ──
+  async function load() {
+    try {
+      const [picksRes, summaryRes] = await Promise.all([
+        fetch('/api/picks'),
+        fetch('/api/summary'),
+      ]);
+      allPicks = await picksRes.json();
+      const summary = await summaryRes.json();
+      weekRange = summary.weekRange || {};
+      renderSummary(summary);
+      renderTable();
+    } catch(e) {
+      document.getElementById('table-loading').innerHTML =
+        '<div style="color:var(--loss);font-size:13px">Could not connect to server. Make sure it is running on port 4242.</div>';
+    }
+  }
+
+  // ── Counter animation ──
+  function animateNumber(el, target, prefix='', suffix='', decimals=0) {
+    const duration = 700;
+    const start = performance.now();
+    const from = 0;
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = t < 0.5 ? 2*t*t : -1+(4-2*t)*t;
+      const val = from + (target - from) * eased;
+      el.textContent = prefix + val.toFixed(decimals) + suffix;
+      if (t < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target.toFixed(decimals) + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  // ── Summary tiles ──
+  function renderSummary(s) {
+    const w = s.thisWeek;
+    const a = s.allTime;
+
+    // Week W/L
+    document.getElementById('stat-wl').textContent = `${w.wins}/${w.losses}/${w.pushes}`;
+    document.getElementById('stat-wl-sub').textContent = `${w.settled} settled`;
+
+    // Week P&L
+    const pnlEl = document.getElementById('stat-pnl');
+    pnlEl.className = 'tile-value mono ' + (w.pnl > 0 ? 'positive' : w.pnl < 0 ? 'negative' : '');
+    animateNumber(pnlEl, w.pnl, '$', '', 2);
+    document.getElementById('stat-pnl-sub').textContent =
+      `$${(w.settled * 100).toLocaleString()} staked`;
+
+    // Week ROI
+    const roiEl = document.getElementById('stat-roi');
+    roiEl.className = 'tile-value mono ' + (w.roi > 0 ? 'positive' : w.roi < 0 ? 'negative' : '');
+    animateNumber(roiEl, w.roi, '', '%', 1);
+
+    // Pending
+    const pendEl = document.getElementById('stat-pending');
+    pendEl.className = 'tile-value mono ' + (w.pending > 0 ? 'accent' : '');
+    animateNumber(pendEl, w.pending, '', '', 0);
+    document.getElementById('stat-pending-sub').textContent =
+      w.pending === 1 ? '1 bet awaiting result' : `${w.pending} bets awaiting results`;
+
+    // All-time
+    document.getElementById('at-wl').textContent = `${a.wins}/${a.losses}/${a.pushes}`;
+    document.getElementById('at-wl-sub').textContent = `win rate ${a.settled ? ((a.wins/a.settled)*100).toFixed(1) : 0}%`;
+
+    const atPnlEl = document.getElementById('at-pnl');
+    atPnlEl.className = 'tile-value mono ' + (a.pnl > 0 ? 'positive' : a.pnl < 0 ? 'negative' : '');
+    animateNumber(atPnlEl, a.pnl, '$', '', 2);
+    document.getElementById('at-pnl-sub').textContent = `${a.settled} settled bets`;
+
+    const atRoiEl = document.getElementById('at-roi');
+    atRoiEl.className = 'tile-value mono ' + (a.roi > 0 ? 'positive' : a.roi < 0 ? 'negative' : '');
+    animateNumber(atRoiEl, a.roi, '', '%', 1);
+
+    // Animate left stripes in
+    setTimeout(() => {
+      document.querySelectorAll('.tile').forEach(t => t.classList.add('loaded'));
+    }, 200);
+  }
+
+  // ── Filters ──
+  function setFilter(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderTable();
+  }
+
+  function filtered() {
+    if (currentFilter === 'week') {
+      return allPicks.filter(p => p.bet_date >= weekRange.start && p.bet_date <= weekRange.end);
+    }
+    if (currentFilter === 'won')  return allPicks.filter(p => p.outcome === 'won');
+    if (currentFilter === 'lost') return allPicks.filter(p => p.outcome === 'lost');
+    if (currentFilter === 'pending') return allPicks.filter(p => p.outcome === 'pending');
+    return allPicks;
+  }
+
+  // ── Table ──
+  function renderTable() {
+    const rows = filtered();
+    document.getElementById('row-count').textContent = `${rows.length} pick${rows.length !== 1 ? 's' : ''}`;
+    document.getElementById('table-loading').style.display = 'none';
+
+    if (!rows.length) {
+      document.getElementById('picks-table').style.display = 'none';
+      document.getElementById('empty-state').style.display = 'block';
+      return;
+    }
+    document.getElementById('picks-table').style.display = 'table';
+    document.getElementById('empty-state').style.display = 'none';
+
+    const tbody = document.getElementById('picks-tbody');
+    tbody.innerHTML = '';
+    rows.forEach((p, i) => {
+      const tr = document.createElement('tr');
+      if (i < 5) tr.classList.add('new-row');
+      tr.innerHTML = `
+        <td style="padding:0;width:4px;"><span class="stripe ${p.outcome}"></span></td>
+        <td class="mono" style="font-size:12px;color:var(--muted)">${p.bet_date}</td>
+        <td>
+          <div class="matchup">
+            <div>${p.home_team.split(' ').slice(-1)[0]}</div>
+            <div class="away">${p.away_team.split(' ').slice(-1)[0]} ↑</div>
+          </div>
+        </td>
+        <td>
+          <span class="direction ${p.recommendation?.toLowerCase()}">
+            <span class="arrow">${p.recommendation === 'OVER' ? '▲' : '▼'}</span>
+            ${p.recommendation}
+          </span>
+        </td>
+        <td class="mono" style="font-size:12px">${p.market_total ?? '—'}</td>
+        <td class="hide-mobile" style="font-size:12px;color:var(--muted)">${(p.umpire||'').split(' ').slice(-1)[0]}</td>
+        <td class="hide-mobile mono" style="font-size:12px;color:var(--accent)">${p.edge_runs != null ? (p.edge_runs > 0 ? '+' : '') + p.edge_runs.toFixed(2) : '—'}</td>
+        <td class="hide-mobile">
+          ${p.confidence != null ? `
+          <div class="conf-bar">
+            <div class="conf-track"><div class="conf-fill" style="width:${Math.round(p.confidence*100)}%"></div></div>
+            <span class="conf-label">${Math.round(p.confidence*100)}%</span>
+          </div>` : '—'}
+        </td>
+        <td class="mono" style="font-size:13px">${p.actual_runs ?? '—'}</td>
+        <td><span class="badge ${p.outcome}">${p.outcome}</span></td>
+        <td class="pnl ${p.pnl > 0 ? 'pos' : p.pnl < 0 ? 'neg' : 'zero'} mono">
+          ${p.pnl != null ? (p.pnl > 0 ? '+$' + p.pnl.toFixed(2) : p.pnl < 0 ? '-$' + Math.abs(p.pnl).toFixed(2) : '$0.00') : '—'}
+        </td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  // ── Init + auto-refresh every 5 min ──
+  load();
+  setInterval(load, 5 * 60 * 1000);
+</script>
