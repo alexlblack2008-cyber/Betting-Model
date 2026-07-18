@@ -301,7 +301,7 @@
     <div class="stat-card" id="sc-pnl">
       <div class="sc-label">Net P&amp;L</div>
       <div class="sc-value" id="sw-pnl">—</div>
-      <div class="sc-sub" id="sw-pnl-sub"></div>
+      <div class="sc-sub" id="sw-pnl-sub">$100 / pick</div>
     </div>
     <div class="stat-card" id="sc-roi">
       <div class="sc-label">ROI</div>
@@ -395,7 +395,7 @@
     const pEl = document.getElementById('sw-pnl');
     pEl.className = 'sc-value ' + (w.pnl > 0 ? 'pos' : w.pnl < 0 ? 'neg' : '');
     animNum(pEl, w.pnl, '$', '', 2);
-    document.getElementById('sw-pnl-sub').textContent = w.staked > 0 ? `$${w.staked.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})} staked` : 'no settled bets';
+    document.getElementById('sw-pnl-sub').textContent = `$${(w.settled*100).toLocaleString()} staked`;
 
     const rEl = document.getElementById('sw-roi');
     rEl.className = 'sc-value ' + (w.roi > 0 ? 'pos' : w.roi < 0 ? 'neg' : '');
@@ -414,7 +414,7 @@
     const apEl = document.getElementById('at-pnl');
     apEl.className = 'sc-value ' + (a.pnl > 0 ? 'pos' : a.pnl < 0 ? 'neg' : '');
     animNum(apEl, a.pnl, '$', '', 2);
-    document.getElementById('at-pnl-sub').textContent = a.staked > 0 ? `$${a.staked.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})} staked` : `${a.settled} settled`;
+    document.getElementById('at-pnl-sub').textContent = `${a.settled} settled`;
 
     const arEl = document.getElementById('at-roi');
     arEl.className = 'sc-value ' + (a.roi > 0 ? 'pos' : a.roi < 0 ? 'neg' : '');
@@ -520,12 +520,19 @@
             <button class="stake-btn" onclick="saveStake(${idx})">Save</button>
           </div>
           <div class="settle-msg" id="stake-msg-${idx}"></div>
+          ${(p.recommendation === 'HOME' || p.recommendation === 'AWAY') ? `
           <div class="settle-row">
-            <input class="settle-input" type="number" min="0" step="1"
-              placeholder="Final runs (e.g. 9)"
+            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.home_team} score" id="settle-home-${idx}">
+            <span class="stake-sep">—</span>
+            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.away_team} score" id="settle-away-${idx}">
+            <button class="settle-btn" onclick="settleML(${idx})">Settle</button>
+          </div>` : `
+          <div class="settle-row">
+            <input class="settle-input" type="number" min="0" step="0.5"
+              placeholder="${p.sport === 'soccer' ? 'Total goals (e.g. 2)' : 'Final runs (e.g. 9)'}"
               id="settle-input-${idx}">
             <button class="settle-btn" onclick="settle(${idx})">Settle</button>
-          </div>
+          </div>`}
           <div class="settle-msg" id="settle-msg-${idx}"></div>` : ''}
         </div>
       </div>`;
@@ -565,6 +572,10 @@
     } catch(e) { msg.textContent = 'Network error.'; msg.className = 'settle-msg err'; }
   }
 
+  function _pnlStr(pnl) {
+    return pnl > 0 ? `+$${pnl.toFixed(2)}` : pnl < 0 ? `-$${Math.abs(pnl).toFixed(2)}` : '$0';
+  }
+
   async function settle(idx) {
     const p = renderedRows[idx];
     if (!p) return;
@@ -572,7 +583,7 @@
     const msg   = document.getElementById(`settle-msg-${idx}`);
     const runs  = parseFloat(input.value);
     if (isNaN(runs) || runs < 0) {
-      msg.textContent = 'Enter a valid run total.'; msg.className = 'settle-msg err'; return;
+      msg.textContent = 'Enter a valid total.'; msg.className = 'settle-msg err'; return;
     }
     msg.textContent = 'Saving…'; msg.className = 'settle-msg';
     try {
@@ -581,13 +592,39 @@
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           home_team: p.home_team, away_team: p.away_team,
-          bet_date: p.bet_date, actual_runs: runs
+          bet_date: p.bet_date, recommendation: p.recommendation, actual_runs: runs
         })
       });
       const data = await r.json();
       if (!r.ok) { msg.textContent = data.error || 'Error.'; msg.className = 'settle-msg err'; return; }
-      const pnlStr = data.pnl > 0 ? `+$${data.pnl.toFixed(2)}` : data.pnl < 0 ? `-$${Math.abs(data.pnl).toFixed(2)}` : '$0';
-      msg.textContent = `${data.outcome.toUpperCase()} — ${pnlStr}`; msg.className = 'settle-msg ok';
+      msg.textContent = `${data.outcome.toUpperCase()} — ${_pnlStr(data.pnl)}`; msg.className = 'settle-msg ok';
+      setTimeout(load, 800);
+    } catch(e) { msg.textContent = 'Network error.'; msg.className = 'settle-msg err'; }
+  }
+
+  async function settleML(idx) {
+    const p    = renderedRows[idx];
+    if (!p) return;
+    const msg  = document.getElementById(`settle-msg-${idx}`);
+    const hs   = parseFloat(document.getElementById(`settle-home-${idx}`).value);
+    const as_  = parseFloat(document.getElementById(`settle-away-${idx}`).value);
+    if (isNaN(hs) || isNaN(as_)) {
+      msg.textContent = 'Enter both scores.'; msg.className = 'settle-msg err'; return;
+    }
+    msg.textContent = 'Saving…'; msg.className = 'settle-msg';
+    try {
+      const r = await fetch('/api/settle', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          home_team: p.home_team, away_team: p.away_team,
+          bet_date: p.bet_date, recommendation: p.recommendation,
+          actual_home_score: hs, actual_away_score: as_
+        })
+      });
+      const data = await r.json();
+      if (!r.ok) { msg.textContent = data.error || 'Error.'; msg.className = 'settle-msg err'; return; }
+      msg.textContent = `${data.outcome.toUpperCase()} — ${_pnlStr(data.pnl)}`; msg.className = 'settle-msg ok';
       setTimeout(load, 800);
     } catch(e) { msg.textContent = 'Network error.'; msg.className = 'settle-msg err'; }
   }

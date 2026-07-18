@@ -1,6 +1,7 @@
 [
   {
     "bet_date": "2026-07-17",
+    "sport": "mlb",
     "home_team": "Arizona Diamondbacks",
     "away_team": "St. Louis Cardinals",
     "recommendation": "OVER",
@@ -12,6 +13,37 @@
     "umpire": "TBD",
     "outcome": "pending",
     "actual_runs": null,
-    "pnl": null
+    "pnl": null,
+    "settled_at": null
+  },
+  {
+    "bet_date": "2026-07-18",
+    "sport": "soccer",
+    "home_team": "France",
+    "away_team": "England",
+    "recommendation": "UNDER",
+    "market_total": 3.5,
+    "confidence": 0.62,
+    "stake": 100,
+    "umpire": "Total goals UNDER 3.5 (-140)",
+    "outcome": "pending",
+    "actual_runs": null,
+    "pnl": null,
+    "settled_at": null
+  },
+  {
+    "bet_date": "2026-07-18",
+    "sport": "soccer",
+    "home_team": "France",
+    "away_team": "England",
+    "recommendation": "HOME",
+    "market_total": -135,
+    "confidence": 0.58,
+    "stake": 100,
+    "umpire": "France to win ML (-135)",
+    "outcome": "pending",
+    "actual_runs": null,
+    "pnl": null,
+    "settled_at": null
   }
 ]

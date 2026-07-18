@@ -27,6 +27,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
+      - name: Auto-settle yesterday's picks
+        run: |
+          cd zone_model
+          python auto_settle.py
+
       - name: Run Zone Model pipeline
         env:
           ODDS_API_KEY:         ${{ secrets.ODDS_API_KEY }}
