@@ -29,7 +29,9 @@
     "outcome": "pending",
     "actual_runs": null,
     "pnl": null,
-    "settled_at": null
+    "settled_at": null,
+    "actual_stake": 40,
+    "actual_to_win": 40
   },
   {
     "bet_date": "2026-07-18",
