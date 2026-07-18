@@ -69,9 +69,11 @@ app.get("/api/summary", (req, res) => {
   const settled  = (entries) => entries.filter(e => e.outcome !== "pending");
   const wins     = (entries) => entries.filter(e => e.outcome === "won");
   const pnl      = (entries) => entries.reduce((s, e) => s + (e.pnl || 0), 0);
+  const staked   = (entries) => entries.reduce((s, e) => s + (e.actual_stake ?? e.stake ?? 0), 0);
   const roi      = (entries) => {
     const s = settled(entries);
-    return s.length ? pnl(s) / (s.length * 100) * 100 : 0;
+    const tot = staked(s);
+    return tot > 0 ? pnl(s) / tot * 100 : 0;
   };
 
   res.json({
@@ -82,6 +84,7 @@ app.get("/api/summary", (req, res) => {
       losses:  settled(all).filter(e => e.outcome === "lost").length,
       pushes:  settled(all).filter(e => e.outcome === "push").length,
       pnl:     +pnl(settled(all)).toFixed(2),
+      staked:  +staked(settled(all)).toFixed(2),
       roi:     +roi(all).toFixed(2),
     },
     thisWeek: {
@@ -91,6 +94,7 @@ app.get("/api/summary", (req, res) => {
       losses:  settled(week).filter(e => e.outcome === "lost").length,
       pushes:  settled(week).filter(e => e.outcome === "push").length,
       pnl:     +pnl(settled(week)).toFixed(2),
+      staked:  +staked(settled(week)).toFixed(2),
       roi:     +roi(week).toFixed(2),
       pending: week.filter(e => e.outcome === "pending").length,
     },

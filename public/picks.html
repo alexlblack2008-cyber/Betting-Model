@@ -301,7 +301,7 @@
     <div class="stat-card" id="sc-pnl">
       <div class="sc-label">Net P&amp;L</div>
       <div class="sc-value" id="sw-pnl">—</div>
-      <div class="sc-sub" id="sw-pnl-sub">$100 / pick</div>
+      <div class="sc-sub" id="sw-pnl-sub"></div>
     </div>
     <div class="stat-card" id="sc-roi">
       <div class="sc-label">ROI</div>
@@ -395,7 +395,7 @@
     const pEl = document.getElementById('sw-pnl');
     pEl.className = 'sc-value ' + (w.pnl > 0 ? 'pos' : w.pnl < 0 ? 'neg' : '');
     animNum(pEl, w.pnl, '$', '', 2);
-    document.getElementById('sw-pnl-sub').textContent = `$${(w.settled*100).toLocaleString()} staked`;
+    document.getElementById('sw-pnl-sub').textContent = w.staked > 0 ? `$${w.staked.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})} staked` : 'no settled bets';
 
     const rEl = document.getElementById('sw-roi');
     rEl.className = 'sc-value ' + (w.roi > 0 ? 'pos' : w.roi < 0 ? 'neg' : '');
@@ -414,7 +414,7 @@
     const apEl = document.getElementById('at-pnl');
     apEl.className = 'sc-value ' + (a.pnl > 0 ? 'pos' : a.pnl < 0 ? 'neg' : '');
     animNum(apEl, a.pnl, '$', '', 2);
-    document.getElementById('at-pnl-sub').textContent = `${a.settled} settled`;
+    document.getElementById('at-pnl-sub').textContent = a.staked > 0 ? `$${a.staked.toLocaleString(undefined,{minimumFractionDigits:0,maximumFractionDigits:2})} staked` : `${a.settled} settled`;
 
     const arEl = document.getElementById('at-roi');
     arEl.className = 'sc-value ' + (a.roi > 0 ? 'pos' : a.roi < 0 ? 'neg' : '');
