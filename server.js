@@ -8,8 +8,69 @@ const app = express();
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
-const BASE_URL   = process.env.BASE_URL || "http://localhost:4242";
+const BASE_URL    = process.env.BASE_URL || "http://localhost:4242";
 const LEDGER_PATH = path.join(__dirname, "zone_model", "ledger.json");
+
+const GH_TOKEN = process.env.GITHUB_TOKEN || "";
+const GH_REPO  = "alexlblack2008-cyber/Betting-Model";
+const GH_FILE  = "zone_model/ledger.json";
+
+// Push ledger.json back to GitHub so settled state survives Render restarts
+async function pushLedgerToGitHub(content) {
+  if (!GH_TOKEN) return;
+  try {
+    const https = require("https");
+    const encoded = Buffer.from(content).toString("base64");
+
+    // Get current file SHA
+    const sha = await new Promise((resolve) => {
+      const req = https.request({
+        hostname: "api.github.com",
+        path: `/repos/${GH_REPO}/contents/${GH_FILE}`,
+        headers: { "User-Agent": "betting-model", "Authorization": `token ${GH_TOKEN}` }
+      }, res => {
+        let data = "";
+        res.on("data", d => data += d);
+        res.on("end", () => {
+          try { resolve(JSON.parse(data).sha); } catch { resolve(null); }
+        });
+      });
+      req.on("error", () => resolve(null));
+      req.end();
+    });
+
+    if (!sha) return;
+
+    const body = JSON.stringify({
+      message: "chore: update ledger [skip ci]",
+      content: encoded,
+      sha,
+    });
+
+    await new Promise((resolve) => {
+      const req = https.request({
+        hostname: "api.github.com",
+        path: `/repos/${GH_REPO}/contents/${GH_FILE}`,
+        method: "PUT",
+        headers: {
+          "User-Agent": "betting-model",
+          "Authorization": `token ${GH_TOKEN}`,
+          "Content-Type": "application/json",
+          "Content-Length": Buffer.byteLength(body),
+        }
+      }, res => { res.resume(); res.on("end", resolve); });
+      req.on("error", resolve);
+      req.write(body);
+      req.end();
+    });
+  } catch {}
+}
+
+function saveLedger(entries) {
+  const content = JSON.stringify(entries, null, 2);
+  fs.writeFileSync(LEDGER_PATH, content);
+  pushLedgerToGitHub(content).catch(() => {});
+}
 
 // ── Ledger helpers ───────────────────────────────────────────────────────────
 
@@ -113,7 +174,7 @@ app.post("/api/bet", (req, res) => {
   entry.actual_stake  = +Number(actual_stake).toFixed(2);
   entry.actual_to_win = +Number(actual_to_win).toFixed(2);
   try {
-    fs.writeFileSync(LEDGER_PATH, JSON.stringify(entries, null, 2));
+    saveLedger(entries);
     res.json({ ok: true, entry });
   } catch(e) {
     res.status(500).json({ error: "Failed to save ledger" });
@@ -170,7 +231,7 @@ app.post("/api/settle", (req, res) => {
   entry.settled_at  = new Date().toISOString();
 
   try {
-    fs.writeFileSync(LEDGER_PATH, JSON.stringify(entries, null, 2));
+    saveLedger(entries);
     res.json({ outcome, pnl: entry.pnl, entry });
   } catch(e) {
     res.status(500).json({ error: "Failed to save ledger" });
