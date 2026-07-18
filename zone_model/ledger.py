@@ -100,6 +100,43 @@ def settle_pick(
     return "not_found"
 
 
+def record_prop_pick(
+    bet_date: str,
+    sport: str,
+    home_team: str,
+    away_team: str,
+    recommendation: str,   # e.g. "OVER", "UNDER", "HOME", "AWAY"
+    market_total: float,   # line or spread value
+    confidence: float,
+    description: str = "",  # e.g. "RJ Harris +4.5", "England/France BTTS"
+) -> None:
+    """Log a props/soccer/MMA/golf pick. Outcome starts as 'pending'."""
+    entries = _load()
+    # Avoid duplicate entries for same pick on same day
+    for e in entries:
+        if (e.get("home_team") == home_team and e.get("away_team") == away_team
+                and e.get("bet_date") == bet_date
+                and e.get("recommendation") == recommendation
+                and e.get("outcome") == "pending"):
+            return
+    entries.append({
+        "bet_date":       bet_date,
+        "sport":          sport,
+        "home_team":      home_team,
+        "away_team":      away_team,
+        "umpire":         description,
+        "recommendation": recommendation,
+        "market_total":   market_total,
+        "confidence":     round(confidence, 3),
+        "stake":          STAKE,
+        "outcome":        "pending",
+        "actual_runs":    None,
+        "pnl":            None,
+        "settled_at":     None,
+    })
+    _save(entries)
+
+
 def weekly_pnl_report() -> str:
     """
     Returns a formatted weekly P&L summary string.
