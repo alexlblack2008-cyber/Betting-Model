@@ -522,10 +522,12 @@
           <div class="settle-msg" id="stake-msg-${idx}"></div>
           ${(p.recommendation === 'HOME' || p.recommendation === 'AWAY') ? `
           <div class="settle-row">
-            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.home_team} score" id="settle-home-${idx}">
+            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.home_team}" id="settle-home-${idx}">
             <span class="stake-sep">—</span>
-            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.away_team} score" id="settle-away-${idx}">
-            <button class="settle-btn" onclick="settleML(${idx})">Settle</button>
+            <input class="settle-input" type="number" min="0" step="1" placeholder="${p.away_team}" id="settle-away-${idx}">
+          </div>
+          <div class="settle-row" style="margin-top:6px;">
+            <button class="settle-btn" style="width:100%" onclick="settleML(${idx})">Settle</button>
           </div>` : `
           <div class="settle-row">
             <input class="settle-input" type="number" min="0" step="0.5"
