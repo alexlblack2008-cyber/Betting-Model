@@ -13,10 +13,23 @@ const LEDGER_PATH = path.join(__dirname, "zone_model", "ledger.json");
 
 // ── Ledger helpers ───────────────────────────────────────────────────────────
 
+const SEED_PATH = path.join(__dirname, "zone_model", "ledger.seed.json");
+
 function loadLedger() {
   try {
     if (fs.existsSync(LEDGER_PATH)) {
-      return JSON.parse(fs.readFileSync(LEDGER_PATH, "utf8"));
+      const data = JSON.parse(fs.readFileSync(LEDGER_PATH, "utf8"));
+      if (data.length > 0) return data;
+    }
+  } catch {}
+  // If ledger is empty or missing, seed from ledger.seed.json
+  try {
+    if (fs.existsSync(SEED_PATH)) {
+      const seed = JSON.parse(fs.readFileSync(SEED_PATH, "utf8"));
+      if (seed.length > 0) {
+        fs.writeFileSync(LEDGER_PATH, JSON.stringify(seed, null, 2));
+        return seed;
+      }
     }
   } catch {}
   return [];
@@ -85,6 +98,28 @@ app.get("/api/summary", (req, res) => {
   });
 });
 
+// Save actual bet amount: POST /api/bet { home_team, away_team, bet_date, actual_stake, actual_to_win }
+app.post("/api/bet", (req, res) => {
+  const { home_team, away_team, bet_date, actual_stake, actual_to_win } = req.body;
+  if (!home_team || !away_team || !bet_date || actual_stake == null || actual_to_win == null) {
+    return res.status(400).json({ error: "home_team, away_team, bet_date, actual_stake, actual_to_win required" });
+  }
+  const entries = loadLedger();
+  const entry = entries.find(e =>
+    e.home_team === home_team && e.away_team === away_team &&
+    e.bet_date === bet_date && e.outcome === "pending"
+  );
+  if (!entry) return res.status(404).json({ error: "Pending pick not found" });
+  entry.actual_stake  = +Number(actual_stake).toFixed(2);
+  entry.actual_to_win = +Number(actual_to_win).toFixed(2);
+  try {
+    fs.writeFileSync(LEDGER_PATH, JSON.stringify(entries, null, 2));
+    res.json({ ok: true, entry });
+  } catch(e) {
+    res.status(500).json({ error: "Failed to save ledger" });
+  }
+});
+
 // Settle a pick: POST /api/settle { home_team, away_team, bet_date, actual_runs }
 app.post("/api/settle", (req, res) => {
   const { home_team, away_team, bet_date, actual_runs } = req.body;
@@ -98,24 +133,27 @@ app.post("/api/settle", (req, res) => {
 
   const entries = loadLedger();
   const entry = entries.find(e =>
-    e.home_team === home_team &&
-    e.away_team === away_team &&
-    e.bet_date  === bet_date  &&
-    e.outcome   === "pending"
+    e.home_team === home_team && e.away_team === away_team &&
+    e.bet_date === bet_date  && e.outcome === "pending"
   );
-
   if (!entry) return res.status(404).json({ error: "Pending pick not found" });
 
-  const STAKE = 100, WIN_PAYOUT = STAKE / 1.10;
   const rec = entry.recommendation;
   const total = entry.market_total;
   let outcome;
   if (rec === "OVER")  outcome = runs > total ? "won" : runs === total ? "push" : "lost";
   else                 outcome = runs < total ? "won" : runs === total ? "push" : "lost";
 
+  // Use actual bet amounts if recorded, otherwise fall back to $100 paper stake
+  const staked  = entry.actual_stake  ?? 100;
+  const to_win  = entry.actual_to_win ?? +(staked / 1.10).toFixed(2);
+  const pnl     = outcome === "won" ? +to_win.toFixed(2)
+                : outcome === "lost" ? -staked
+                : 0;
+
   entry.actual_runs = runs;
   entry.outcome     = outcome;
-  entry.pnl         = outcome === "won" ? +WIN_PAYOUT.toFixed(2) : outcome === "lost" ? -STAKE : 0;
+  entry.pnl         = pnl;
   entry.settled_at  = new Date().toISOString();
 
   try {
@@ -124,6 +162,18 @@ app.post("/api/settle", (req, res) => {
   } catch(e) {
     res.status(500).json({ error: "Failed to save ledger" });
   }
+});
+
+// ── Service Worker (inject build date for cache busting) ────────────────────
+
+const BUILD_DATE = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+app.get("/sw.js", (req, res) => {
+  const swPath = path.join(__dirname, "public", "sw.js");
+  const raw    = fs.readFileSync(swPath, "utf8");
+  const out    = raw.replace("__BUILD_DATE__", BUILD_DATE);
+  res.setHeader("Content-Type", "application/javascript");
+  res.setHeader("Cache-Control", "no-cache");
+  res.send(out);
 });
 
 // ── Dashboard (single-page) ──────────────────────────────────────────────────
@@ -135,6 +185,10 @@ app.get("/picks", (req, res) => {
 // ── Root ─────────────────────────────────────────────────────────────────────
 
 app.get("/", (req, res) => {
+  res.redirect("/picks");
+});
+
+app.get("/tour", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 

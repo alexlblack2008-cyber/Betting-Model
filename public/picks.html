@@ -1,5 +1,11 @@
 <title>Zone Model — Picks</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="manifest" href="/manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }
+</script>
 <style>
   :root {
     --bg:          #0D1017;
@@ -209,10 +215,33 @@
     display: flex; justify-content: space-between; align-items: center;
   }
 
-  /* ── Settle form ── */
-  .settle-row {
+  /* ── Stake / Settle forms ── */
+  .stake-row {
     margin-top: 12px; padding-top: 12px;
     border-top: 1px solid var(--border);
+    display: flex; gap: 6px; align-items: center; flex-wrap: wrap;
+  }
+  .stake-label {
+    font-size: 9px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted);
+    width: 100%; margin-bottom: 2px;
+  }
+  .stake-input {
+    flex: 1; min-width: 80px; background: var(--surface2); border: 1px solid var(--border);
+    border-radius: 6px; color: var(--text); padding: 8px 10px;
+    font-size: 14px; font-family: "SF Mono","Cascadia Code",monospace;
+    -webkit-appearance: none;
+  }
+  .stake-input:focus { outline: none; border-color: var(--accent); }
+  .stake-sep { font-size: 12px; color: var(--muted); flex-shrink: 0; }
+  .stake-btn {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 6px;
+    color: var(--accent); font-weight: 700; font-size: 12px;
+    padding: 8px 14px; cursor: pointer; white-space: nowrap; flex-shrink: 0;
+  }
+  .stake-btn:active { opacity: .8; }
+  .settle-row {
+    margin-top: 8px;
     display: flex; gap: 8px; align-items: center;
   }
   .settle-input {
@@ -479,6 +508,18 @@
             <span>${ump}</span>
           </div>
           ${p.outcome === 'pending' ? `
+          <div class="stake-row" id="stake-row-${idx}">
+            <div class="stake-label">My Bet — $ to win $</div>
+            <input class="stake-input" type="number" min="0" step="1"
+              placeholder="${p.actual_stake != null ? p.actual_stake : 'Stake'}"
+              id="stake-input-${idx}" value="${p.actual_stake != null ? p.actual_stake : ''}">
+            <span class="stake-sep">to win</span>
+            <input class="stake-input" type="number" min="0" step="1"
+              placeholder="${p.actual_to_win != null ? p.actual_to_win : 'To win'}"
+              id="towin-input-${idx}" value="${p.actual_to_win != null ? p.actual_to_win : ''}">
+            <button class="stake-btn" onclick="saveStake(${idx})">Save</button>
+          </div>
+          <div class="settle-msg" id="stake-msg-${idx}"></div>
           <div class="settle-row">
             <input class="settle-input" type="number" min="0" step="1"
               placeholder="Final runs (e.g. 9)"
@@ -495,6 +536,34 @@
 
   // Override renderCards to also store rows
   const _renderCards = renderCards;
+
+  async function saveStake(idx) {
+    const p = renderedRows[idx];
+    if (!p) return;
+    const stakeEl  = document.getElementById(`stake-input-${idx}`);
+    const towinEl  = document.getElementById(`towin-input-${idx}`);
+    const msg      = document.getElementById(`stake-msg-${idx}`);
+    const stake    = parseFloat(stakeEl.value);
+    const towin    = parseFloat(towinEl.value);
+    if (isNaN(stake) || stake <= 0 || isNaN(towin) || towin <= 0) {
+      msg.textContent = 'Enter valid amounts.'; msg.className = 'settle-msg err'; return;
+    }
+    msg.textContent = 'Saving…'; msg.className = 'settle-msg';
+    try {
+      const r = await fetch('/api/bet', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          home_team: p.home_team, away_team: p.away_team,
+          bet_date: p.bet_date, actual_stake: stake, actual_to_win: towin
+        })
+      });
+      const data = await r.json();
+      if (!r.ok) { msg.textContent = data.error || 'Error.'; msg.className = 'settle-msg err'; return; }
+      msg.textContent = `Saved — $${stake} to win $${towin}`; msg.className = 'settle-msg ok';
+      p.actual_stake = stake; p.actual_to_win = towin;
+    } catch(e) { msg.textContent = 'Network error.'; msg.className = 'settle-msg err'; }
+  }
 
   async function settle(idx) {
     const p = renderedRows[idx];
