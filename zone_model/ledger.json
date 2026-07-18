@@ -18,6 +18,21 @@
   },
   {
     "bet_date": "2026-07-18",
+    "sport": "mma",
+    "home_team": "RJ Harris",
+    "away_team": "Alvin Hines",
+    "recommendation": "HOME",
+    "market_total": 4.5,
+    "confidence": 0.62,
+    "stake": 100,
+    "umpire": "RJ Harris +4.5 (-110)",
+    "outcome": "pending",
+    "actual_runs": null,
+    "pnl": null,
+    "settled_at": null
+  },
+  {
+    "bet_date": "2026-07-18",
     "sport": "soccer",
     "home_team": "France",
     "away_team": "England",
