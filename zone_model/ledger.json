@@ -11,10 +11,10 @@
     "actual_to_win": 40,
     "confidence": 0.68,
     "umpire": "TBD",
-    "outcome": "pending",
-    "actual_runs": null,
-    "pnl": null,
-    "settled_at": null
+    "outcome": "won",
+    "actual_runs": 9,
+    "pnl": 40,
+    "settled_at": "2026-07-19T14:47:16.712492"
   },
   {
     "bet_date": "2026-07-18",
