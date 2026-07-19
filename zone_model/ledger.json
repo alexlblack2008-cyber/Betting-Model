@@ -26,10 +26,12 @@
     "confidence": 0.62,
     "stake": 100,
     "umpire": "RJ Harris +4.5 (-110)",
-    "outcome": "pending",
-    "actual_runs": null,
-    "pnl": null,
-    "settled_at": null
+    "outcome": "won",
+    "actual_runs": 1,
+    "pnl": 90.91,
+    "settled_at": "2026-07-19T17:02:56.316Z",
+    "actual_home_score": 1,
+    "actual_away_score": 0
   },
   {
     "bet_date": "2026-07-19",
