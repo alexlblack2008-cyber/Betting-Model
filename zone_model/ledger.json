@@ -58,9 +58,11 @@
     "confidence": 0.55,
     "stake": 100,
     "umpire": "Argentina ML (+260)",
-    "outcome": "pending",
-    "actual_runs": null,
-    "pnl": null,
-    "settled_at": null
+    "outcome": "lost",
+    "actual_runs": 1,
+    "pnl": -100,
+    "settled_at": "2026-07-19T23:20:52.906Z",
+    "actual_home_score": 1,
+    "actual_away_score": 0
   }
 ]
