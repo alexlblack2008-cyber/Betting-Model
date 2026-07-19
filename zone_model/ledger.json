@@ -43,10 +43,10 @@
     "confidence": 0.68,
     "stake": 100,
     "umpire": "Total goals UNDER 2.5 (-145)",
-    "outcome": "pending",
-    "actual_runs": null,
-    "pnl": null,
-    "settled_at": null
+    "outcome": "won",
+    "actual_runs": 1,
+    "pnl": 90.91,
+    "settled_at": "2026-07-19T23:20:36.137Z"
   },
   {
     "bet_date": "2026-07-19",
