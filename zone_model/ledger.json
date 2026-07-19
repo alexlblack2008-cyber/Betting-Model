@@ -30,5 +30,35 @@
     "actual_runs": null,
     "pnl": null,
     "settled_at": null
+  },
+  {
+    "bet_date": "2026-07-19",
+    "sport": "soccer",
+    "home_team": "Spain",
+    "away_team": "Argentina",
+    "recommendation": "UNDER",
+    "market_total": 2.5,
+    "confidence": 0.68,
+    "stake": 100,
+    "umpire": "Total goals UNDER 2.5 (-145)",
+    "outcome": "pending",
+    "actual_runs": null,
+    "pnl": null,
+    "settled_at": null
+  },
+  {
+    "bet_date": "2026-07-19",
+    "sport": "soccer",
+    "home_team": "Spain",
+    "away_team": "Argentina",
+    "recommendation": "AWAY",
+    "market_total": 260,
+    "confidence": 0.55,
+    "stake": 100,
+    "umpire": "Argentina ML (+260)",
+    "outcome": "pending",
+    "actual_runs": null,
+    "pnl": null,
+    "settled_at": null
   }
 ]
